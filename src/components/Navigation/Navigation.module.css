@@ -1,0 +1,21 @@
+.navSections {
+    height: 100%;
+    padding: 70px 0;
+    background-color: #545870;
+    width: 350px;
+    color: white;
+}
+
+.listItems {
+    margin: 30px 0 ;
+}
+
+.petIcon {
+    color: #3a3d4f;
+}
+
+.image{
+    background-color:  #545870;
+    width: 200px;
+    padding: 0 75px;
+}
