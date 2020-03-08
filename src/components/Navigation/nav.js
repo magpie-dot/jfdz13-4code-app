@@ -47,9 +47,13 @@ function ResponsiveDrawer(props) {
             justify="space-between"
             alignItems="center"
           >
-            <Typography style={{marginLeft: 45}}variant="h5" noWrap>
+            <div>
+            <img className={style.logo} src="images/logo_grey.png"/>
+            <img className={style.logoText} src="images/name_grey.png"/>
+            </div>
+            {/* <Typography style={{marginLeft: 45}}variant="h5" noWrap>
               4CODE FOR ANIMALS
-          </Typography>
+          </Typography> */}
             <div>
               <IconButton aria-label="show 2 new notifications" color="inherit">
                 <Badge badgeContent={2} color="secondary">

@@ -1,10 +1,10 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, rgbToHex } from '@material-ui/core/styles';
 
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#545870',
+      main: 'rgb(60, 193,250)',
     },
     secondary: {
       main: '#f1cfcd',
