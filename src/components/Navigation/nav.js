@@ -1,22 +1,14 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from '@material-ui/icons/Menu';
-import Typography from "@material-ui/core/Typography";
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import PropTypes from 'prop-types';
-import Hidden from '@material-ui/core/Hidden';
-import Badge from '@material-ui/core/Badge';
-import Grid from '@material-ui/core/Grid'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import {AppBar, Toolbar, IconButton, Divider, Typography, Drawer, Hidden, Badge, Grid} from "@material-ui/core"
+import AccountCircleIcon from "@material-ui/icons/AccountCircle"
+import FavoriteIcon from "@material-ui/icons/Favorite"
+import MenuIcon from '@material-ui/icons/Menu'
+
 import NavSection from "./navSection.js";
 import style from './Navigation.module.css';
 
-const listItemsForAll = ['Strona główna', 'Nasze zwierzaki', 'Porady behawiorysty', 'Wesprzyj nas'];
-const listItemsForUsers = ['Panel użytkownika', 'Do adopcji', 'Zostań wolontariuszem'];
+const listItemsForAll = [{text:'Strona główna', page:''}, {text:'Nasze zwierzaki', page:'naszezwierzaki'}, {text:'Porady behawiorysty', page:'poradybehawiorysty'}, {text:'Wesprzyj nas', page:'wesprzyjnas'}];
+const listItemsForUsers = [{text:'Panel użytkownika', page:'paneluzytkownika'}, {text:'Do adopcji', page:'doadopcji'}, {text:'Zostań wolontariuszem', page:'zostanwolontariuszem'}];
 
 function ResponsiveDrawer(props) {
   const { container } = props;
@@ -47,10 +39,9 @@ function ResponsiveDrawer(props) {
             justify="space-between"
             alignItems="center"
           >
-            <div>
-            <img className={style.logo} src="images/logo_grey.png"/>
-            <img className={style.logoText} src="images/name_grey.png"/>
-            </div>
+            <Typography variant="h6" noWrap>
+            4 CODE FOR ANIMALS
+          </Typography>
             {/* <Typography style={{marginLeft: 45}}variant="h5" noWrap>
               4CODE FOR ANIMALS
           </Typography> */}
@@ -67,8 +58,9 @@ function ResponsiveDrawer(props) {
             </div>
           </Grid>
         </Toolbar>
-
       </AppBar>
+
+      
       <nav>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
@@ -80,7 +72,7 @@ function ResponsiveDrawer(props) {
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
             }}>
-            <div>
+            <div className={style.navSections}>
               <NavSection listItems={listItemsForAll} />
               <Divider />
               <NavSection listItems={listItemsForUsers} />
@@ -100,17 +92,13 @@ function ResponsiveDrawer(props) {
           </Drawer>
         </Hidden>
       </nav>
-
+      <main className="main-container">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.
+        {props.children}
+      </main>
     </div>
   );
 }
 
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  container: PropTypes.any,
-};
 
 export default ResponsiveDrawer;

@@ -5,15 +5,18 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PetsIcon from '@material-ui/icons/Pets';
 import style from './Navigation.module.css'
+import {NavLink} from "react-router-dom";
 
 const NavSection = ({listItems}) => (
     <div className={style.listItems}>
       <List>
-        {listItems.map((text) => (
-          <ListItem button key={text}>
+        {listItems.map((item) => (
+          <NavLink className={style.link} exact to={`/${item.page}`}>
+          <ListItem button key={item.text}>
             <ListItemIcon><PetsIcon style={{ fontSize: 30 }} className={style.petIcon}/></ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={item.text} />
           </ListItem>
+          </NavLink>
         ))}
       </List>
     </div>
