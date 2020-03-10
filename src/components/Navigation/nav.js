@@ -47,16 +47,13 @@ function ResponsiveDrawer(props) {
             justify="space-between"
             alignItems="center"
           >
-            <div>
-            <img className={style.logo} src="images/logo_grey.png"/>
-            <img className={style.logoText} src="images/name_grey.png"/>
-            </div>
-            {/* <Typography style={{marginLeft: 45}}variant="h5" noWrap>
-              4CODE FOR ANIMALS
-          </Typography> */}
+            
+            <Typography style={{marginLeft: 40, color: 'blueGrey'}}variant="h5" noWrap>
+              4Code For Animals
+          </Typography> 
             <div>
               <IconButton aria-label="show 2 new notifications" color="inherit">
-                <Badge badgeContent={2} color="secondary">
+                <Badge badgeContent={2} color="secondary"> 
                   <FavoriteIcon style={{ fontSize: 30 }} />
                 </Badge>
               </IconButton>
@@ -92,11 +89,17 @@ function ResponsiveDrawer(props) {
             variant="permanent"
             open>
             <div className={style.navSections}>
+            
+            
+            
               <NavSection listItems={listItemsForAll} />
               <Divider />
+             
               <NavSection listItems={listItemsForUsers} />
+              <img className={style.logo} src="images/logo_grey.png"/>
+            <img className={style.logoText} src="images/name_grey.png"/>
             </div>
-            <img className={style.image} src="images/pet2.png"/>
+            
           </Drawer>
         </Hidden>
       </nav>

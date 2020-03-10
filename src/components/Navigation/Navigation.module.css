@@ -1,9 +1,11 @@
 .navSections {
     height: 100%;
     padding: 70px 0;
-    background-color: #545870;
+    background-color: #3c3d47;
     width: 350px;
-    color: white;
+    color: whitesmoke;
+    font-family: 'Hind', sans-serif;
+   
 }
 
 .listItems {
@@ -15,15 +17,16 @@
 }
 
 .image{
-    background-color:  #545870;
-    width: 200px;
-    padding: 0 75px;
+    width: 300px;
+    padding: 0 px;
 }
 
 .logo {
-    width: 55px;
+    width: 70px;
+    padding: 100px 0 0 110px;
 }
 
 .logoText {
-    height: 60px;
+    height: 80px;
+    padding: 0px 0 0 65px;
 }
