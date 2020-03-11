@@ -1,0 +1,37 @@
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.animal-card {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    max-width: 300px;
+    width: 300px;
+}
+
+.animal-card img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    background-color: brown;
+    margin: 0 auto;
+    
+ 
+}
+
+.animal-card .card {
+    height: 550px;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+
+
+
+.animal-card-description {
+    text-align: center;
+}
+
+.animal-card-description-extended {
+/* display: none;  */
+}
