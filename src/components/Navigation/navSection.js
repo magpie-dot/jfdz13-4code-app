@@ -7,11 +7,11 @@ import PetsIcon from '@material-ui/icons/Pets';
 import style from './Navigation.module.css'
 import {NavLink} from "react-router-dom";
 
-const NavSection = ({listItems}) => (
+const NavSection = ({listItems, closeDrawer}) => (
     <div className={style.listItems}>
       <List>
         {listItems.map((item) => (
-          <NavLink className={style.link} exact to={`/${item.page}`}>
+          <NavLink className={style.link} exact to={`/${item.page}`} onClick={closeDrawer}>
           <ListItem button key={item.text}>
             <ListItemIcon><PetsIcon style={{ fontSize: 30 }} className={style.petIcon}/></ListItemIcon>
             <ListItemText primary={item.text} />

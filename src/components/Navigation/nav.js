@@ -16,7 +16,7 @@ function ResponsiveDrawer(props) {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-  };
+  }; 
 
   return (
     <div>
@@ -73,9 +73,9 @@ function ResponsiveDrawer(props) {
               keepMounted: true, // Better open performance on mobile.
             }}>
             <div className={style.navSections}>
-              <NavSection listItems={listItemsForAll} />
+              <NavSection closeDrawer={()=>setMobileOpen(false)} listItems={listItemsForAll} />
               <Divider />
-              <NavSection listItems={listItemsForUsers} />
+              <NavSection closeDrawer={()=>setMobileOpen(false)} listItems={listItemsForUsers} />
             </div>
           </Drawer>
         </Hidden>
