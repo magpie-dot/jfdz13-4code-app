@@ -12,7 +12,7 @@ export const CATS = [
     descriptionBasic: "Bardzo towarzyska, ale potrzebuje dużo czasu, żeby zaufać człowiekow",
     descriptionExtended: "Koteczka jest bardzo towarzyska, ma niesamowicie silną osobowość, przez to szybko się ekscytuje. Gdy tylko widzimy, że zaczyna się nakręcać trzeba dać jej spokój. Rossa potrzebuje bardzo dużo czasu by obdarzyć człowieka zaufaniem na tyle wysokim, żeby ten mógł ją w spokoju głaskać, nie można brać ją na ręce i dotykać gdy tego sobie nie życzy bo może zareagować obronnie. Przy adopcji kota pamiętajmy, że to my musimy się dostosować do zwierzaka, nie ono do nas. Rossa, nie ma problemu z innymi kotami, jeśli one nie wychodzą jej w drogę. Polecamy ją do osób bez małych dzieci."
     },
-    imageURL:"./images/zdj11.jpg",
+    imageURL:"images/zd129.jpg",
     goodForKids: "no"
 },
 {
@@ -27,7 +27,7 @@ export const CATS = [
     descriptionBasic: "Nieśmiały, ceni swoją przestrzeń i spokój",
     descriptionExtended: "Muminek jest kocurkiem, który trafił do naszej fundacji po śmierci opiekuna. To koci indywidualista, bardzo ceni sobie spokój, ale zachęcony do zabawy szaleje do utraty tchu. Muminek potrzebuje sporo czasu zanim komuś zaufa. Jest wycofany, nieśmiały, ceni swoją przestrzeń jak każdy kot, przy czym należy pamietać, że nie będzie należał raczej do tych kotów, które same domagają się pieszczot. Muminek czuje się dobrze w towarzystwie innych kotów. Szukamy dla Muminka domu spokojnego, wyrozumiałego, cierpliwego. Takiego, który uszanuje i zaakceptuje go wraz z zaletami, wadami, upodobaniami."
     },
-    imageURL:" ",
+    imageURL:"images/zdj11.jpg ",
     goodForKids: "no"
 },
 {

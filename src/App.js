@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AnimalsCards from "./components/AnimalsCards";
-
+import CatsCards from "./components/CatsCards";
+import DogsCards from "./components/DogsCards";
 function App() {
   return (
     <>
     <div className="App">
-<AnimalsCards />
+<CatsCards />
+<DogsCards />
     </div>
     </>
   );

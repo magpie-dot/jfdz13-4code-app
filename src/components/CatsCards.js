@@ -7,7 +7,7 @@ import Filter from "./MultiSelect";
 import MultiSelect from "./MultiSelect";
 
 
-const AnimalsCards = () => {
+const CatsCards = () => {
 
   return (
     <>
@@ -15,8 +15,8 @@ const AnimalsCards = () => {
         < MultiSelect />
         </div>
         <div>
-          {CATS.map(item => (
-        <AnimalCard key = {item.id} card= {item.descriptions}  />
+          {CATS.map(cat => (
+        <AnimalCard card= {cat}/>
 
           ))}
       </div>
@@ -24,7 +24,7 @@ const AnimalsCards = () => {
   );
 };
 
-export default AnimalsCards;
+export default CatsCards;
 
 
   
