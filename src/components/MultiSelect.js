@@ -42,38 +42,47 @@ import DogsCards from "./DogsCards";
 import CatsCards from "./CatsCards";
 
 
-const catsCategory = <CatsCards />
-const dogsCategory = <DogsCards />
+// const catsCategory = <CatsCards />
+// const dogsCategory = <DogsCards />
 
 class MultiSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chooseCategory: ' ',
+      show: '',
     };
   }
 
-  showCategory = () => {
+  showCats = () => {
     this.setState({
-      chooseCategory: 'category',
+      show: "cats",
         });
   };
+
+  showDogs = () => {
+    this.setState({
+      show: "dogs",
+        });
+  };
+
 
   render() {
     return (
       <>
-        <div className="categoty-buttons">
+        <div className="category-buttons">
           <ActionButton
-            onClick={this.showCategory}
+            onClick={this.showDogs}
             content={"psy"}
           ></ActionButton>
           <ActionButton
-            onClick={this.showCategory}
+            onClick={this.showCats}
             content={"koty"}
           ></ActionButton>
         </div>
-        {(this.state.chooseCategory.category === 'catsCategory') && < CatsCards/>}
-        {(this.state.chooseCategory.category === 'dogsCategory') && < DogsCards/>}
+        <div>
+        {this.state.show=== 'cats'&& < CatsCards/>}
+        {this.state.show === 'dogs' && < DogsCards/>}
+        </div>
       </>
     );
   }
