@@ -1,5 +1,5 @@
 import React from "react";
-import { CATS } from "./data/CATS";
+import { DOGS } from "../data/DOGS";
 import AnimalCard from "./AnimalCard";
 import './AnimalCard.css';
 import { Item } from "semantic-ui-react";
@@ -7,7 +7,7 @@ import Filter from "./MultiSelect";
 import MultiSelect from "./MultiSelect";
 
 
-const CatsCards = () => {
+const DogsCards = () => {
 
   return (
     <>
@@ -15,8 +15,8 @@ const CatsCards = () => {
         < MultiSelect />
         </div>
         <div>
-          {CATS.map(cat => (
-        <AnimalCard card= {cat}/>
+          {DOGS.map(dog => (
+        <AnimalCard card= {dog}/>
 
           ))}
       </div>
@@ -24,7 +24,7 @@ const CatsCards = () => {
   );
 };
 
-export default CatsCards;
+export default DogsCards;
 
 
   

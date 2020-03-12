@@ -1,0 +1,47 @@
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.animal-card {
+  
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+    width: 300px;
+    display: inline-block;
+    height: 450px;
+    border-radius: 4px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.animal-card img {
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+    margin: 0 auto;
+    
+ 
+}
+
+.animal-card-description-extended-button {
+    position: absolute;
+    bottom: 60px;
+   left: 110px
+
+}
+
+
+.animal-card-description {
+    text-align: center;
+}
+
+/* .animal-card .extended {
+height: 600px;
+} */
+
+.fa-heart {
+position: absolute;
+bottom: 20px;
+left:150px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './AnimalCard.css';
 
 const black = '#000000';
 const red = '#FF0000';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react';
 import ToggleHeart from './ToggleHeart';
+import './AnimalCard.css';
 
 
 class AnimalCard  extends Component {
@@ -25,7 +26,6 @@ render () {
 return (
     <>
     <div className="animal-card">
-      <div className="animal-card card">
         <img
           src={this.props.card.imageURL}
           // alt=""class
@@ -34,16 +34,20 @@ return (
           <h2>{this.props.card.data.name}</h2>
           <h3>{this.props.card.data.age}</h3>
           <h4>{this.props.card.descriptions.descriptionBasic}</h4>
-          <button  className = "animal-card-description-extended-button" onClick={this.clickedButtonHandle}>Pokaż więcej</button>
+          {/* <div className = "animal-card extended"> */}
+          <button  className = "animal-card-description-extended-button" onClick={this.clickedButtonHandle} >Pokaż więcej</button>
               {this.state.showExtended}
 {/* 
           <p className="animal-card-description-extended" style={{ fontSize: "14px" }}>
             {this.props.card.descriptionExtended} */}
           {/* </p> */}
-        </div>
-      </div>
-    </div>
+          </div>
+        {/* </div> */}
+     
+   
     <ToggleHeart />
+ </div>
+
     </>
 )
 }
