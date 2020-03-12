@@ -1,8 +1,8 @@
 import React from "react"
 
-const OurAnimals = () => {
+const BecomeVolunteer = () => {
     return(
 <div>Lojdinenfdkfjmeinf</div>
     );
 }
-export default OurAnimals
+export default BecomeVolunteer

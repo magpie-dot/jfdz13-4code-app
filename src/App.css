@@ -1,3 +1,14 @@
+:root {
+    --nav-width-plus-margin: 370px;
+  }
+
 .main-container {
-    margin: 80px 20px 0px 400px;
+    margin: 80px 20px 0px var(--nav-width-plus-margin);
+    text-align: justify;
+}
+
+@media (max-width: 600px) {
+    .main-container.small {
+        margin: 80px 20px 0px 20px;
+    }
 }

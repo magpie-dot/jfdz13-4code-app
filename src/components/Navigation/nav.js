@@ -1,5 +1,5 @@
 import React from "react";
-import {AppBar, Toolbar, IconButton, Divider, Typography, Drawer, Hidden, Badge, Grid} from "@material-ui/core"
+import { AppBar, Toolbar, IconButton, Divider, Typography, Drawer, Hidden, Badge, Grid } from "@material-ui/core"
 import AccountCircleIcon from "@material-ui/icons/AccountCircle"
 import FavoriteIcon from "@material-ui/icons/Favorite"
 import MenuIcon from '@material-ui/icons/Menu'
@@ -7,8 +7,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import NavSection from "./navSection.js";
 import style from './Navigation.module.css';
 
-const listItemsForAll = [{text:'Strona główna', page:''}, {text:'Nasze zwierzaki', page:'naszezwierzaki'}, {text:'Porady behawiorysty', page:'poradybehawiorysty'}, {text:'Wesprzyj nas', page:'wesprzyjnas'}];
-const listItemsForUsers = [{text:'Panel użytkownika', page:'paneluzytkownika'}, {text:'Do adopcji', page:'doadopcji'}, {text:'Zostań wolontariuszem', page:'zostanwolontariuszem'}];
+const listItemsForAll = [{ text: 'Strona główna', page: '' }, { text: 'Nasze zwierzaki', page: 'naszezwierzaki' }, { text: 'Porady behawiorysty', page: 'poradybehawiorysty' }, { text: 'Wesprzyj nas', page: 'wesprzyjnas' }];
+const listItemsForUsers = [{ text: 'Panel użytkownika', page: 'paneluzytkownika' }, { text: 'Do adopcji', page: 'doadopcji' }, { text: 'Zostań wolontariuszem', page: 'zostanwolontariuszem' }];
 
 function ResponsiveDrawer(props) {
   const { container } = props;
@@ -16,7 +16,7 @@ function ResponsiveDrawer(props) {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-  }; 
+  };
 
   return (
     <div>
@@ -40,7 +40,7 @@ function ResponsiveDrawer(props) {
             alignItems="center"
           >
             <Typography variant="h6" noWrap>
-            4 CODE FOR ANIMALS
+              4 CODE FOR ANIMALS
           </Typography>
             {/* <Typography style={{marginLeft: 45}}variant="h5" noWrap>
               4CODE FOR ANIMALS
@@ -60,7 +60,7 @@ function ResponsiveDrawer(props) {
         </Toolbar>
       </AppBar>
 
-      
+
       <nav>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
@@ -73,9 +73,9 @@ function ResponsiveDrawer(props) {
               keepMounted: true, // Better open performance on mobile.
             }}>
             <div className={style.navSections}>
-              <NavSection closeDrawer={()=>setMobileOpen(false)} listItems={listItemsForAll} />
+              <NavSection closeDrawer={() => setMobileOpen(false)} listItems={listItemsForAll} />
               <Divider />
-              <NavSection closeDrawer={()=>setMobileOpen(false)} listItems={listItemsForUsers} />
+              <NavSection closeDrawer={() => setMobileOpen(false)} listItems={listItemsForUsers} />
             </div>
           </Drawer>
         </Hidden>
@@ -88,12 +88,11 @@ function ResponsiveDrawer(props) {
               <Divider />
               <NavSection listItems={listItemsForUsers} />
             </div>
-            <img className={style.image} src="images/pet2.png"/>
+            <img className={style.image} src="images/pet2.png" />
           </Drawer>
         </Hidden>
       </nav>
-      <main className="main-container">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.
+      <main className="main-container small">
         {props.children}
       </main>
     </div>

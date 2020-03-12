@@ -1,8 +1,8 @@
 import React from "react"
 
-const OurAnimals = () => {
+const UserPanel = () => {
     return(
 <div>Lojdinenfdkfjmeinf</div>
     );
 }
-export default OurAnimals
+export default UserPanel
