@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ResponsiveDrawer from './components/Navigation/nav.js'
+import ResponsiveDrawer from './components/navigation/nav.js'
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme.js'
-import OurAnimals from './pages/naszeZwierzaki'
-import BecomeVolunteer from './pages/zostanWolontariuszem';
-import ToAdoption from './pages/doAdopcji';
-import UserPanel from './pages/panelUzytkownika';
-import BehavioralAdvice from './pages/poradyBehawiorysty';
-import SupportUs from './pages/wesprzyjNas';
-import HomePage from './pages/stronaGlowna';
+import OurAnimals from './components/pages/ourAnimals'
+import BecomeVolunteer from './components/pages/becomeVolunteer';
+import ToAdoption from './components/pages/toAdoption';
+import UserPanel from './components/pages/userPanel';
+import BehavioralAdvice from './components/pages/behavioralAdvice';
+import SupportUs from './components/pages/supportUs';
+import HomePage from './components/pages/homePage';
 
 function App() {
   return (
