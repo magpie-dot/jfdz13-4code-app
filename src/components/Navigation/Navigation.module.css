@@ -1,0 +1,32 @@
+.navSections {
+    height: 100%;
+    padding: 70px 0;
+    background-color: #3c3d47;
+    width: 350px;
+    color: whitesmoke;
+    font-family: 'Hind', sans-serif;
+   
+}
+
+.listItems {
+    margin: 30px 0 ;
+}
+
+.petIcon {
+    color: #3a3d4f;
+}
+
+.image{
+    width: 300px;
+    padding: 0 px;
+}
+
+.logo {
+    width: 70px;
+    padding: 100px 0 0 110px;
+}
+
+.logoText {
+    height: 80px;
+    padding: 0px 0 0 65px;
+}
