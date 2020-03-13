@@ -59,14 +59,13 @@ function ResponsiveDrawer(props) {
               <NavSection listItems={listItemsForAll} />
               <Divider />
               <NavSection listItems={listItemsForUsers} />
+              <img className={style.logo} src="images/logo_grey.png" />
+              <img className={style.logoText} src="images/name_grey.png" />
             </div>
-            <img className={style.image} src="images/pet2.png" alt="logo" />
           </Drawer>
         </Hidden>
       </nav>
-      <main className="main-container small">
-        {props.children}
-      </main>
+      <main className="main-container small">{props.children}</main>
     </div>
   );
 }

@@ -33,7 +33,7 @@ const TopBar = ({ handleDrawerToggle }) => {
           justify="space-between"
           alignItems="center"
         >
-          <Typography variant="h6" noWrap>
+          <Typography style={{marginLeft: 40, color: 'blueGrey'}} variant="h6" noWrap>
             4 CODE FOR ANIMALS
           </Typography>
           <div>
