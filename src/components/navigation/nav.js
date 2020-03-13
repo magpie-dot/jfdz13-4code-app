@@ -59,8 +59,10 @@ function ResponsiveDrawer(props) {
               <NavSection listItems={listItemsForAll} />
               <Divider />
               <NavSection listItems={listItemsForUsers} />
-              <img className={style.logo} src="images/logo_grey.png" />
-              <img className={style.logoText} src="images/name_grey.png" />
+            </div>
+            <div className={style.logoContainer}>
+              <img  className={style.logo} src="images/logo_grey.png" />
+              <img  className={style.logoText} src="images/name_grey.png" />
             </div>
           </Drawer>
         </Hidden>
