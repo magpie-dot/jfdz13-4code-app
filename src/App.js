@@ -4,13 +4,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ResponsiveDrawer from './components/navigation/nav.js'
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme.js'
-import OurAnimals from './components/pages/ourAnimals'
-import BecomeVolunteer from './components/pages/becomeVolunteer';
-import ToAdoption from './components/pages/toAdoption';
-import UserPanel from './components/pages/userPanel';
-import BehavioralAdvice from './components/pages/behavioralAdvice';
-import SupportUs from './components/pages/supportUs';
-import HomePage from './components/pages/homePage';
+import OurAnimals from './components/OurAnimals/ourAnimals'
+import BecomeVolunteer from './components/BecomeVolunteer/becomeVolunteer';
+import ToAdoption from './components/ToAdoption/toAdoption';
+import UserPanel from './components/UserPanel/userPanel';
+import BehavioralAdvice from './components/BehavioralAdvice/behavioralAdvice';
+import SupportUs from './components/SupportUs/supportUs';
+import HomePage from './components/HomePage/homePage';
 
 function App() {
   return (
