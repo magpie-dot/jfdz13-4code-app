@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CatsCards from "./components/Animals/CatsCards";
-import DogsCards from "./components/Animals/DogsCards";
+import List from './components/AnimalList';
+
 function App() {
-  return (
-    <>
-    <div className="App">
-<CatsCards />
-<DogsCards />
-    </div>
-    </>
-  );
+    return (
+        <>
+            <div className="App">
+                <List/>
+            </div>
+        </>
+    );
 }
 
 export default App;
