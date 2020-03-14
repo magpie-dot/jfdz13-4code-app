@@ -5,15 +5,18 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import style from './Navigation.module.css'
+import {NavLink} from "react-router-dom";
 
-const NavSection = ({listItems}) => (
+const NavSection = ({listItems, closeDrawer}) => (
     <div className={style.listItems}>
       <List>
-        {listItems.map((text) => (
-          <ListItem button key={text}>
+        {listItems.map((item) => (
+          <NavLink className={style.link} exact to={`/${item.page}`} onClick={closeDrawer}>
+          <ListItem button key={item.text}>
             <ListItemIcon></ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={item.text} />
           </ListItem>
+          </NavLink>
         ))}
       </List>
     </div>

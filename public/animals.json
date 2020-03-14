@@ -1,0 +1,569 @@
+[
+    {
+        "id": 1,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Śnieżek",
+            "age": "1 rok"
+        },
+        "descriptions": {
+            "description-basic": "Śnieżek to biały kudłacz i prawdziwy dżentelmen.",
+            "description-extended": "Bardzo czytelnie komunikuje opiekunom kiedy ma ochotę na bliskość, a kiedy zdecydowanie woli swobodę. Jako entuzjasta smaczków bardzo polubił pracę z człowiekiem. Śnieżek trafił do nas po wypadku komunikacyjnym. Nasi weterynarze stanęli na wysokości zadania i teraz śmiało może pokonywać trasy spacerowe. Poszukujemy dla niego właściciela, który będzie kontynuować jego rehabilitację aby nie zaprzepaścić jego stabilnej postawy."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id":2,
+        "data":{
+        "type": "cat",
+        "sex" : "female",
+        "name": "Minutka",
+        "age": "4 lata"
+        },
+        "descriptions":{
+        "description-basic": "Bardzo towarzyska, ale potrzebuje dużo czasu, żeby zaufać człowiekow",
+        "description-extended": "Koteczka jest bardzo towarzyska, ma niesamowicie silną osobowość, przez to szybko się ekscytuje. Gdy tylko widzimy, że zaczyna się nakręcać trzeba dać jej spokój. Rossa potrzebuje bardzo dużo czasu by obdarzyć człowieka zaufaniem na tyle wysokim, żeby ten mógł ją w spokoju głaskać, nie można brać ją na ręce i dotykać gdy tego sobie nie życzy bo może zareagować obronnie. Przy adopcji kota pamiętajmy, że to my musimy się dostosować do zwierzaka, nie ono do nas. Rossa, nie ma problemu z innymi kotami, jeśli one nie wychodzą jej w drogę. Polecamy ją do osób bez małych dzieci."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id": 3,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "X-Men",
+            "age": "3 lata"
+        },
+        "descriptions": {
+            "description-basic": "X-Men jest bardzo pojętnym huskym. Wobec osób, które już zna czuje się bardzo komfortowo.",
+            "description-extended": "Bezbłędnie wykonuje komendy: siad, waruj, obrót, omiń. Nauka trwa nadal  więc z całą pewnością  ilość komend wzrośnie.  X-Men chętnie współpracuje z opiekunem. To pies do aktywnego i świadomego domu, który ma doświadczenie z psami agresywnymi.  X-Men jest dość terytorialny, ale coraz łatwiej akceptuje nowe osoby."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id": 4,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Jogi",
+            "age": "3 lata"
+        },
+        "descriptions": {
+            "description-basic": "Miś Jogi poleca się do domu lubiącego rudzielce. ",
+            "description-extended": "To bardzo towarzyski osobnik. Każdy kontakt z człowiekiem jest dla tego psa nagrodą. Bardzo grzecznie znosi zabiegi pielęgnacyjne. Podczas spacerów dostojnie podąża za opiekunem.  Jest także bardzo pozytywnie nastawiony do innych psów i kotów. Kocha dzieci I długie spacery."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id":5,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Muminek",
+        "age": "6 lat"
+        },
+        "descriptions":{
+        "description-basic": "Nieśmiały, ceni swoją przestrzeń i spokój",
+        "description-extended": "Muminek jest kocurkiem, który trafił do naszej fundacji po śmierci opiekuna. To koci indywidualista, bardzo ceni sobie spokój, ale zachęcony do zabawy szaleje do utraty tchu. Muminek potrzebuje sporo czasu zanim komuś zaufa. Jest wycofany, nieśmiały, ceni swoją przestrzeń jak każdy kot, przy czym należy pamietać, że nie będzie należał raczej do tych kotów, które same domagają się pieszczot. Muminek czuje się dobrze w towarzystwie innych kotów. Szukamy dla Muminka domu spokojnego, wyrozumiałego, cierpliwego. Takiego, który uszanuje i zaakceptuje go wraz z zaletami, wadami, upodobaniami."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id":6,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Mustafa",
+        "age": "8 lat"
+        },
+        "descriptions":{
+        "description-basic": "Jeśli zdobędziesz jego zaufanie odwdzięczy się bezgraniczną miłością",
+        "description-extended": "Spokojny dorosły kocurek. W stosunku do ludzi ufny. Trafił do naszej fundacji po tym jak błąkał się na jednej z gdyńskich dzielnic, był kotem dzikim. Lata pobytu wśród ludzi pozwoliły mu zaufać, że człowiek nie chce go skrzywdzić. Do nowo poznanych osób podchodzi z rezerwą, jednak po chwili okazuje się, że to fajny, miziasty kocurek, któremu do szczęścia potrzeba kochającego domu. "
+        },
+        "good-for-kid": "yes"
+      },
+    
+      {
+        "id":7,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Granat",
+        "age": "2 lata"
+        },
+        "descriptions":{
+        "description-basic": "Koci indywidualista, potrzebuje prywatności",
+        "description-extended": "Granat nie przepada za nadmierną bliskością, noszeniem na rękach, tuleniem. Głaskanie toleruje, byle nie trwało zbyt długo. Lubi ludzi, których zna. Potrzebuje więcej czasu, by poznać obcych i poczuć się dobrze i bezpiecznie w ich towarzystwie. Granat potrzebuje kawałka prywatnej przestrzeni, tylko dla siebie, miejsca ucieczki i kontemplacji. Może nim być kocia budka, pudełko czy tez drapak, które Granat bardzo lubi."
+        },
+        "good-for-kid": "no"
+      },
+    {
+        "id": 8,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Punio",
+            "age": "6 lat"
+        },
+        "descriptions": {
+            "description-basic": "Punio to żywioł o dwóch twarzach a raczej pyskach.",
+            "description-extended": "W boksie szaleje i rozpiera go energia. Natomiast podczas spacerów uspakaja się i potrafi szybko skupić się na opiekunie. W opanowaniu emocji pomaga mu węszenie a także wykonywanie nauczonych już komend. Przyszły właściciel musi uzbroić się w sporą dawkę cierpliwości ucząc go spokojnego mijania innych psów."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id": 9,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Ciapek",
+            "age": "2 lata"
+        },
+        "descriptions": {
+            "description-basic": "Ciapek dołączył do nas wraz z rodzeństwem.",
+            "description-extended": "Wszystkie maluchy były wtedy strasznie wycofane i bały się ludzi. Ciągle z nimi pracujemy, próbując oswoić je z ludźmi i ze światem, i czegoś nauczyć. Wydamy je tylko doświadczonym właścicielom, gotowym na dalszą pracę z psem. Może mieszkać ze zrównoważonym psem. Ciapek kiedy już komuś zaufa, pozwala się dotykać. Często zdarza mu się nawet zasnąć przy wolontariuszach."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id":10,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Kulka",
+        "age": "4 lata"
+        },
+        "descriptions":{
+        "description-basic": "Nieśmiała i lekko kapryśna kotka",
+        "description-extended": "Spokojna, bardzo nieśmiała koteczka. W stosunku do ludzi podchodzi z dużą rezerwą. Potrafi być kapryśna. Potrzebuje dużo czasu aby komuś zaufać. Kiciula trafiła do naszego schroniska po wypadku komunikacyjnym, miała złamana miednicę. Miesiące leczenia i rekonwalescencji ma już za sobą. Niestety, Kulka nie ufa ludziom, stara się unikać kontaktu, ale nie jest to koteczka dzika. Z upływem czasu oswoiła się z obecnością człowieka, aczkolwiek nie jest typem miziaka. Czuje się dobrze w towarzystwie innych kotów."
+        },
+        "good-for-kid": "no"
+      },
+    {
+        "id": 11,
+        "data": {
+            "type": "pies",
+            "sex": "female",
+            "name": "Sonia",
+            "age": "10  lat"
+        },
+        "descriptions": {
+            "description-basic": "Pełna energii, żywiołowa sunia.  Potrzebuje aktywnego opiekuna.",
+            "description-extended": "Sonia tak bardzo kocha towarzystwo człowieka, że z tęsknoty demoluje mieszkanie. Jej przyszły opiekun musi liczyć się z koniecznością pracy nad lękiem separacyjnym, wskazana jest konsultacja z behawiorystą. Sonia uwielbia ćwiczyć, jeśli tylko się ją uda zainteresować, to jest bardzo chętna do współpracy i czeka na każde słowo. Sonia ma problem z emocjami na spacerze – obszczekuje inne psy."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id":12,
+        "data":{
+        "type": "cat",
+        "name": "Ramona",
+        "sex": "female",
+        "age": "5 lat"
+        },
+        "descriptions":{
+        "description-basic": "Kotka rzyjaźnie nastawiona do ludzi",
+        "description-extended": "Ramona dała się poznać jako pozytywna kotka przyjaźnie nastawiona do ludzi, sama doprasza się o pieszczoty. Jak każdy kot potrafi postawić swoje granice kiedy coś pójdzie nie po jej myśli. Lepiej odnajdzie się w domu bez innych kotów"
+        },
+        "good-for-kid": "yes"
+      },
+    
+      {
+        "id":13,
+        "data":{
+        "type": "cat",
+        "name": "Grzesiu",
+        "sex": "male",
+        "age": "12 lat"
+        },
+        "descriptions":{
+        "description-basic": "Spragniony pieszczot i zabawy, bardzo uczuciowy łobuz",
+        "description-extended": "Grzesiu to starszy, około dwunastoletni kocurek niewątpliwej urody. Lubi pieszczoty, ale nie jest typem nakolankowego miziaka, choć w domu może sie to zmienić. Póki co to kocur, który ma własne zdanie i sam decyduje kiedy, w jaki sposób i jak długo można go głaskać. Swoje zadowolenie, manifestuje wówczas głośnym mruczeniem. Ale uważaj! Jeżeli przekroczysz „grzesiową” granicę, możesz mieć bliskie spotkanie z jego pazurkami."
+        },
+        "good-for-kid": "no"
+      },
+    {
+        "id": 14,
+        "data": {
+            "type": "pies",
+            "sex": "female",
+            "name": "Baryłka",
+            "age": "3 lata"
+        },
+        "descriptions": {
+            "description-basic": "Suczka pełna obaw i wątpliwości – czy przy człowieku może być bezpiecznie?",
+            "description-extended": "Baryłka w stosunku do osób, które zna i które się nią opiekują potrafi być bardzo otwarta i łasa na głaskanie. Do reszty świata jest wycofana. Ładne chodzenie na smyczy opracowała już do perfekcji. Wobec psów zachowuje się spokojnie. Przyszły opiekun powinien mieć doświadczenie z lękliwymi psami i być gotowy na swobodne zapoznanie Baryłki ze światem poza schroniskiem."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id":15,
+        "data":{
+        "type": "cat",
+        "name": "Białek",
+        "sex": "male",
+        "age": "3 lata"
+        },
+        "descriptions":{
+        "description-basic": "Spokojny grubasek z mięciutkim futerkiem",
+        "description-extended": "Poznajcie naszego pięknego Białka. Tego kota nie trzeba reklamować. Wyprany w perwollu, mięciutki jak kaczuszka Białek czeka na dom. Nie może to być jednak byle jaki dom. Szukamy domu odpowiedzialnego i świadomego dalszej opieki nad Białkiem. Kot przyjmuje codziennie leki na serduszko. Wystarczy przyjechać do schroniska i poznać naszego kociego kawalera. W nim trudno się nie zakochać."
+        },
+        "good-for-kid": "yes"
+      },
+      {
+        "id":16,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Zorka",
+        "age": "3 lata"
+        },
+        "descriptions":{
+        "description-basic": "Piękna, trójkolorowa ciekawska koteczka",
+        "description-extended": "Tej kotki nie da się nie zauważyć wśród schroniskowych kociaków. Nasza podopieczna jest bardzo przyjazna i ciekawska. Jak na kota przystało jest typowym odkrywcą. Zorka czeka na zabieg usunięcia guzów listwy mlecznej. Z niecierpliwością wyczekujemy na rodziny chętne adoptować piękną Zorkę. Kotka posiada szczepienia oraz jest wysterylizowana."
+        },
+        "good-for-kid": "yes"
+      },
+    {
+        "id": 17,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Logan",
+            "age": "5 lat"
+        },
+        "descriptions": {
+            "description-basic": "Logan to pies z dużym potencjałem i jeszcze większym zapotrzebowaniem na aktywność.",
+            "description-extended": "Do schroniska przybył w październiku zeszłego roku. Został już raz adoptowany, ale niestety powrócił do schroniska. To bardzo ruchliwy i wesoły pies, niestety nie radził sobie w domu z lękiem separacyjnym czyli brakiem obecności właściciela. Logan będzie wymagał dużej dawki ruchu i urozmaiconych zajęć angażujących go także psychicznie."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id": 18,
+        "data": {
+            "type": "pies",
+            "sex": "female",
+            "name": "Aza",
+            "age": "5 lat"
+        },
+        "descriptions": {
+            "description-basic": "To spokojna suczka bardzo pozytywnie nastawiona do ludzi jak i do swojego gatunku.",
+            "description-extended": "Mimo problemów ze słuchem doskonale sobie radzi, także z porozumiewaniem się z opiekunami. Na gest ręki siada na posłaniu i oczekuje na smaczki.  Kontakt z człowiekiem sprawia jej przyjemność. Aza bardzo lubi spacery i węszenie podczas nich. Jest bardzo łagodna I lubi pieszczoty."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id": 19,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Peper",
+            "age": "4 lata"
+        },
+        "descriptions": {
+            "description-basic": "Jest wrażliwym i lękliwym psiakiem. boi się samochodów i nagłych hałasów.",
+            "description-extended": "Pepper został znaleziony w centrum miasta na początku lata, w zeszłym roku. Największy jego strach budzą budynki. Pepper tyle już się przyzwyczaił i oswoił, że wziął udział w grupowym spacerze. Ciężko go przekonać do wejścia do budynku, jedynie do swojego boksu od niedawna wchodzi bez lęku. Nasi wolontariusze cały czas pracują nad Peppera lękami i psiak robi małe postępy, ale jeszcze długa droga przed nim."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id":20,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Anakin",
+        "age": "1 rok"
+        },
+        "descriptions":{
+        "description-basic": "Spragniony pieszczot i zabawy, bardzo uczuciowy łobuz",
+        "description-extended": "Anakin to roczny kocurek, ubrany w bure futerko. Kto by nie chciał się przytulać codziennie do takiego puszystego futerka! Trzeba tylko przyjechać do schroniska i zabrać puszyste futerko do swojego domu. Anakin na pewno bardzo by się ucieszył z takiego rozwiązania, bo w schronisku bardzo źle się czuje. Chowa się w budce, bo boi się wszystkich nowych dla niego dźwięków, osób i kotów."
+        },
+        "good-for-kid": "yes"
+      },
+    
+      {
+        "id":21,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Łupina",
+        "age": "6 miesięcy"
+        },
+        "descriptions":{
+        "description-basic": "Ruchliwa, towarzyska młoda koteczka",
+        "description-extended": "Kilkumiesięczna Łupina jest radosną i ruchliwą kocią panienką. Bardzo lubi towarzystwo człowieka, podbiega, łasi się i zachęca do bliskiego kontaktu. Jedno oczko Łupinki wskazuje na przebytą wcześniej chorobę i już pewnie takie pozostanie, co w niczym koteczce nie przeszkadza. Cały czas jest w niej kocięca radość i ciekawość. W swoim domu chętnie zamieszka z innym równie młodym i rozrywkowym kotkiem. Wówczas harcom i zabawom nie będzie końca. Śliczna Łupina poleca się do adopcji."
+        },
+        "good-for-kid": "yes"
+      },
+    {
+        "id": 22,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Dolar",
+            "age": "4 lata"
+        },
+        "descriptions": {
+            "description-basic": "Malutki psiak z charakterkiem. Dolar uwielbia towarzystwo psów i znajomych ludzi.",
+            "description-extended": "Na spacerze może bronić opiekuna przed innymi osobami, wtedy zmienia się nie  do poznania. Dolar jest wrażliwym psem, potrzebuje doświadczonego i, co najważniejsze aktywnego właściciela, który zaakceptuje Dolara takim jaki jest i będzie pracował nad polepszeniem jego relacji z obcymi osobami i reagowania w sytuacjach stresowych."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id":23,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Zuzia",
+        "age": "3 lata"
+        },
+        "descriptions":{
+        "description-basic": "Nieufna koteczka z amputowaną łapką",
+        "description-extended": "Czarna jak węgielek, 3-letnia Zuzia to koteczka, która do schroniska trafiła już jako trójłapka. Nie wiemy, jakie przykre przeżycia sprawiły, że jedna z łapek musiała zostać amputowana. Koteczka jest przerażona miejscem, w którym się znalazła. Jedynym schronieniem jest dla niej kartonowa budka, w której ukrywa się przed całym światem, na ten moment również przed kontaktem z człowiekiem. Nie ufa, boi się i pokazuje to całą sobą. Schroniskowe warunki - obce otoczenie i zapachy nie sprzyjają w przełamaniu jej strachu. Potrzebnych jest wiele chwil, by móc zobaczyć rozluźnienie w oczach koteczki. To pokazuje jednak, że w spokojnym, cichym domu, który da koteczce odpowiednio dużo czasu i cierpliwości, Zuzia będzie mogła w końcu poczuć się bezpiecznie i swobodnie."
+        },
+        "good-for-kid": "no"
+      },
+    {
+        "id": 24,
+        "data": {
+            "type": "pies",
+            "sex": "female",
+            "name": "Lady",
+            "age": "4 lata"
+        },
+        "descriptions": {
+            "description-basic": "Lady swoim wyglądem wzbudza respekt.",
+            "description-extended": "Lady  boi się wielu rzeczy: głośne dźwięki, przebiegające osoby czy nawet przejeżdżający rower wywołują u niej strach.   Aktualnie opiekunowie pracują nad dodaniem jej pewności siebie i zapoznawaniu jej z większą ilością osób aby mogła im zaufać. Podczas spacerów w towarzystwie innych psów o wiele lepiej odnajduje się w nowym otoczeniu. Z całą pewnością osoba rozważająca adopcję naszej Kruszyny musi zaplanować sobie przynajmniej kilka wizyt w schronisku."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id": 25,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Drops",
+            "age": "4 lata"
+        },
+        "descriptions": {
+            "description-basic": "Drops w pierwszym kontakcie jest nieufny, ale przy spokojnym podejściu dość szybko akceptuje nowe osoby.",
+            "description-extended": "Uwielbia biegać za piłkami i spacerować. Kocha wodę i wytrwale pływa, lubi też pomagać w pracach ogrodowych  Zna podstawowe komendy. Jest bardzo cierpliwy przy czesaniu długiego futra. Chętnie korzysta z przejażdżek samochodem. Drops potrzebuje doświadczonych, cierpliwych opiekunów. Preferowany dom na obrzeżach miasta, w spokojniejszej okolicy. Niestety nie akceptuje innych zwierząt."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id": 26,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Keks",
+            "age": "3 lata"
+        },
+        "descriptions": {
+            "description-basic": "Energiczny i wrażliwy, niespełna trzylatek.",
+            "description-extended": "Keks po wyjściu z boksu jest bardzo podekscytowany i ciężko mu się opanować, szczeka i nie może skupić swojej uwagi na opiekunie. Na spacerze, gdy już minie pierwsza ekscytacja, Keks idzie na luźnej smyczy i wyraźnie szuka kontaktu z przewodnikiem. Keks jest bardzo aktywnym psem, potrzebuje wybiegania, długich spacerów i rozmaitych zajęć angażujących go nie tylko fizycznie, ale i psychicznie."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id":27,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Barboss",
+        "age": "4 lata"
+        },
+        "descriptions":{
+        "description-basic": "Lubiący wolność łaciaty kotek",
+        "description-extended": "Barboss początkowo był mocno zdziwiony faktem, że znalazł się w zamkniętej klatce. Dopiero po paru dniach, kocurek zrozumiał, że to nie jest miejsce dla niego i przyjął pozycję obronną. Barboss jest puchatą, łaciatą kuleczką, która całe dnie spędza w pudełku, w którym czuje się bezpiecznie. :( Jedynie łagodny kontakt, spokój i cisza są w stanie go przekonać, że nic mu nie zagraża. Niestety schroniska nie sprzyja spokojowi, dlatego najlepszym rozwiązaniem dla Barbossa będzie własny, kochający dom."
+        },
+        "good-for-kid": "no"
+      },
+    
+      {
+        "id":28,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Szymon",
+        "age": "10 lat"
+        },
+        "descriptions":{
+        "description-basic": "Łagodny kocurek, który tęskni za bezpiecznym domem",
+        "description-extended": "Szymon jest łagodnym i spokojnym kocurkiem. Przez 10 lat miał swój dom i opiekuna. Niestety, życie napisało smutny scenariusz, dotychczasowy opiekun nie jest w stanie zajmować się Szymonem, sam potrzebuje pomocy. I tak kocurek trafił do schroniska. Przez pierwsze dni Szymek zamknął się w sobie, był bardzo smutny, wycofany. Z każdym dniem starał się pogodzić z tą trudną sytuacją i dziś z ochotą podchodzi do człowieka. Przytula się, w oczach widać nadzieję i ogromną tęsknotę za własnym domem. Szymon będzie doskonałym przyjacielem i towarzyszem dobrych ludzi."
+        },
+        "good-for-kid": "yes"
+      },
+    {
+        "id": 29,
+        "data": {
+            "type": "pies",
+            "sex": "female",
+            "name": "Viki",
+            "age": "3 lata"
+        },
+        "descriptions": {
+            "description-basic": "Viki to pies w typie owczarka niemieckiego. Jej główną motywacją jest zabawa.",
+            "description-extended": "Opanowała już kilka komend m.in. siad, daj łapę i czekaj. Na spacerze jest bardzo czujna i dużo węszy, opiekun wówczas schodzi na dalszy plan. Na inne psy reaguje zazwyczaj spokojnie. Podczas kontaktu z człowiekiem potrafi być niedelikatna. Od przyszłego opiekuna będzie wymagała sporej konsekwencji i czasu poświęconego na naukę. Viki ma potencjał, ale jak na razie jest na początku szkoleniowej drogi."
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id":30,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Algida",
+        "age": "4 miesiące"
+        },
+        "descriptions":{
+        "description-basic": "Łobuziak uwielbiający zabawy z człowiekiem",
+        "description-extended": "Algida jest 3-4 miesięczną koteczką. Została znaleziona z rodzeństwem w okolicy Przymorza. Koteczka ma cudowny charakter, rzadko spotykany u kociąt: lubi się bawić jak każdy kociak, ale zdecydowanie najbardziej lubi głaskanie. Gdy tylko człowiek znajdzie się w pobliżu, zaczyna intensywnie mruczeć, a na koniec pieszczot reaguje łaszeniem się i proszeniem o jeszcze. Jest jednocześnie całkowicie łagodna, nie drapie ani nie gryzie nawet w zabawie."
+        },
+        "good-for-kid": "yes"
+      },
+    
+      {
+        "id":31,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Olek",
+        "age": "1 rok"
+        },
+        "descriptions":{
+        "description-basic": "Towarzyski lubiący spacery na szelkach kotek",
+        "description-extended": "Olek to młody kot o drobnej budowie. Został odłowiony na działkach jako dzikus a do tego kotka, gdyż opiekował się malutkimi kociakami. Jakie było nasze zdziwienie gdy okazał się kotem, do tego oswojonym. Szuka nowego domu, w którym mogą być inne koty. Chętnie wychodzi na spacery ubrany w szelki. Z ciekawością eksploruje otoczenie"
+      },
+        "good-for-kid": "yes"
+      },
+    {
+        "id": 32,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Biszkopt",
+            "age": "13 lat"
+        },
+        "descriptions": {
+            "description-basic": "Trzynastoletni wielbiciel piłeczek.",
+            "description-extended": "W schronisku Biszkopt nie zrobił nigdy nikomu krzywdy (może oprócz łapczywego chwytania smakołyków), jednak wracał już 3 razy z adopcji z powodu ugryzienia. Wobec nieznajomych osób zachowuje się niepewnie i może być agresywny. Potrzebuje cierpliwego, doświadczonego opiekuna, który w razie konieczności popracuje nad jego zachowaniem. Biszkopt na smyczy trochę ciągnie, na wybiegu nie interesuje go nic poza piłeczkami, na punkcie których ma obsesję. "
+        },
+        "good-for-kid": "no"
+    },
+    {
+        "id": 33,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Lobo",
+            "age": "7 lat"
+        },
+        "descriptions": {
+            "description-basic": "Lobo to labrador o ciemnym umaszczeniu ale zdecydowanie nie czarnym charakterze.",
+            "description-extended": "Jest bardzo przyjaźnie nastawiony do ludzi i  innych zwierząt. Nawet koty nie robią na nim żadnego wrażenia. Uwielbia spokojne spacery i  kąpiele w stawie. Jak na takiego olbrzyma przystało domaga się głaskania. Trudno oprzeć się wrażeniu, że jego uszy są wprost stworzone do czułości."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id": 34,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Billy",
+            "age": "7 lat"
+        },
+        "descriptions": {
+            "description-basic": "W małym ciele wielki duch. Billy jest niedużym, energicznym psem.",
+            "description-extended": "Jest uparty i lubi stawiać na swoim, ale z drugiej strony – uwielbia się przytulać i zrobi wszystko za kawałek kiełbasy (zwykłymi psimi smakołykami gardzi). Niespecjalnie lubi inne psy, zdarzało mu się z nimi pogryźć. Billy ostatnio zachorował na serce i musi dostawać leki."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id":35,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Pestka",
+        "age": "4 lata"
+        },
+        "descriptions":{
+        "description-basic": "Przyjacielska lubiąca się przytulać i bezproblemowa kotka",
+        "description-extended": "Pestka ma około 4 lat, jest drobną, grzeczną i bardzo przyjacielską kotką. Przemarzniętą, głodną, chcącą dostać się do ciepłego budynku znalazła zimą nasza wolontariuszka. W domu tymczasowym mieszka z dwoma psami, świetnie się z nimi dogaduje, nie boi się ich i nie atakuje. Jest bezproblemowa i nie boi się nowych sytuacji, jest ciekawa wszystkiego, uwielbia się przytulać, spędzać czas z człowiekiem, spać w łóżku i bawić się różnymi zabawkami. Poza tym nigdy nie sprawia żadnych problemów, uwielbia mieć czas dla siebie podczas którego bawi się na drapaku lub odpoczywa na swoim miękkim legowisku. Kot marzenie!"
+      },
+        "good-for-kid": "yes"
+      },
+    {
+        "id": 36,
+        "data": {
+            "type": "pies",
+            "sex": "male",
+            "name": "Budzik",
+            "age": "5 lat"
+        },
+        "descriptions": {
+            "description-basic": "Wrażliwy, nieufny psiak o najprawdopodobniej trudnej przeszłości.",
+            "description-extended": "Został znaleziony prawie dwa lata temu,  przez bardzo długi czas nie pozwalał do siebie podejść, był przerażony i agresywny. Budzik zaufał tylko kilku osobom i tylko one mogą wyprowadzać go z boksu, resztę osób nadal próbuje straszyć. Psiak jest jednak spragniony kontaktu z ludźmi, uwielbia się przytulać. Budzik lubi smakołyki, więc nauka dobrych skojarzeń z ludźmi idzie nieźle, aczkolwiek powolutku."
+        },
+        "good-for-kid": "yes"
+    },
+    {
+        "id":37,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Tygrysek",
+        "age": "6 miesięcy"
+        },
+        "descriptions":{
+        "description-basic": "Zaśnie na Twoich kolanach, uwielbia ciepło kaloryfera",
+        "description-extended": "Tygrysek to wrześniowy kotek, który wygrał walkę z panleukopenią. Silny, przebojowy i przyjacielski. Szuka swojego stałego domu. Nauczony korzystania z kuwety i drapaka. Uwielbia kontakt z innymi kotami. Nie ma problemu z tuleniem do człowieka - potrafi zasnąć w objęciach opiekuna głośno mrucząc. Jego prawdziwą miłością jest wygrzewanie się blisko kaloryfera, kolejną to kocie wędki - radośnie maszeruje ze swoją mini wędką i raczej się z nią nie rozstaje. Jeśli szukasz wesołego malucha, który wniesie do Twojego domu wiele radości i łez szczęścia - nie zastanawiaj się.."
+        },
+        "good-for-kid": "yes"
+      },
+    
+      {
+        "id":38,
+        "data":{
+        "type": "cat",
+        "sex": "female",
+        "name": "Felicja",
+        "age": "6 lat"
+        },
+        "descriptions":{
+        "description-basic": "Nieśmiała pełna energii koteczka",
+        "description-extended": "Sześcioletnia nieśmiała koteczka o niespożytej energii. Zapewnia brak nudy i poszukiwanie niewielkich zgub za szafami i łóżkami. Całą sobą oznajmia nastawienie do proponowanej porcji czułości (czasem również pazurami). Wymaga cierpliwości i wyczucia, a odwdzięczy się ogromną kocią miłością."
+        },
+        "good-for-kid": "no"
+      },
+    
+      {
+        "id":39,
+        "data":{
+        "type": "cat",
+        "sex": "male",
+        "name": "Felix",
+        "age": "10 miesięcy"
+        },
+        "descriptions":{
+        "description-basic": "Świetny do domu z innymi kotami",
+        "description-extended": "Dziesięciomiesięczny, bardzo żywy kocurek, biegacz i psotnik, choć bardzo też lubi siedzieć na kolanach i się przytulać. Uwielbia bawić się z innymi kotami, jednak robi to dość brutalnie, uprawia z nimi zapasy, więc będzie świetny do dokocenia, ale tylko z kotem o podobnie żywym temperamencie."
+      },
+        "good-for-kid": "no"
+      },
+    {
+        "id": 40,
+        "data": {
+            "type": "pies",
+            "sex": "female",
+            "name": "Nasti",
+            "age": "5 lat"
+        },
+        "descriptions": {
+            "description-basic": "Miłośniczka zabawy, biegania i kąpieli w jeziorach.",
+            "description-extended": "Nasti to pies, którego rozpiera energia. Jeśli siada – to tylko na chwilę. Będzie idealnym psem do sportu – czy to psich dyscyplin, czy jako towarzyszka w bieganiu. Na pewno potrzebuje aktywnych właścicieli, którzy codziennie zapewnią jej dużą dawkę ruchu. Nie powinna mieszkać z dziećmi ani z kotami. Nasti ma sześć lat, a do schroniska trafiła po śmierci swojego właściciela."
+        },
+        "good-for-kid": "yes"
+    }
+]
