@@ -12,7 +12,6 @@ const listItemsForAll = [
 ];
 const listItemsForUsers = [
   { text: "Panel użytkownika", page: "paneluzytkownika" },
-  { text: "Do adopcji", page: "doadopcji" },
   { text: "Zostań wolontariuszem", page: "zostanwolontariuszem" }
 ];
 
@@ -51,6 +50,10 @@ function Navigation(props) {
                 listItems={listItemsForUsers}
               />
             </div>
+            <div className={style.logoContainer}>
+              <img  className={style.logo} src="images/logo_grey.png" alt="logo"/>
+              <img  className={style.logoText} src="images/name_grey.png" alt="nazwa"/>
+            </div>
           </Drawer>
         </Hidden>
         <Hidden xsDown>
@@ -61,8 +64,8 @@ function Navigation(props) {
               <NavSection listItems={listItemsForUsers} />
             </div>
             <div className={style.logoContainer}>
-              <img  className={style.logo} src="images/logo_grey.png" />
-              <img  className={style.logoText} src="images/name_grey.png" />
+              <img  className={style.logo} src="images/logo_grey.png" alt="logo"/>
+              <img  className={style.logoText} src="images/name_grey.png" alt="nazwa"/>
             </div>
           </Drawer>
         </Hidden>
