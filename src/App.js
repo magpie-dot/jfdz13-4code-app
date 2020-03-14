@@ -1,23 +1,24 @@
 import React from 'react';
+import theme from './theme.js';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ResponsiveDrawer from './components/navigation/nav.js'
 import { ThemeProvider } from '@material-ui/core';
-import theme from './theme.js'
-import OurAnimals from './components/OurAnimals/ourAnimals'
-import BecomeVolunteer from './components/BecomeVolunteer/becomeVolunteer';
-import ToAdoption from './components/ToAdoption/toAdoption';
-import UserPanel from './components/UserPanel/userPanel';
-import BehavioralAdvice from './components/BehavioralAdvice/behavioralAdvice';
-import SupportUs from './components/SupportUs/supportUs';
-import HomePage from './components/HomePage/homePage';
+
+import BecomeVolunteer from './components/BecomeVolunteer';
+import BehavioralAdvice from './components/BehavioralAdvice';
+import HomePage from './components/HomePage';
+import Navigation from './components/Navigation';
+import OurAnimals from './components/OurAnimals';
+import SupportUs from './components/SupportUs';
+import ToAdoption from './components/ToAdoption';
+import UserPanel from './components/UserPanel';
 
 function App() {
   return (
     <BrowserRouter>
     <ThemeProvider theme={theme}>
       <div>
-        <ResponsiveDrawer>
+        <Navigation>
           <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/naszezwierzaki" component={OurAnimals} />
@@ -27,7 +28,7 @@ function App() {
           <Route path="/doadopcji" component={ToAdoption} />
           <Route path="/zostanwolontariuszem" component={BecomeVolunteer} />
         </Switch>
-        </ResponsiveDrawer>
+        </Navigation>
         
       </div>
     </ThemeProvider>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Divider, Drawer, Hidden } from "@material-ui/core";
-import NavSection from "./navSection.js";
+import NavSection from "./NavSection.js";
 import style from "./Navigation.module.css";
-import TopBar from "./topBar.js";
+import TopBar from "./TopBar.js";
 
 const listItemsForAll = [
   { text: "Strona główna", page: "" },
@@ -16,7 +16,7 @@ const listItemsForUsers = [
   { text: "Zostań wolontariuszem", page: "zostanwolontariuszem" }
 ];
 
-function ResponsiveDrawer(props) {
+function Navigation(props) {
   const { container } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -72,4 +72,4 @@ function ResponsiveDrawer(props) {
   );
 }
 
-export default ResponsiveDrawer;
+export default Navigation;
