@@ -3,10 +3,10 @@ import Card from './Card';
 import Filters from './Filters';
 
 class OurAnimals extends Component {
-
-    state = {
+    constructor(props) {
+    super(props);
+    this.state = {
         animals: [],
-        descriptionBasic: true,
         descriptionExtended: false,
         filter: {
             type: 'all',
@@ -15,7 +15,8 @@ class OurAnimals extends Component {
            
         },
         error: null,
-    };
+    }
+};
 
     componentDidMount() {
         fetch('animals.json')
@@ -60,12 +61,8 @@ class OurAnimals extends Component {
     };
 
     showMore = () => {
-const descExt = ()=> {
-    return animal.descriptions.descriptionExtended
-}
         this.setState ({
-            descriptionBasic: true,
-            descriptionExtended: descExt,
+            descriptionExtended: this.props.descriptions.descriptionExtended
         })
     }
 
