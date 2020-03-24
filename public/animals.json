@@ -12,7 +12,7 @@
             "descriptionBasic": "Śnieżek to biały kudłacz i prawdziwy dżentelmen.",
             "descriptionExtended": "Bardzo czytelnie komunikuje opiekunom kiedy ma ochotę na bliskość, a kiedy zdecydowanie woli swobodę. Jako entuzjasta smaczków bardzo polubił pracę z człowiekiem. Śnieżek trafił do nas po wypadku komunikacyjnym. Nasi weterynarze stanęli na wysokości zadania i teraz śmiało może pokonywać trasy spacerowe. Poszukujemy dla niego właściciela, który będzie kontynuować jego rehabilitację aby nie zaprzepaścić jego stabilnej postawy."
         },
-        "goodForKids": true
+        "goodForKids": "yes"
     },
     {
         "id":2,
@@ -27,7 +27,7 @@
         "descriptionBasic": "Bardzo towarzyska, ale potrzebuje dużo czasu, żeby zaufać człowiekow",
         "descriptionExtended": "Koteczka jest bardzo towarzyska, ma niesamowicie silną osobowość, przez to szybko się ekscytuje. Gdy tylko widzimy, że zaczyna się nakręcać trzeba dać jej spokój. Minutka potrzebuje bardzo dużo czasu by obdarzyć człowieka zaufaniem na tyle wysokim, żeby ten mógł ją w spokoju głaskać, nie można brać ją na ręce i dotykać gdy tego sobie nie życzy bo może zareagować obronnie. Przy adopcji kota pamiętajmy, że to my musimy się dostosować do zwierzaka, nie ono do nas. Rossa, nie ma problemu z innymi kotami, jeśli one nie wychodzą jej w drogę. Polecamy ją do osób bez małych dzieci."
         },
-         "goodForKids": false
+         "goodForKids": "no"    
     },
     {
         "id": 3,

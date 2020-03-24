@@ -87,7 +87,7 @@ class OurAnimals extends Component {
                  onTypeFilterChanged={this.onTypeFilterChanged} 
                  onNameFilterChanged={this.onNameFilterChanged} 
                  onSexFilterChanged = {this.onSexFilterChanged}
-                 onGoodForKidsChanged = {this.onGoodForKidsFilterChanged}
+                 onGoodForKidsFilterChanged = {this.onGoodForKidsFilterChanged}
                  />
                 {this.getAnimals().map(({id, data, descriptions}) => <AnimalCard key={id} data={data} descriptions = {descriptions}/>)}
             </div>

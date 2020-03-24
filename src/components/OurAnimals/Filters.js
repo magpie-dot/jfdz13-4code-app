@@ -49,44 +49,39 @@ class Filters extends Component {
             <InputLabel onChange={this.onNameFilterChanged} />
             <InputLabel onChange={this.onSexFilterChanged} />
             <InputLabel onChange={this.onGoodForKidsFilterChanged} />
-      
-
-          {/*           
+            {/*           
                 //  style={{padding: '20px'}}
                  > */}
-          <Select onChange={this.onTypeFilterChanged} value={type}>
-            <MenuItem value="all">Wszystkie zwierzaki</MenuItem>
-            <MenuItem value="pies">Psy</MenuItem>
-            <MenuItem value="kot">Koty</MenuItem>
-          </Select>
-          {/* </div> */}
-          {/* <div className={style.filter.sex}> */}
-          {/* //  style={{marginTop: '50px'}}
+            <Select onChange={this.onTypeFilterChanged} value={type}>
+              <MenuItem value="empty"></MenuItem>
+              <MenuItem value="all">Wszystkie zwierzaki</MenuItem>
+              <MenuItem value="pies">Psy</MenuItem>
+              <MenuItem value="kot">Koty</MenuItem>
+            </Select>
+            {/* </div> */}
+            {/* <div className={style.filter.sex}> */}
+            {/* //  style={{marginTop: '50px'}}
                  > */}
-
-          {/* //  style={{padding: '20px'}} */}
-
-          <Select onChange={this.onSexFilterChanged} value={sex}>
-            <MenuItem value="all">Płeć</MenuItem>
-            <MenuItem value="female">Ona</MenuItem>
-            <MenuItem value="male">On</MenuItem>
-          </Select>
-          {/* </div>
+            {/* //  style={{padding: '20px'}} */}
+            <Select onChange={this.onSexFilterChanged} value={sex}>
+              <MenuItem value="all">Płeć</MenuItem>
+              <MenuItem value="female">Ona</MenuItem>
+              <MenuItem value="male">On</MenuItem>
+            </Select>
+            {/* </div>
           <div className={style.filter.kids}> */}
-          {/* //  style={{marginTop: '50px'}}
+            {/* //  style={{marginTop: '50px'}}
                  > */}
-
-          {/* //  style={{padding: '20px'}} */}
-
-          <Select
-            onChange={this.onGoodForKidsFilterChanged}
-            value={goodForKids}
-          >
-            <MenuItem value="all">Idealne do dzieci</MenuItem>
-            <MenuItem value="goodForKids">Tak</MenuItem>
-            <MenuItem value="!goodForKids">Nie</MenuItem>
-          </Select>
-          {/* </div> */}
+            {/* //  style={{padding: '20px'}} */}
+            <Select
+              onChange={this.onGoodForKidsFilterChanged}
+              value={goodForKids}
+            >
+              <MenuItem value="all">Wszystkie</MenuItem>
+              <MenuItem value="yes">Idealne do domu z dziećmi</MenuItem>
+              <MenuItem value="no">Nie przepadają za dziećmi</MenuItem>
+            </Select>
+            {/* </div> */}
           </div>
         </div>
       </>
