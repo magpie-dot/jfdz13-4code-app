@@ -16,6 +16,14 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
+// const theme = createMuiTheme({
+//   typography: {
+//     // In Chinese and Japanese the characters are usually larger,
+//     // so a smaller fontsize may be appropriate.
+//     fontSize: 12,
+//   },
+// });
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: 340,
@@ -43,14 +51,12 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     backgroundColor: "#3cc1fa"
-  },
-  card :{
-fontSize:30
   }
 }));
 
 export default function AnimalCard(props) {
   const classes = useStyles();
+  // const myClasses = theme();
   const [expanded, setExpanded] = useState(false);
   const [like, setLike] = useState("#3c3d47");
   const [count, setCount] = useState(0);
@@ -61,7 +67,7 @@ export default function AnimalCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardHeader className= {classes.card}
+      <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             {props.data.type === "pies" ? "P" : "K"}
@@ -86,12 +92,14 @@ export default function AnimalCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
+            <p>counter:{count}</p>
         <IconButton
+   
           aria-label="add to favorites"
           style={{ color: like }}
           onClick={() => {
             setLike("#fda8c9");
-            // ,setCount(count +1)
+            setCount(count + 1);
           }}
         >
           <FavoriteIcon />
