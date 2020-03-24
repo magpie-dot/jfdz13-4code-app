@@ -23,6 +23,11 @@
 
  .animalsList {
     display: inline-block;
-    margin: auto;
-
+   text-align: center;
  }
+
+.filter {
+    text-align: center;
+    justify-content: space-around;
+
+}

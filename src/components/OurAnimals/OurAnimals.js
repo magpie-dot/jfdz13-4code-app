@@ -13,8 +13,9 @@ class OurAnimals extends Component {
             type: 'all',
             name: '',
             sex:'all',
+            goodForKids:'all',
         },
-        goodForKids:'all',
+       
         error: null,
     }
 };
@@ -54,25 +55,28 @@ class OurAnimals extends Component {
      onSexFilterChanged = sex => {
         this.setState({
             ...this.state,
-            filters: {
-                ...this.state.filters,
+            filter: {
+                ...this.state.filter,
                 sex,
             }
         })
     };
     onGoodForKidsFilterChanged = goodForKids => {
         this.setState({
-            ...this.state,
-           goodForKids,
-            })
+        ...this.state,
+        filter: {
+            ...this.state.filter,
+            goodForKids,
         }
+    })
+};
     
     getAnimals = () => {
         return this.state.animals.filter(animal => {
             return animal.data.name.toLowerCase().includes(this.state.filter.name.toLowerCase())
               && (this.state.filter.type === 'all' || animal.data.type === this.state.filter.type)
                 && (this.state.filter.sex==='all' || animal.data.sex === this.state.filter.sex)
-                // && (this.state.filter.goodForKids==='all' || animal.goodForKids === this.state.goodForKids)
+                && (this.state.filter.goodForKids === 'all' || animal.goodForKids === this.state.filter.goodForKids)
         })
     };
 
