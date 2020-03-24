@@ -11,6 +11,7 @@ import {
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MenuIcon from "@material-ui/icons/Menu";
+import AnimalCard from "../OurAnimals/AnimalCard"
 
 const TopBar = ({ handleDrawerToggle }) => {
   return (
@@ -38,7 +39,7 @@ const TopBar = ({ handleDrawerToggle }) => {
           </Typography>
           <div>
             <IconButton aria-label="show 2 new notifications" color="inherit">
-              <Badge badgeContent={2} color="secondary">
+              <Badge badgeContent={0} color="secondary">
                 <FavoriteIcon style={{ fontSize: 30 }} />
               </Badge>
             </IconButton>
