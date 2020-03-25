@@ -14,6 +14,7 @@ class OurAnimals extends Component {
             name: '',
             sex:'all',
             goodForKids:'all',
+            remove: ' '
         },
        
         error: null,
@@ -70,6 +71,16 @@ class OurAnimals extends Component {
         }
     })
 };
+removeAllFilters = remove => {
+    this.setState ({
+        filters: {
+            type: 'all',
+            name: '',
+            sex:'all',
+            goodForKids:'all',
+        }
+    })
+}
     
     getAnimals = () => {
         return this.state.animals.filter(animal => {
@@ -88,6 +99,7 @@ class OurAnimals extends Component {
                  onNameFilterChanged={this.onNameFilterChanged} 
                  onSexFilterChanged = {this.onSexFilterChanged}
                  onGoodForKidsFilterChanged = {this.onGoodForKidsFilterChanged}
+                 removeAllFilters = {this.removeAllFilters}
                  />
                 {this.getAnimals().map(({id, data, descriptions}) => <AnimalCard key={id} data={data} descriptions = {descriptions}/>)}
             </div>

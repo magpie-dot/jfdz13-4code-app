@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { Input, InputLabel, Select, MenuItem } from "@material-ui/core";
+import {
+  Input,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+  Typography
+} from "@material-ui/core";
 import style from "./OurAnimals.module.css";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 class Filters extends Component {
   state = {
@@ -36,6 +44,15 @@ class Filters extends Component {
     });
   };
 
+  removeAllFilters = event => {
+    // this.props.removeAllFilters(event.target.value);
+    this.setState({
+      type: "all",
+      sex: "all",
+      goodForKids: "all"
+    });
+  };
+
   render() {
     const { type, sex, goodForKids } = this.state;
 
@@ -45,10 +62,12 @@ class Filters extends Component {
           {/* <div className={style.filter.type}> */}
           {/* //  style={{marginTop: '50px'}} */}
           <div className={style.filter}>
-            Wyszukaj:
+            <Typography>Wyszukaj:</Typography>
+
             <InputLabel onChange={this.onNameFilterChanged} />
             <InputLabel onChange={this.onSexFilterChanged} />
             <InputLabel onChange={this.onGoodForKidsFilterChanged} />
+
             {/*           
                 //  style={{padding: '20px'}}
                  > */}
@@ -81,6 +100,11 @@ class Filters extends Component {
               <MenuItem value="yes">Idealne do domu z dziećmi</MenuItem>
               <MenuItem value="no">Nie przepadają za dziećmi</MenuItem>
             </Select>
+            <Button variant="outlined" size="medium" onClick = {this.removeAllFilters}> X Usuń filtry</Button>
+            {/* <Typography>
+              Usuń filtry <HighlightOffIcon fontSize="big" onClick={this.removeAllFilters} />{" "}
+            </Typography> */}
+
             {/* </div> */}
           </div>
         </div>

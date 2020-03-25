@@ -29,6 +29,10 @@
 .filter {
     text-align: center;
     justify-content: space-around;
+     /* font-family:'Hind',sans-serif; */
+    font-size: 1.9rem; 
+    padding-right: 2rem;
+    
 
 }
 

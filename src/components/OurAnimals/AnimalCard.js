@@ -15,28 +15,25 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { typography } from "@material-ui/system";
 
-// const theme = createMuiTheme({
-//   typography: {
-//     // In Chinese and Japanese the characters are usually larger,
-//     // so a smaller fontsize may be appropriate.
-//     fontSize: 12,
-//   },
-// });
+
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: 340,
+    width: 350,
     position: "relative",
     top: 60,
     minHeight: 420,
     marginBottom: 20,
     marginRight: 20,
-    display: "inline-block"
+    display: "inline-block",
+
   },
   media: {
     height: 0,
-    paddingTop: "56.25%" // 16:9
+    paddingTop: "56.25%", // 16:9
+   
   },
   expand: {
     color: " #3c3d47",
@@ -44,19 +41,21 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "auto",
     transition: theme.transitions.create("transform", {
       duration: theme.transitions.duration.shortest
-    })
+    }),
   },
   expandOpen: {
     transform: "rotate(180deg)"
   },
   avatar: {
     backgroundColor: "#3cc1fa"
+  },
+  typography: {
+    fontSize:"2rem"
   }
 }));
 
 export default function AnimalCard(props) {
   const classes = useStyles();
-  // const myClasses = theme();
   const [expanded, setExpanded] = useState(false);
   const [like, setLike] = useState("#3c3d47");
   const [count, setCount] = useState(0);
@@ -67,19 +66,19 @@ export default function AnimalCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardHeader
+      <CardHeader className = {classes.typography}
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             {props.data.type === "pies" ? "P" : "K"}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
         title={props.data.name}
-        subheader={props.data.age}
+        subheader={props.data.age} 
       />
       <CardMedia
         className={classes.media}
@@ -121,7 +120,7 @@ export default function AnimalCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph></Typography>
-          <Typography paragraph>
+          <Typography paragraph color = "">
             {props.descriptions.descriptionExtended}
           </Typography>
         </CardContent>
