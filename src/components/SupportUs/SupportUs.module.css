@@ -1,0 +1,25 @@
+.sliderContainer {
+    width: 500px;
+    margin: 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titleSection {
+    padding-bottom: 7px;
+    border-bottom: solid 2px #3cc1fa;
+}
+
+.helpSection {
+    margin-right: 50px;
+}
+
+.bank {
+    line-height: 8px;
+}
+
+.sponsor {
+    width: 180px;
+    height: 180px;
+}

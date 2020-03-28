@@ -8,7 +8,7 @@ const listItemsForAll = [
   { text: "Strona główna", page: "" },
   { text: "Nasze zwierzaki", page: "naszezwierzaki" },
   { text: "Porady behawiorysty", page: "poradybehawiorysty" },
-  { text: "Wesprzyj nas", page: "wesprzyjnas" }
+  { text: "Jak nam pomóc?", page: "wesprzyjnas" }
 ];
 const listItemsForUsers = [
   { text: "Panel użytkownika", page: "paneluzytkownika" },
