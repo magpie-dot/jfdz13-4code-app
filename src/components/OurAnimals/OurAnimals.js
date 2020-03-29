@@ -73,7 +73,7 @@ class OurAnimals extends Component {
 };
 removeAllFilters = remove => {
     this.setState ({
-        filters: {
+        filter: {
             type: 'all',
             name: '',
             sex:'all',

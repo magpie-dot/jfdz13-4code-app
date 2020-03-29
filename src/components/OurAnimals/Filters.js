@@ -45,7 +45,7 @@ class Filters extends Component {
   };
 
   removeAllFilters = event => {
-    // this.props.removeAllFilters(event.target.value);
+    this.props.removeAllFilters(event.target.value);
     this.setState({
       type: "all",
       sex: "all",
