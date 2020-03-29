@@ -59,10 +59,11 @@ function Navigation(props) {
               <NavSection listItems={listItemsForAll} />
               <Divider />
               <NavSection listItems={listItemsForUsers} />
-            </div>
+            
             <div className={style.logoContainer}>
               <img  className={style.logo} src="images/logo_grey.png" />
               <img  className={style.logoText} src="images/name_grey.png" />
+            </div>
             </div>
           </Drawer>
         </Hidden>
