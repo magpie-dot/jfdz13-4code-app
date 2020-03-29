@@ -28,15 +28,14 @@ function Navigation(props) {
       <TopBar handleDrawerToggle={handleDrawerToggle} />
 
       <nav>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
+        <Hidden mdUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true // Better open performance on mobile.
+              keepMounted: true 
             }}
           >
             <div className={style.navSections}>
@@ -56,7 +55,7 @@ function Navigation(props) {
             </div>
           </Drawer>
         </Hidden>
-        <Hidden xsDown>
+        <Hidden smDown>
           <Drawer variant="permanent" open>
             <div className={style.navSections}>
               <NavSection listItems={listItemsForAll} />

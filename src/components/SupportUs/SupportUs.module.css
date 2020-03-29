@@ -1,25 +1,67 @@
 .sliderContainer {
-    width: 500px;
     margin: 0 0 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+
 .titleSection {
     padding-bottom: 7px;
     border-bottom: solid 2px #3cc1fa;
+    margin: 5px 0;
 }
 
-.helpSection {
-    margin-right: 50px;
+.sectionFinance {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.bank {
-    line-height: 8px;
+.financeBanner {
+    width: 350px;
+    height: 100px;
 }
+
+.financeDescription {
+    margin-right: 1px;
+}
+
+.slider {
+    width: 500px;
+}
+@media(max-width:600px){
+    .slider {
+        width: 400px;
+    }
+    .sliderContainer {
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media(max-width:500px){
+    .slider {
+        width: 240px;
+    }
+    .financeBanner {
+        width: 240px;
+        height: 70px;
+    }
+}
+
 
 .sponsor {
     width: 180px;
     height: 180px;
+}
+
+.listItem {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.listItem p {
+    margin-left: 10px;
 }

@@ -16,7 +16,7 @@ const TopBar = ({ handleDrawerToggle }) => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Hidden smUp implementation="css">
+        <Hidden mdUp implementation="css">
           <IconButton
             color="inherit"
             aria-label="open drawer"

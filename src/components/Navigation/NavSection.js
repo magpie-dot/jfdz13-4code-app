@@ -11,7 +11,7 @@ const NavSection = ({listItems, closeDrawer}) => (
     <div className={style.listItems}>
       <List>
         {listItems.map((item) => (
-          <NavLink className={style.link} exact to={`/${item.page}`} onClick={closeDrawer}>
+          <NavLink className='link' exact to={`/${item.page}`} onClick={closeDrawer}>
           <ListItem button key={item.text}>
             <ListItemIcon></ListItemIcon>
             <ListItemText primary={item.text} />

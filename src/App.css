@@ -7,8 +7,13 @@
     text-align: justify;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 959px) {
     .main-container.small {
         margin: 80px 20px 0px 20px;
     }
+}
+
+.link {
+    color: whitesmoke;
+    text-decoration: none;
 }

@@ -1,92 +1,74 @@
 import React from "react";
-import { Paper, Grid, Typography, Button } from "@material-ui/core";
-import styles from "./SupportUs.module.css";
-import NewSlider from "./Slider.js";
+import { Paper, Typography, ExpansionPanel,ExpansionPanelDetails, ExpansionPanelSummary } from "@material-ui/core";
 import Sponsors from "./Sponsors";
+import SectionFinance from "./SectionFinance";
+import SectionMaterialHelp from "./SectionMaterialHelp";
+import SectionVolunteering from "./SectionVolunteering";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import styles from "./SupportUs.module.css";
 
-class SupportUs extends React.Component {
-  render() {
+
+const SupportUs = () => {
+
+  const [expanded, setExpanded] = React.useState('panel1');
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
     return (
       <div>
-        <Paper elevation={3} style={{ paddingLeft: 50 }}>
-          <Grid
-            container
-            direction="column"
-            justify="space-evenly"
-            alignItems="flex-start"
-            spacing={2}
-          >
-            <Grid item>
-              <Typography variant="h6">
-                <h3 className={styles.titleSection} style={{ marginBottom: 5 }}>Wsparcie finansowe</h3>
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1">
-                <p>
-                  Możesz wspomóc finansowo nasze schronisko, wpłacając pieniądze
-                  na konto:
+        <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography variant="h5"><p className={styles.titleSection} >
+                  Wsparcie finansowe
+                </p></Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+        <SectionFinance/>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography variant="h5">
+                <p className={styles.titleSection}>
+                  Pomoc rzeczowa
                 </p>
-                <div className={styles.bank}>
-                  <p style={{ fontWeight: 300, letterSpacing: "0.2rem"}}>
-                    10 1020 4027 0000 1502 1262 6786
-                  </p>
-                  <p>tytuł wpłaty: Pomoc dla schroniska</p>
-                </div>
               </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1">
-                <p>Lub skorzystać z naszego systemu szybkich płatności:</p>
-              </Typography>
-              <div className={styles.sliderContainer}>
-                <NewSlider />
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  size="large"
-                  style={{ fontWeight: 600, width: 200, alignSelf: "center" }}
-                >
-                  Wesprzyj nas
-                </Button>
-              </div>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            direction="column"
-            justify="space-evenly"
-            alignItems="flex-start"
-            spacing={2}
-          >
-            <Grid item>
-              <Typography variant="h6">
-                <h3 className={styles.titleSection} style={{ marginBottom: 5 }}>Pomoc rzeczowa</h3>
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1">
-                <p className={styles.helpSection}>
-                  Zwierzęta przebywające w schronisku mają inne potrzeby
-                  żywieniowe niż koty i psy mieszkające w domach. Żyją w
-                  stresie, w dużym skupisku, w którym łatwiej przenoszą się
-                  choroby. Niektóre z nich są chore albo przechodzą
-                  rekonwalescencję po wypadkach. Musimy im dawać lepszej jakości
-                  karmę, ponieważ ta gorsza, najtańsza, im nie służy. Domowy
-                  pies może nie mieć po niej biegunki, schroniskowy będzie miał,
-                  bo żyje w gorszych warunkach.
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+        <SectionMaterialHelp/>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography variant="h5">
+                <p className={styles.titleSection}>
+                  Zostań wolontariuszem
                 </p>
-
-                <p className={styles.helpSection} >Dlatego jeśli chcecie pomóc, kupcie im dobrą karmę. Idźcie do sklepu zoologicznego, a nie do supermarketu, i wybierzcie coś z dużą zawartością mięsa. Nie martwcie się, że przynosicie dwie puszki zamiast 10-kilogramowego worka, który kupilibyście w tej samej cenie. Znamy ceny karm i docenimy to, że pomagacie mądrze.</p>
               </Typography>
-            </Grid>
-          </Grid>
-        </Paper>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+        <SectionVolunteering/>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
         <Paper elevation={3} style={{ margin: "30px 0" }}>
           <Sponsors />
         </Paper>
       </div>
     );
   }
-}
+
 export default SupportUs;
