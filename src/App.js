@@ -5,7 +5,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core';
 
 import BecomeVolunteer from './components/BecomeVolunteer';
-import BehavioralAdvice from './components/BehavioralAdvice';
+//import BehavioralAdvice from './components/BehavioralAdvice';
+import Dashboard from './components/BehavioralAdvice/dashbord';
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import OurAnimals from './components/OurAnimals';
@@ -22,7 +23,7 @@ function App() {
           <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/naszezwierzaki" component={OurAnimals} />
-          <Route path="/poradybehawiorysty" component={BehavioralAdvice} />
+          <Route path="/poradybehawiorysty" component={Dashboard} />
           <Route path="/wesprzyjnas" component={SupportUs} />
           <Route path="/paneluzytkownika" component={UserPanel} />
           <Route path="/doadopcji" component={ToAdoption} />
