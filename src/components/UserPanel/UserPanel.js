@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Paper, Grid, Avatar, Typography } from "@material-ui/core";
 import EventIcon from "@material-ui/icons/Event";
 import WbIncandescentIcon from "@material-ui/icons/WbIncandescent";
@@ -6,9 +6,9 @@ import styles from "./UserPanel.module.css";
 import { CURIOSITY } from "./data/curiosity";
 
 class UserPanel extends React.Component {
-
-
   render() {
+    const randomId = Math.floor(Math.random() * 15) + 1;
+    
     return (
       <>
         <Grid container spacing={3}>
@@ -58,8 +58,10 @@ class UserPanel extends React.Component {
                   <Typography variant="body2">
                     <p className={styles.curiosity}>
                       {CURIOSITY.filter(curio => {
-                        return curio.id === Math.floor(Math.random()*15)+1
-                       }).map(curio => curio.text)}
+                        return curio.id === randomId
+                      }).map(curio => {
+                        return curio.text;
+                      })}
                     </p>
                   </Typography>
                 </div>
