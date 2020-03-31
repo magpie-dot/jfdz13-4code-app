@@ -12,7 +12,7 @@ class UserPanel extends React.Component {
     return (
       <>
         <Grid container spacing={3}>
-          <Grid item item xs={4}>
+          <Grid item item xs={12} sm={4}>
             <Paper elevation={3} className={styles.paper}>
               <Grid
                 container
@@ -20,12 +20,12 @@ class UserPanel extends React.Component {
                 justify="center"
                 alignItems="center"
               >
-                <div>
+                <div className={styles.avatarContainer}>
                   <Avatar
                     alt="avatar"
                     src="images/avatars/avatar1.png"
                     className={styles.avatar}
-                    style={{ height: "180px", width: "180px" }}
+                    style={{ height: "150px", width: "150px" }}
                   />
                   <div className={styles.circle}></div>
                 </div>
@@ -36,12 +36,12 @@ class UserPanel extends React.Component {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item item xs={8}>
+          <Grid item item sm={8} xs={12}>
             <Paper elevation={3} className={styles.paper}>
               <Grid container direction="column">
                 <Grid item>
                   <div className={styles.flex}>
-                    <EventIcon style={{ fontSize: 100, color: "#3c3d47" }} />
+                    <EventIcon style={{ fontSize: 80, color: "#3c3d47" }} />
                     <Typography variant="body1">
                       <p>Brak zaplanowanych wydarzeń w najbliższym tygodniu</p>
                     </Typography>
