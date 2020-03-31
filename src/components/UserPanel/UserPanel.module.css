@@ -1,36 +1,64 @@
 .avatar {
-  margin: 30px;
+  margin: 20px 0;
   transition: all 300ms;
   z-index: 2;
   /* box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12); */
 }
 
 .avatar:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .circle {
-    width: 180px;
-    height: 180px;
-    background-color: rgb(253, 168, 201);
-    position: absolute;
-    left: 50%;
-    top: 40px;
-    transform: translateX(-40%);
-    z-index: 1;
-    border-radius: 50%;
-    box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+  width: 180px;
+  height: 180px;
+  background-color: rgb(253, 168, 201);
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-40%);
+  z-index: 1;
+  border-radius: 50%;
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
 }
 
 .paper {
-  max-width: 500px;
-  width: 100%;
-  min-height: 200px;
   position: relative;
+  padding: 20px;
+  min-height: 350px;
+}
+
+.paperLong{
+  padding: 20px;
 }
 
 .charityDonation {
-    width: 100px;
-    height: 100px;
-    margin: 20px 0 20px 70px;
+  width: 100px;
+  height: 100px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.absolute {
+  position: relative;
+  margin-top: 20px;
+}
+
+.absolute h3 {
+  position: absolute;
+  left: 35px;
+  top: 7px;
+}
+
+.curiosity {
+  padding: 45px 20px 20px;
+  margin: -55px 20px 20px;
+  border: solid 5px #fda8c9;
+  border-radius: 15px;
+  text-align: center;
 }
