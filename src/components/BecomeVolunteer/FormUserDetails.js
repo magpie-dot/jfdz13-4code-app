@@ -29,29 +29,11 @@ export class FormUserDetails  extends Component {
                 defaultValue={values.lastName}
                 />
                 <br/>
-                <TextField hintText="Wpisz adres"
-                label="Adres"
-                variant="outlined" 
-                onChange={handleChange('firstName')}
-                defaultValue={values.firstName}
-                />
-                <TextField hintText="Wpisz kod pocztowy"
-                label="Kod pocztowy"
-                variant="outlined" 
-                onChange={handleChange('postalCode')}
-                defaultValue={values.postalCode}
-                />
                 <TextField hintText="Wpisz email"
                 label="Email"
                 variant="outlined" 
                 onChange={handleChange('email')}
                 defaultValue={values.email}
-                />
-                <TextField hintText="Wpisz numer telefonu"
-                label="Numer telefonu"
-                variant="outlined" 
-                onChange={handleChange('phoneNumber')}
-                defaultValue={values.phoneNumber}
                 />
                 <br/>
                 <Button variant="contained" 
