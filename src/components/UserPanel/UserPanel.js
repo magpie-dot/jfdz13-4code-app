@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Paper, Grid, Avatar, Typography } from "@material-ui/core";
 import EventIcon from "@material-ui/icons/Event";
 import WbIncandescentIcon from "@material-ui/icons/WbIncandescent";
