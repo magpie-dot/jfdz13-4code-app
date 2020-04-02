@@ -1,0 +1,36 @@
+.multiselect {
+    /* position: absolute; */
+    position: relative;
+    top:30px;
+    text-align: left;
+
+  
+}
+
+.filter.type {
+    display: inline-block;
+    position: relative;
+    top:30px;
+}
+
+
+.filter.sex {
+    display: inline-block;
+    position: relative;
+    top:30px;
+}
+
+ .animalsList {
+    display: inline-block;
+   text-align: center;
+ }
+
+.filter {
+    text-align: center;
+    justify-content: space-around;
+     /* font-family:'Hind',sans-serif; */
+    font-size: 1.9rem; 
+    padding-right: 2rem;
+    
+
+}

@@ -40,7 +40,7 @@ export default class Pie extends React.PureComponent {
             argumentField="country"
           />
           <Title
-            text="Area of Countries"
+            text="Nasi podopieczni"
           />
           <Animation />
         </Chart>

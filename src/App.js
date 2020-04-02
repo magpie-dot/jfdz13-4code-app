@@ -13,10 +13,12 @@ import OurAnimals from './components/OurAnimals';
 import SupportUs from './components/SupportUs';
 import ToAdoption from './components/ToAdoption';
 import UserPanel from './components/UserPanel';
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
   return (
     <BrowserRouter>
+    <CssBaseline/>
     <ThemeProvider theme={theme}>
       <div>
         <Navigation>
@@ -31,7 +33,7 @@ function App() {
         </Switch>
         </Navigation>
         
-      </div>
+        </div>
     </ThemeProvider>
     </BrowserRouter>
   );
