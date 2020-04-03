@@ -24,7 +24,6 @@ const SectionFinance = () => {
   };
 
   return (
-    // <div className={styles.sectionFinance}>
     <Grid
       container
       direction="row"
@@ -43,25 +42,34 @@ const SectionFinance = () => {
       >
         <Grid item>
           <Typography variant="body2">
-            <p className={styles.financeDescription}>
+            <span className={styles.financeDescription}>
               Możesz wspomóc finansowo nasze schronisko, wpłacając pieniądze na
               konto:
-            </p>
-            <div className={styles.bank}>
-              <p className={styles.financeDescription} style={{ fontWeight: 300, letterSpacing: "0.2rem" }}>
-                10 1020 4027 0000 1502 1262 6786
-              </p>
-              <p className={styles.financeDescription}>tytuł wpłaty: Pomoc dla schroniska</p>
-            </div>
+            </span>
           </Typography>
+          <div className={styles.bank}>
+            <Typography variant="body2">
+              <span
+                className={styles.financeDescription}
+                style={{ fontWeight: 300, letterSpacing: "0.2rem" }}
+              >
+                10 1020 4027 0000 1502 1262 6786
+              </span>
+            </Typography>
+            <Typography variant="body2">
+              <span className={styles.financeDescription}>
+                tytuł wpłaty: Pomoc dla schroniska
+              </span>
+            </Typography>
+          </div>
         </Grid>
         <Grid item>
           <Typography variant="body2">
-            <p>Lub skorzystać z naszego systemu szybkich płatności:</p>
+            Lub skorzystać z naszego systemu szybkich płatności:
           </Typography>
           <div className={styles.sliderContainer}>
-            <div  className={styles.slider}>
-            <NewSlider/>
+            <div className={styles.slider}>
+              <NewSlider />
             </div>
             <Button
               color="secondary"
@@ -81,7 +89,7 @@ const SectionFinance = () => {
                 <DialogContentText id="alert-dialog-description">
                   Za chwilę zostaniesz przekierowany na stronę płatności.
                 </DialogContentText>
-                <CircularProgress style={{marginLeft: 210}}/>
+                <CircularProgress style={{ marginLeft: 210 }} />
               </DialogContent>
               <DialogActions>
                 <Button onClick={handleClose} color="primary">
@@ -100,7 +108,6 @@ const SectionFinance = () => {
         />
       </Grid>
     </Grid>
-    // </div>
   );
 };
 

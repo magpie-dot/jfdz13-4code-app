@@ -60,6 +60,7 @@
     font-size: 8rem;
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .listItem p {

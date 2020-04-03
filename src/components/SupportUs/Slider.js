@@ -77,7 +77,6 @@ class NewSlider extends React.Component {
     this.setState({
       value: newValue
     });
-    console.log(this.state.value);
   };
 
   render() {
@@ -87,9 +86,7 @@ class NewSlider extends React.Component {
           onChange={this.setValue}
           value={this.state.value}
           marks={marks}
-          valueLabelDisplay="auto"
           aria-label="pretto slider"
-          defaultValue={25}
           min={0}
           step={null}
           max={100}

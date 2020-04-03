@@ -22,7 +22,6 @@ const TopBar = ({ handleDrawerToggle }) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            className
           >
             <MenuIcon />
           </IconButton>

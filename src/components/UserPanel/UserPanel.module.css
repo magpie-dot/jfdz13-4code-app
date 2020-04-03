@@ -49,13 +49,13 @@
 
 .absolute {
   position: relative;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
-.absolute h3 {
+.absolute .curiosityTitle {
   position: absolute;
-  left: 35px;
-  top: 7px;
+  left: 40px;
+  top: 25px;
 }
 
 .curiosity {
