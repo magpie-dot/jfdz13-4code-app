@@ -4,9 +4,9 @@
     background-color: #3c3d47;
     width: 350px;
     color: whitesmoke;
-    font-family: 'Hind', sans-serif;
-   
+    font-family: 'Hind', sans-serif;   
 }
+
 
 .listItems {
     margin: 30px 0 ;
@@ -40,7 +40,3 @@
     width: 200px;
 }
 
-.link {
-    color: whitesmoke;
-    text-decoration: none;
-}
