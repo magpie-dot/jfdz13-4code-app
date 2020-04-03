@@ -10,7 +10,6 @@ import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import OurAnimals from './components/OurAnimals';
 import SupportUs from './components/SupportUs';
-import ToAdoption from './components/ToAdoption';
 import UserPanel from './components/UserPanel';
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
           <Route path="/poradybehawiorysty" component={BehavioralAdvice} />
           <Route path="/wesprzyjnas" component={SupportUs} />
           <Route path="/paneluzytkownika" component={UserPanel} />
-          <Route path="/doadopcji" component={ToAdoption} />
           <Route path="/zostanwolontariuszem" component={BecomeVolunteer} />
         </Switch>
         </Navigation>
