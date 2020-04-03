@@ -81,7 +81,7 @@ export class FormPersonalDetails extends Component {
 
                 <Grid item xs={6}>
                     <div className={styles.picture}>
-                        <img className={styles.dog} src='images/zdj2.jpg'></img>
+                        <img className={styles.dog} src='images/picPlayfulCat.png'  height='550' width='550'></img>
                     </div>
                 </Grid>
                 </Grid>
