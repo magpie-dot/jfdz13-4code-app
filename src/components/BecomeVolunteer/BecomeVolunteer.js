@@ -1,15 +1,12 @@
-import React from "react"
-import { UserForm } from './UserForm';
-
+import React from "react";
+import { UserForm } from "./UserForm";
 
 const BecomeVolunteer = () => {
-    return(
-<div className="form">
-    <UserForm />
+  return (
+    <div className="form">
+      <UserForm />
+    </div>
+  );
+};
 
-</div>
-    );
-}
-
-
-export default BecomeVolunteer
+export default BecomeVolunteer;
