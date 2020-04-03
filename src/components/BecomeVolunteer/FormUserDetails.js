@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import { StylesProvider } from '@material-ui/core';
 import styles from './formStyle.css'
 
 
@@ -32,48 +31,54 @@ export class FormUserDetails  extends Component {
                 container
                 direction="column"
                 justify="center"
-                alignItems="center"
+                alignItems="strech"
               >
                 <div className={styles.form}>
-                <h1>Formularz Rejestracji wolontariusza</h1>
-                <TextField hintText="Wpisz imię"
+                <h2>Formularz Rejestracji wolontariusza</h2>
+                <TextField helperText="Podaj swoje imię"
                 label="Imię"
                 variant="outlined" 
                 onChange={handleChange('firstName')}
                 defaultValue={values.firstName}
+                fullWidth="true"
                 />
                 <br/>
-                <TextField hintText="Wpisz nazwisko"
+                <TextField helperText="Podaj swoje nazwisko"
                 label="Nazwisko"
                 variant="outlined" 
                 onChange={handleChange('lastName')}
                 defaultValue={values.lastName}
+                fullWidth="true"
                 />
                 <br/>
-                <TextField hintText="Wpisz email"
+                <TextField helperText="Podaj swój email"
                 label="Email"
                 variant="outlined" 
                 onChange={handleChange('email')}
                 defaultValue={values.email}
+                fullWidth="true"
                 />
                 <br/>
-                <TextField hintText="Wpisz adres"
+                <TextField helperText="Podaj swój adres"
                 label="Adres"
                 variant="outlined" 
                 onChange={handleChange('adress')}
                 defaultValue={values.adress}
+                fullWidth="true"
                 />
-                <TextField hintText="Wpisz kod pocztowy"
+                <TextField helperText="Podaj swój kod pocztowy"
                 label="Kod pocztowy"
                 variant="outlined" 
                 onChange={handleChange('postalCode')}
                 defaultValue={values.postalCode}
+                fullWidth="true"
                 />
-                <TextField hintText="Wpisz numer telefonu"
+                <TextField helperText="Podaj swój numer telefonu"
                 label="Numer telefonu"
                 variant="outlined" 
                 onChange={handleChange('phoneNumber')}
                 defaultValue={values.phoneNumber}
+                fullWidth="true"
                 />
                 <Button variant="contained" 
                         color="Primary"

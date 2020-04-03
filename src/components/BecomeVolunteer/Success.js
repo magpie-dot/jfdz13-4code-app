@@ -1,28 +1,36 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import styles from './formStyle.css'
 
 export class Success extends Component {
-    continue = e => {
-        e.preventDefault();
-        //TU PRZESYŁANIE DANYCH//
-        this.props.nextStep();
-    }
-
-    back = e => {
-        e.preventDefault();
-        this.props.prevStep();
-    }
-
+    
     render() {
          return (
-            <MuiThemeProvider>
-                <React.Fragment>
-                <h1>Dziękujemy za przesłanie danych</h1>
-                <p>Potwierdzenie rejestracji zostanie przesłane na Twój ardes email.</p>
+
+            <Grid container spacing={3}>
+                <Grid item item xs={12}>
+                <Paper elevation={3} className={styles.paper}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="strech"
+              >
+            <div className={styles.success}>
+                <br></br>
+                <Typography variant='h5' align='center'>Dziękujemy za przesłanie danych</Typography>
+                <Typography variant='body1' align='center'>Potwierdzenie rejestracji zostanie przesłane na Twój ardes email.</Typography>
+                <br></br>
                 
-                </React.Fragment>
-            </MuiThemeProvider>
+                
+            </div>
+            </Grid>
+            </Paper>
+            </Grid>
+            </Grid>
         )
     }
 }

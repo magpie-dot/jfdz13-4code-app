@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { List, ListItem, ListItemText } from '@material-ui/core';
-// import ListItem from '@material-ui/core/ListItem'
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import styles from './formStyle.css'
 
 
 export class Confirm extends Component {
@@ -18,11 +20,21 @@ export class Confirm extends Component {
     }
 
     render() {
-        const { values: { firstName, lastName, adress, postalCode, email, phoneNumber } } = this.props;
+        const { values: { firstName, lastName, adress, postalCode, email, phoneNumber, bio, exp, help } } = this.props;
         return (
-            <MuiThemeProvider>
-                <React.Fragment>
-                <h1>Potwierdź dane</h1>
+            <Grid container spacing={3}>
+                <Grid item item xs={6} sm={6}>
+                <Paper elevation={3} className={styles.paper}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="strech"
+              >
+
+                       
+                <div className={styles.form}>
+                <h2>Formularz rejestracji wolontariusza</h2>
                 <List>
                     <ListItem>
                     <ListItemText primary="Imię"
@@ -48,19 +60,45 @@ export class Confirm extends Component {
                     <ListItemText primary="Numer telefonu"
                     secondary={phoneNumber} />
                     </ListItem>
+                    <ListItem>
+                    <ListItemText primary="O Tobie"
+                    secondary={bio} />
+                    </ListItem>
+                    <ListItem>
+                    <ListItemText primary="Doświadczenie"
+                    secondary={exp} />
+                    </ListItem>
+                    <ListItem>
+                    <ListItemText primary="Wsparcie"
+                    secondary={help} />
+                    </ListItem>
+                    
+                    
+                    
                 </List>
+                <ButtonGroup>
                 <Button variant="contained" 
-                        color="Secondary"
-                        onClick={this.continue}>
-                    Potwierdź
-                </Button><br/>
-                <Button variant="contained" 
-                        color="Primary"
-                        onClick={this.back}>
-                    Wróć
-                </Button>
-                </React.Fragment>
-            </MuiThemeProvider>
+                       color="Secondary"
+                       onClick={this.continue}>
+                   Zapisz
+               </Button><br/>
+               <Button variant="contained" 
+                       color="Primary"
+                       onClick={this.back}>
+                   Wróć
+               </Button>
+               </ButtonGroup>
+                </div>
+                </Grid>
+                </Paper>
+                </Grid>
+                <Grid item xs={6}>
+                    <div className={styles.picture}>
+                        <img className={styles.dog} src='images/zdj2.jpg'></img>
+                    </div>
+                </Grid>
+                </Grid>
+           
         )
     }
 }

@@ -12,7 +12,10 @@ export class UserForm extends Component {
     adress: "",
     postalCode:"",
     email: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    bio: "",
+    exp:"",
+    help:"",
   };
 
   //Proced to next step
@@ -38,8 +41,8 @@ export class UserForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, adress, postalCode, email, phoneNumber } = this.state;
-    const values = { firstName, lastName, adress, postalCode, email, phoneNumber };
+    const { firstName, lastName, adress, postalCode, email, phoneNumber, bio, exp, help } = this.state;
+    const values = { firstName, lastName, adress, postalCode, email, phoneNumber, bio, exp, help };
 
     switch (step) {
       case 1:

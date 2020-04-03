@@ -6,8 +6,16 @@
     padding: 10px;
 }
 
-.pic{
-    width: 100px;
-    height: 100px;
+.picture {
+    color: black
 
+}
+
+.buttons {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.success{
+    align-items: center;
 }

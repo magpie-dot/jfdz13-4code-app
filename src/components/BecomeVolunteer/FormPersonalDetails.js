@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import styles from './formStyle.css'
 
 export class FormPersonalDetails extends Component {
     continue = e => {
@@ -17,45 +20,74 @@ export class FormPersonalDetails extends Component {
     render() {
         const { values, handleChange } = this.props;
         return (
-            <MuiThemeProvider>
-                <React.Fragment>
-                <h1>Formularz Rejestracji wolontariusza</h1>
-                <TextField hintText="Wpisz adres"
-                label="Adres"
+            <Grid container spacing={3}>
+                <Grid item item xs={6} sm={6}>
+                <Paper elevation={3} className={styles.paper}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="strech"
+              >
+                <div className={styles.form}>
+                <h2>Formularz rejestracji wolontariusza</h2>
+                
+                <TextField helperText="Napisz coś o sobie"
+                label="Coś o Tobie"
                 variant="outlined" 
-                onChange={handleChange('adress')}
-                defaultValue={values.adress}
+                onChange={handleChange('bio')}
+                defaultValue={values.bio}
+                fullWidth="true"
+                multiline="true"
+                rows="4"
                 />
-                <TextField hintText="Wpisz kod pocztowy"
-                label="Kod pocztowy"
+                <TextField helperText="Napisz o swoich doświadczeniach ze zwięrzętami"
+                label="Twoje doświadczenie ze zwierzętami"
                 variant="outlined" 
-                onChange={handleChange('postalCode')}
-                defaultValue={values.postalCode}
+                onChange={handleChange('exp')}
+                defaultValue={values.exp}
+                fullWidth="true"
+                multiline="true"
+                rows="4"
                 />
-                <TextField hintText="Wpisz numer telefonu"
-                label="Numer telefonu"
+                <TextField helperText="W jakim zakresie chcesz wesprzeć naszą fundację"
+                label="Jak chcesz pomóc?"
                 variant="outlined" 
-                onChange={handleChange('phoneNumber')}
-                defaultValue={values.phoneNumber}
+                onChange={handleChange('help')}
+                defaultValue={values.help}
+                fullWidth="true"
+                fullWidth="true"
+                multiline="true"
+                rows="4"
                 />
-                <br/>
+                <ButtonGroup>
                 <Button variant="contained" 
-                        color="Secondary"
-                        onClick={this.continue}>
-                    Zapisz
-                </Button><br/>
-                <Button variant="contained" 
-                        color="Primary"
-                        onClick={this.back}>
-                    Wróć
-                </Button>
-
+                       color="Secondary"
+                       onClick={this.continue}>
+                   Zapisz
+               </Button><br/>
+               <Button variant="contained" 
+                       color="Primary"
+                       onClick={this.back}>
+                   Wróć
+               </Button>
+               </ButtonGroup>
+                </div>
+                </Grid>
+                </Paper>
+                </Grid>
                     
+           
 
+                <Grid item xs={6}>
+                    <div className={styles.picture}>
+                        <img className={styles.dog} src='images/zdj2.jpg'></img>
+                    </div>
+                </Grid>
+                </Grid>
+               
+                
             
-
-                </React.Fragment>
-            </MuiThemeProvider>
         )
     }
 }
