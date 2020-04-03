@@ -18,7 +18,6 @@ export class UserForm extends Component {
     help: ""
   };
 
-  //Proced to next step
   nextStep = () => {
     const { step } = this.state;
     this.setState({
@@ -26,7 +25,6 @@ export class UserForm extends Component {
     });
   };
 
-  //Proced to prev step
   prevStep = () => {
     const { step } = this.state;
     this.setState({
@@ -34,7 +32,6 @@ export class UserForm extends Component {
     });
   };
 
-  //Handle fields change
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
   };

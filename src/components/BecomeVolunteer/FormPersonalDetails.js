@@ -5,11 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import styles from "./formStyle.css";
-import { spacing } from '@material-ui/system';
-
 
 export class FormPersonalDetails extends Component {
-
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -20,14 +17,7 @@ export class FormPersonalDetails extends Component {
     this.props.prevStep();
   };
 
-  
-
-  
-
   render() {
-    const theme = {
-        spacing: 8,
-      }
     const { values, handleChange } = this.props;
     return (
       <Grid container spacing={3}>
@@ -40,7 +30,7 @@ export class FormPersonalDetails extends Component {
               alignItems="center"
             >
               <div id={styles.root}>
-                <h2 mx="auto">Formularz rejestracji wolontariusza</h2>
+                <h2>Formularz rejestracji wolontariusza</h2>
 
                 <TextField
                   label="Coś o Tobie"
@@ -53,7 +43,7 @@ export class FormPersonalDetails extends Component {
                 />
                 <br></br>
                 <br></br>
-                <TextField 
+                <TextField
                   label="Twoje doświadczenie ze zwierzętami"
                   variant="outlined"
                   onChange={handleChange("exp")}
@@ -76,8 +66,8 @@ export class FormPersonalDetails extends Component {
                 />
                 <br></br>
                 <br></br>
-                <ButtonGroup p={2}>
-                  <Button p={2}
+                <ButtonGroup>
+                  <Button
                     variant="contained"
                     color="Secondary"
                     onClick={this.continue}
@@ -86,7 +76,7 @@ export class FormPersonalDetails extends Component {
                   </Button>
                   <br></br>
                   <br></br>
-                  <Button p={2}
+                  <Button
                     variant="contained"
                     color="Primary"
                     onClick={this.back}

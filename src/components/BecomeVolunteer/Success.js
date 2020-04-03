@@ -28,17 +28,16 @@ export class Success extends Component {
                 </Typography>
                 <br></br>
               </div>
-            
-            
-          <div className={styles.picture}>
-            <img
-              className={styles.dog}
-              src="images/catOnCouch.png"             
-              height="400"
-              width="500"
-            ></img>
-          </div>
-        </Grid>
+
+              <div className={styles.picture}>
+                <img
+                  className={styles.dog}
+                  src="images/catOnCouch.png"
+                  height="400"
+                  width="500"
+                ></img>
+              </div>
+            </Grid>
           </Paper>
         </Grid>
       </Grid>

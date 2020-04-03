@@ -4,9 +4,6 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import styles from "./formStyle.css";
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
-
 
 export class FormUserDetails extends Component {
   continue = e => {
@@ -14,11 +11,15 @@ export class FormUserDetails extends Component {
     this.props.nextStep();
   };
 
+  constructor(props) {
+    super(props);
+    this.state = { helperText: "", error: false };
+  }
+
   render() {
     const { values, handleChange } = this.props;
 
     return (
-        <MuiThemeProvider >
       <Grid container spacing={3}>
         <Grid item item xs={6} sm={6}>
           <Paper elevation={3} className={styles.paper}>
@@ -30,14 +31,14 @@ export class FormUserDetails extends Component {
             >
               <div className={styles.form}>
                 <h2>Formularz rejestracji wolontariusza</h2>
-                <TextField id={styles.text}
+                <TextField
+                  id={styles.text}
                   type="email"
                   label="Imię"
                   variant="outlined"
                   onChange={handleChange("firstName")}
                   defaultValue={values.firstName}
                   fullWidth="true"
-                  
                 />
                 <br></br>
                 <br></br>
@@ -92,7 +93,6 @@ export class FormUserDetails extends Component {
                   variant="contained"
                   color="Primary"
                   onClick={this.continue}
-                  
                 >
                   Zapisz
                 </Button>
@@ -112,7 +112,6 @@ export class FormUserDetails extends Component {
           </div>
         </Grid>
       </Grid>
-      </MuiThemeProvider>
     );
   }
 }

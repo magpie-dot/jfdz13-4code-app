@@ -5,7 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import styles from "./formStyle.css";
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 export class Confirm extends Component {
   continue = e => {
@@ -34,11 +33,9 @@ export class Confirm extends Component {
       }
     } = this.props;
     return (
-        <MuiThemeProvider >
       <Grid container spacing={3}>
         <Grid item item xs={6} sm={6}>
           <Paper elevation={3} className={styles.paper}>
-          
             <Grid
               container
               direction="column"
@@ -46,7 +43,7 @@ export class Confirm extends Component {
               alignItems="center"
             >
               <div className={styles.form}>
-              <h2 id={styles.avatar}> Formularz rejestracji wolontariusza</h2>
+                <h2 id={styles.avatar}> Formularz rejestracji wolontariusza</h2>
                 <List>
                   <ListItem>
                     <ListItemText primary="Imię" secondary={firstName} />
@@ -89,7 +86,6 @@ export class Confirm extends Component {
                     variant="contained"
                     color="Secondary"
                     onClick={this.continue}
-                    
                   >
                     Zapisz
                   </Button>
@@ -118,7 +114,6 @@ export class Confirm extends Component {
           </div>
         </Grid>
       </Grid>
-      </MuiThemeProvider>
     );
   }
 }
