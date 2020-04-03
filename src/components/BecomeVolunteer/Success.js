@@ -15,7 +15,7 @@ export class Success extends Component {
               container
               direction="column"
               justify="center"
-              alignItems="strech"
+              alignItems="center"
             >
               <div className={styles.success}>
                 <br></br>
@@ -28,7 +28,17 @@ export class Success extends Component {
                 </Typography>
                 <br></br>
               </div>
-            </Grid>
+            
+            
+          <div className={styles.picture}>
+            <img
+              className={styles.dog}
+              src="images/catOnCouch.png"             
+              height="400"
+              width="500"
+            ></img>
+          </div>
+        </Grid>
           </Paper>
         </Grid>
       </Grid>

@@ -1,15 +1,21 @@
-.container{
-    display: block;
-}
+#avatar {
+    color: orange
+  }
 
-.userForm{
+#text {
     padding: 10px;
 }
 
-.picture {
-    color: black
+.top {
+    color: orange
 
 }
+
+#root {
+    position: relative;
+    padding: 20px;
+    min-height: 350px;
+  }
 
 .buttons {
     display: inline-block;

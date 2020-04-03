@@ -5,8 +5,11 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import styles from "./formStyle.css";
+import { spacing } from '@material-ui/system';
+
 
 export class FormPersonalDetails extends Component {
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -17,7 +20,14 @@ export class FormPersonalDetails extends Component {
     this.props.prevStep();
   };
 
+  
+
+  
+
   render() {
+    const theme = {
+        spacing: 8,
+      }
     const { values, handleChange } = this.props;
     return (
       <Grid container spacing={3}>
@@ -27,13 +37,12 @@ export class FormPersonalDetails extends Component {
               container
               direction="column"
               justify="center"
-              alignItems="strech"
+              alignItems="center"
             >
-              <div className={styles.form}>
-                <h2>Formularz rejestracji wolontariusza</h2>
+              <div id={styles.root}>
+                <h2 mx="auto">Formularz rejestracji wolontariusza</h2>
 
                 <TextField
-                  helperText="Napisz coś o sobie"
                   label="Coś o Tobie"
                   variant="outlined"
                   onChange={handleChange("bio")}
@@ -42,8 +51,9 @@ export class FormPersonalDetails extends Component {
                   multiline="true"
                   rows="4"
                 />
-                <TextField
-                  helperText="Napisz o swoich doświadczeniach ze zwięrzętami"
+                <br></br>
+                <br></br>
+                <TextField 
                   label="Twoje doświadczenie ze zwierzętami"
                   variant="outlined"
                   onChange={handleChange("exp")}
@@ -52,8 +62,9 @@ export class FormPersonalDetails extends Component {
                   multiline="true"
                   rows="4"
                 />
+                <br></br>
+                <br></br>
                 <TextField
-                  helperText="W jakim zakresie chcesz wesprzeć naszą fundację"
                   label="Jak chcesz pomóc?"
                   variant="outlined"
                   onChange={handleChange("help")}
@@ -65,16 +76,17 @@ export class FormPersonalDetails extends Component {
                 />
                 <br></br>
                 <br></br>
-                <ButtonGroup>
-                  <Button
+                <ButtonGroup p={2}>
+                  <Button p={2}
                     variant="contained"
                     color="Secondary"
                     onClick={this.continue}
                   >
                     Zapisz
                   </Button>
-                  <br />
-                  <Button
+                  <br></br>
+                  <br></br>
+                  <Button p={2}
                     variant="contained"
                     color="Primary"
                     onClick={this.back}
