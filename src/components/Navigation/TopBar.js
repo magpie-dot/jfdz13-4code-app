@@ -13,7 +13,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MenuIcon from "@material-ui/icons/Menu";
 import AnimalCard from "../OurAnimals/AnimalCard"
 
-const TopBar = ({ handleDrawerToggle }) => {
+const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
   return (
     <AppBar position="fixed">
       <Toolbar>
@@ -39,7 +39,7 @@ const TopBar = ({ handleDrawerToggle }) => {
           </Typography>
           <div>
             <IconButton aria-label="show 2 new notifications" color="inherit">
-              <Badge badgeContent={0} color="secondary">
+              <Badge badgeContent={favouriteAnimals.length} color="secondary">
                 <FavoriteIcon style={{ fontSize: 30 }} />
               </Badge>
             </IconButton>

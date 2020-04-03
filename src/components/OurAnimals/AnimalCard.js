@@ -142,6 +142,7 @@ export default function AnimalCard(props) {
           aria-label="add to favorites"
           style={{ color: like }}
           onClick={() => {
+            // props.onAddToFavourite();
             setLike("#fda8c9");
           }}
         >

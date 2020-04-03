@@ -26,7 +26,7 @@ function Navigation(props) {
 
   return (
     <div>
-      <TopBar handleDrawerToggle={handleDrawerToggle} />
+      <TopBar handleDrawerToggle={handleDrawerToggle} favouriteAnimals={props.favouriteAnimals}/>
 
       <nav>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
