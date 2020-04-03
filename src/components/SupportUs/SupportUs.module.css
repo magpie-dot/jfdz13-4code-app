@@ -9,7 +9,11 @@
 .titleSection {
     padding-bottom: 7px;
     border-bottom: solid 2px #3cc1fa;
-    margin: 5px 0;
+    margin: 10px 0;
+}
+
+.margin {
+    margin-bottom: 15px;
 }
 
 .sectionFinance {
