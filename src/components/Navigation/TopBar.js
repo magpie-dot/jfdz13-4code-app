@@ -17,13 +17,12 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
   return (
     <AppBar position="fixed">
       <Toolbar>
-        <Hidden smUp implementation="css">
+        <Hidden mdUp implementation="css">
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            className
           >
             <MenuIcon />
           </IconButton>

@@ -10,7 +10,6 @@ import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import OurAnimals from './components/OurAnimals';
 import SupportUs from './components/SupportUs';
-import ToAdoption from './components/ToAdoption';
 import UserPanel from './components/UserPanel';
 import CssBaseline from "@material-ui/core/CssBaseline";
 
