@@ -19,7 +19,7 @@ class App extends Component {
         animals: [],
         loading: true,
         error: null,
-        favouriteAnimals: [],
+        favouriteAnimals: 0,
 
     };
 
@@ -36,7 +36,11 @@ class App extends Component {
             .catch(error => this.setState(...this.state, error));
     }
 
-    onAddToFavourite = () => {};
+    onAddToFavourite = () => {
+        this.setState ({
+            favouriteAnimals: this.state.favouriteAnimals +1
+        })
+    };
 
 
     render() {

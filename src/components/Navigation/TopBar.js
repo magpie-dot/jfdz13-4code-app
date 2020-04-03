@@ -39,7 +39,7 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
           </Typography>
           <div>
             <IconButton aria-label="show 2 new notifications" color="inherit">
-              <Badge badgeContent={favouriteAnimals.length} color="secondary">
+              <Badge badgeContent={favouriteAnimals} color="secondary">
                 <FavoriteIcon style={{ fontSize: 30 }} />
               </Badge>
             </IconButton>

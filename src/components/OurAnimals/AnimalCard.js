@@ -1,40 +1,29 @@
-import React, { Component, useState } from "react";
-import style from "./OurAnimals.module.css";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  Typography,
+  IconButton,
+  Avatar,
+  CardContent,
+  CardActions,
+  Button, 
+  Dialog,
+
+} from "@material-ui/core";
+
 import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { typography } from "@material-ui/system";
-import Grid from "@material-ui/core/Grid";
-import { Button } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
-import Dialog from "@material-ui/core/Dialog";
-import CloseIcon from "@material-ui/icons/Close";
 import { withStyles } from "@material-ui/core/styles";
-import { Header, Image, Modal } from "semantic-ui-react";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemText from '@material-ui/core/ListItemText';
-import PersonIcon from '@material-ui/icons/Person';
-import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
   root2: {
-
     padding: theme.spacing(2),
     textAlign: "center"
   },
@@ -45,8 +34,7 @@ const styles = theme => ({
     color: theme.palette.grey[500]
   },
   openButton: {
-    color: theme.palette.grey[500],
-
+    color: theme.palette.grey[500]
   }
 });
 
@@ -104,7 +92,6 @@ const DialogActions = withStyles(theme => ({
 
 export default function AnimalCard(props) {
   const classes = useStyles();
-
   const [like, setLike] = useState("#3c3d47");
   const [open, setOpen] = React.useState(false);
 
@@ -136,17 +123,16 @@ export default function AnimalCard(props) {
           {props.descriptions.descriptionBasic}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing
-      style={{position: 'absolute', bottom:10}}>
+      <CardActions disableSpacing style={{ position: "absolute", bottom: 10 }}>
         <IconButton
           aria-label="add to favorites"
           style={{ color: like }}
           onClick={() => {
-            // props.onAddToFavourite();
             setLike("#fda8c9");
+            props.onAddToFavourite();
           }}
         >
-          <FavoriteIcon className={classes.heart} />
+          <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share" style={{ color: " #3c3d47" }}>
           <ShareIcon />
@@ -180,9 +166,7 @@ export default function AnimalCard(props) {
             </div>
           </DialogTitle>
           <DialogContent dividers>
-            <Typography
-              style={{ textAlign: "justify", padding:15 }}
-            >
+            <Typography style={{ textAlign: "justify", padding: 15 }}>
               {props.descriptions.descriptionBasic}
               {props.descriptions.descriptionExtended}
             </Typography>
@@ -192,4 +176,3 @@ export default function AnimalCard(props) {
     </Card>
   );
 }
-
