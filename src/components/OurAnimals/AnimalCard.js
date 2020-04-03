@@ -25,15 +25,18 @@ import Dialog from "@material-ui/core/Dialog";
 import CloseIcon from "@material-ui/icons/Close";
 import { withStyles } from "@material-ui/core/styles";
 import { Header, Image, Modal } from "semantic-ui-react";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import PersonIcon from '@material-ui/icons/Person';
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
   root2: {
-    // margin: 0,
+
     padding: theme.spacing(2),
     textAlign: "center"
-
-    // height:350,
-    // width:'auto'
   },
   closeButton: {
     position: "absolute",
@@ -42,10 +45,8 @@ const styles = theme => ({
     color: theme.palette.grey[500]
   },
   openButton: {
-    // position: 'absolute',
-    // right: theme.spacing(1),
-    // top: theme.spacing(1),
-    color: theme.palette.grey[500]
+    color: theme.palette.grey[500],
+
   }
 });
 
@@ -58,29 +59,13 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 20,
     marginRight: 20,
     display: "inline-block"
-    //  position: "absolute"
   },
   media: {
     height: 0,
     paddingTop: "56.25%" // 16:9
   },
-  expand: {
-    color: " #3c3d47",
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest
-    })
-  },
-  expandOpen: {
-    transform: "rotate(180deg)"
-  },
   avatar: {
     backgroundColor: "#3cc1fa"
-  },
-  heart: {
-    position: "relative",
-    bottom: 10
   },
   typography: {
     fontSize: "2rem"
@@ -119,7 +104,7 @@ const DialogActions = withStyles(theme => ({
 
 export default function AnimalCard(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
+
   const [like, setLike] = useState("#3c3d47");
   const [open, setOpen] = React.useState(false);
 
@@ -128,9 +113,6 @@ export default function AnimalCard(props) {
   };
   const handleClose = () => {
     setOpen(false);
-  };
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
   };
 
   return (
@@ -154,7 +136,8 @@ export default function AnimalCard(props) {
           {props.descriptions.descriptionBasic}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing
+      style={{position: 'absolute', bottom:10}}>
         <IconButton
           aria-label="add to favorites"
           style={{ color: like }}
@@ -197,8 +180,7 @@ export default function AnimalCard(props) {
           </DialogTitle>
           <DialogContent dividers>
             <Typography
-              style={{ textAlign: "justify" }}
-              //  gutterBottom
+              style={{ textAlign: "justify", padding:15 }}
             >
               {props.descriptions.descriptionBasic}
               {props.descriptions.descriptionExtended}
