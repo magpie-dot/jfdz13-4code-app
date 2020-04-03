@@ -1,3 +1,3 @@
-import HomePage from "./HomePage"
+import Dashboard from "./Dashbord"
 
-export default HomePage
+export default Dashboard;

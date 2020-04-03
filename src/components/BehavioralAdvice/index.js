@@ -1,3 +1,3 @@
-import BehavioralAdvice from "./BehavioralAdvice"
+import BehavioralAdvice from "./BehavioralAdvice";
 
-export default BehavioralAdvice
+export default BehavioralAdvice;

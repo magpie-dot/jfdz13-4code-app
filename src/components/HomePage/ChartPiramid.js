@@ -16,7 +16,7 @@ import {
 } from '@devexpress/dx-react-chart';
 import { scaleBand } from 'd3-scale';
 import { withStyles } from '@material-ui/core/styles';
-import { populationPyramid as data } from './data-vizualization';
+import { populationPyramid as data } from './DataVizualization';
 
 const legendStyles = {
   root: {
@@ -70,7 +70,7 @@ export default class ChartPiramid extends React.PureComponent {
     const { data: chartData } = this.state;
 
     return (
-      
+
         <Chart
           data={chartData}
           rotated
@@ -101,7 +101,7 @@ export default class ChartPiramid extends React.PureComponent {
             labelComponent={LegendLabel}
           />
         </Chart>
-      
+
     );
   }
 }

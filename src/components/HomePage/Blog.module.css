@@ -1,11 +1,11 @@
 .classes.root {
     height: 100%;
     padding: 100px 0;
- 
+
     width: 350px;
     color: black;
     font-family: 'Hind', sans-serif;
-   
+
 }
 
 .listItems {
@@ -16,7 +16,6 @@
 
 
 .logoContainer {
-    background-color: ;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -30,7 +29,7 @@
     position: relative;
     top: 0px;
     margin-right: 13%;
-   
+
 }
 
 .logoT {
