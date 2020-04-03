@@ -20,10 +20,10 @@ export class Success extends Component {
               <div className={styles.success}>
                 <br></br>
                 <Typography variant="h5" align="center">
-                  Dziękujemy za przesłanie danych
+                  Dziękujemy za wypełnienie zgłoszenia
                 </Typography>
                 <Typography variant="body1" align="center">
-                  Potwierdzenie rejestracji zostanie przesłane na Twój ardes
+                  Potwierdzenie rejestracji zostanie przesłane na Twój adres
                   email.
                 </Typography>
                 <br></br>
