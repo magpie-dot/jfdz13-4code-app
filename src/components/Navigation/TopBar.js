@@ -11,7 +11,7 @@ import {
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MenuIcon from "@material-ui/icons/Menu";
-import AnimalCard from "../OurAnimals/AnimalCard"
+
 
 const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
   return (
