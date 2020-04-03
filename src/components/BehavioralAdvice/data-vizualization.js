@@ -818,7 +818,7 @@ export const sales = {
     { month: 'Apr', sale: 127, total: 7150 },
     { month: 'May', sale: 105, total: 4340 },
     { month: 'Jun', sale: 180, total: 7520 },
-    { month: 'Jul', sale: 150, total: 5380 },
+    { month: 'Jul', sale: 50, total: 5380 },
     { month: 'Aug', sale: 120, total: 2590 },
     { month: 'Sep', sale: 59, total: 2700 },
     { month: 'Oct', sale: 139, total: 2800 },

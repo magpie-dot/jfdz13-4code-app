@@ -27,7 +27,7 @@ const legendStyles = {
 };
 const legendLabelStyles = theme => ({
   label: {
-    paddingTop: theme.spacing(1),
+    paddingTop: theme.spacing(2),
   },
 });
 const legendItemStyles = {
@@ -70,7 +70,7 @@ export default class ChartPiramid extends React.PureComponent {
     const { data: chartData } = this.state;
 
     return (
-      <Paper>
+      
         <Chart
           data={chartData}
           rotated
@@ -81,18 +81,18 @@ export default class ChartPiramid extends React.PureComponent {
           <ValueAxis labelComponent={Label} />
 
           <BarSeries
-            name="Male"
+            name="Pies"
             valueField="male"
             argumentField="age"
             color="#3F7FBF"
           />
           <BarSeries
-            name="Female"
+            name="Kot"
             valueField="female"
             argumentField="age"
             color="#F87CCC"
           />
-          <Title text="Population Pyramid of the World 2018" />
+          <Title text="Struktura naszych podopiecznych" />
           <Animation />
           <Legend
             position="bottom"
@@ -101,7 +101,7 @@ export default class ChartPiramid extends React.PureComponent {
             labelComponent={LegendLabel}
           />
         </Chart>
-      </Paper>
+      
     );
   }
 }
