@@ -7,12 +7,10 @@ import TopBar from "./TopBar.js";
 const listItemsForAll = [
   { text: "Strona główna", page: "" },
   { text: "Nasze zwierzaki", page: "naszezwierzaki" },
-  { text: "Porady behawiorysty", page: "poradybehawiorysty" },
   { text: "Wesprzyj nas", page: "wesprzyjnas" }
 ];
 const listItemsForUsers = [
   { text: "Panel użytkownika", page: "paneluzytkownika" },
-  { text: "Do adopcji", page: "doadopcji" },
   { text: "Zostań wolontariuszem", page: "zostanwolontariuszem" }
 ];
 
