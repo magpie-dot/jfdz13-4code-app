@@ -13,21 +13,21 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: 'Korek, lat 8',
+    label: 'Punio, lat 8',
     imgPath:
-    "images/zd11.jpg" ,
+    "images/zd21.jpg" ,
      
   },
   {
-    label: 'X-men, lat 2',
+    label: 'Royal, lat 3',
     imgPath:
-     "images/zd21.jpg" ,
+     "images/zd19.jpg" ,
      
   },
   {
-    label: 'Jogi, lat 12',
+    label: 'Misio, lat 11',
     imgPath:
-    "images/zdj31.jpg" ,
+    "images/zdj47.jpg" ,
   },
  
 ];
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     height: 50,
     paddingLeft: theme.spacing(4),
-    
+
   },
   img: {
     height: 255,

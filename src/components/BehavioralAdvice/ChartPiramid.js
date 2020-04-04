@@ -23,6 +23,8 @@ const legendStyles = {
     display: 'flex',
     margin: 'auto',
     flexDirection: 'row',
+    width: 150,
+    height: 150,
   },
 };
 const legendLabelStyles = theme => ({
@@ -32,7 +34,7 @@ const legendLabelStyles = theme => ({
 });
 const legendItemStyles = {
   item: {
-    flexDirection: 'column',
+    flexDirection: 'row',
   },
 };
 
