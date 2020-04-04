@@ -1,7 +1,7 @@
 import React from "react"
 import style from "./Blog.module.css";
 import '@devexpress/dx-react-chart-bootstrap4/dist/dx-react-chart-bootstrap4.css';
-import Pie from "./Pie"
+import Pie from "../HomePage/Pie"
 
 
 
@@ -17,7 +17,7 @@ const BehavioralAdvice = () => {
              <Pie/>
          
             </div>
-      <div>kupa</div>
+    
    
 
 </>

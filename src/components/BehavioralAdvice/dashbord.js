@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
   paper5: {
     padding: theme.spacing(3),
-    height: 500,
+    height: 520,
     width: 1000,
     textAlign: 'left',
     textColor: 'black',
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper6: {
     padding: theme.spacing(2),
-    height: 500,
+    height: 520,
     width: 430,
     textAlign: 'left',
     textColor: 'grey',
@@ -116,7 +116,7 @@ export default function Dashboard() {
           <Paper className={classes.paper4}><Carusel3/></Paper>
         </Grid>
         <Grid item >
-          <Paper className={classes.paper5}> <p style={{fontSize: 23, marginTop: 5,color: 'black', marginBottom: 1, fontFamily: "'Hind',sans-serif",textAlign: "center",}}>Współpracują z nami najwięksi celebrtów. Zobacz ich opinie o naszej fundacji</p><AlignList/>
+          <Paper className={classes.paper5}> <p style={{fontSize: 23, marginTop: 5,color: 'black', marginBottom: 1, fontFamily: "'Hind',sans-serif",textAlign: "center",}}>Współpracują z nami najwięksi celebryci. Zobacz ich opinie o naszej fundacji.</p><AlignList/>
              </Paper>
         </Grid>
    

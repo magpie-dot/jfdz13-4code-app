@@ -29,18 +29,18 @@ export default function AlignItemsList() {
     <List className={classes.root}>
       <ListItem alignItems="flex-start" style={{height:50, marginBottom: 35,}}>
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="images/Kasia.png" />
+          <Avatar alt="Kasia" src="images/Kasia.png" />
         </ListItemAvatar>
         <ListItemText style={{fontSize: 13,}}
           primary="Pracują tam wspaniali ludzie, pełni pasji i zaangażowania pracę wypełnioną miłością do zwierzą."
           secondary={
             <React.Fragment>
-              <Typography style={{fontSize: 15, color: '#EA4C89'}}
+              <Typography style={{fontSize: 15, color: '#EA4C89',}}
                 component="span" 
               
                 color="#FDA8C9"
               >
-                Katarzyna Bęś-Laskowska
+                Katarzyna Bęś-Laskowska, tenisistka
 
               </Typography>
    
@@ -51,13 +51,13 @@ export default function AlignItemsList() {
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start" style={{height:50, marginBottom: 35,}}>
         <ListItemAvatar>
-        <Avatar alt="Remy Sharp" src="images/Kasia.png" />
+        <Avatar alt="Monika" src="images/Monika.png" />
         </ListItemAvatar>
-        <ListItemText style={{fontSize: 15,}}
-          primary="Pomagają zwierzakom odzyskać nadzieję na lepszy los"
+        <ListItemText 
+          primary="Super fundacja!Pomagają zwierzakom odzyskać nadzieję na lepszy los."
           secondary={
             <React.Fragment>
-              <Typography style={{fontSize: 10,}}
+              <Typography style={{fontSize: 15, color: '#EA4C89', }}
                 component="span"
                 variant="body2"
               
@@ -73,19 +73,19 @@ export default function AlignItemsList() {
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start" style={{height:50, marginBottom: 35,}}>
         <ListItemAvatar>
-        <Avatar alt="Remy Sharp" src="images/Kasia.png" />
+        <Avatar alt="Kamil" src="images/Kamil.png" />
         </ListItemAvatar>
         <ListItemText style={{fontSize: 20,}}
-          primary="Oui Oui"
+          primary="Tak trzymać! Wasza misja jest ważna"
           secondary={
             <React.Fragment>
-              <Typography style={{fontSize: 15,}}
+              <Typography style={{fontSize: 15, color: '#EA4C89',}}
                 component="span"
                 variant="body2"
            
                 color="textPrimary"
               >
-                Sandra Adams
+                Kamil Lubowidzki, strażak
               </Typography>
          
             </React.Fragment>
@@ -95,19 +95,41 @@ export default function AlignItemsList() {
             <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start" style={{height:50, marginBottom: 35,}}>
         <ListItemAvatar>
-        <Avatar alt="Remy Sharp" src="images/Kasia.png" />
+        <Avatar alt="Aga" src="images/Aga.png" />
         </ListItemAvatar>
         <ListItemText style={{fontSize: 20,}}
-          primary="Oui Oui"
+          primary="Niesamowici! Ratują zwierzaki i nie są obojętni na ich krzywdę. "
           secondary={
             <React.Fragment>
-              <Typography style={{fontSize: 15,}}
+              <Typography style={{fontSize: 15, color: '#EA4C89', }}
                 component="span"
                 variant="body2"
            
                 color="textPrimary"
               >
-                Sandra Adams
+                Agnieszka Olesiejuk, siatkarka
+              </Typography>
+         
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem alignItems="flex-start" style={{height:50, marginBottom: 35,}}>
+        <ListItemAvatar>
+        <Avatar alt="Paweł" src="images/Pawel.png" />
+        </ListItemAvatar>
+        <ListItemText style={{fontSize: 20,}}
+          primary="Wspaniała ekipa i projekt!!!"
+          secondary={
+            <React.Fragment>
+              <Typography style={{fontSize: 15, color: '#EA4C89', }}
+                component="span"
+                variant="body2"
+           
+                color="textPrimary"
+              >
+                Paweł Racki, mentor
               </Typography>
          
             </React.Fragment>
