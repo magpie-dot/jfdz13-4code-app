@@ -92,9 +92,6 @@ function SwipeableTextMobileStepper() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-     
-        
-      
     </div>
   );
 }

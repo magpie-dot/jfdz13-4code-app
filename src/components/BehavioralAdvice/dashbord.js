@@ -2,16 +2,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import style from "./Pie.module.css";
-
+import style from "./Dashboard.module.css";
 import Carusel from "./Carusel";
 import Carusel2 from "./Carusel2";
 import Carusel3 from "./Carusel3";
 import Pie from './Pie';
 import AlignList from './AlignList';
-
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -68,17 +64,12 @@ const useStyles = makeStyles((theme) => ({
     width: 430,
     textAlign: 'left',
     textColor: 'grey',
-    
     color: theme.palette.text.secondary,
   },
 
-
-  
   description: {
     color: 'blue',
   },
-
- 
 }));
 
 export default function Dashboard() {
@@ -86,19 +77,14 @@ export default function Dashboard() {
 
   return (
 
-    
-         
-                 
     <div className={classes.root}>
      <div className={style.top}> <img  className={style.ilu} src="images/dogsy2.png" />
-           <p style={{fontSize: 30, marginTop: 5,color: 'black', marginBottom: 1, fontFamily: "'Hind',sans-serif",textAlign: "center",}}>Ruszyła unikalna ogólnopolska wyszukiwarka zwierząt do adopcji! </p> 
-              <p style={{fontSize: 20, color: 'grey', marginTop: 0, fontFamily: "'Hind',sans-serif",textAlign:"center", width: 1000,marginLeft: 50,}}>Adoptuj, nie kupuj! – Rozpoczynając poszukiwania przyjaciela, można określić kryteria, takie jak rozmiar, płeć, wiek oraz miejsce pobytu. Wyszukiwarka pokaże zwierzęta odpowiadające tym kryteriom. 
-               </p>   
-               </div>
-      <Grid container spacing={2}>
+    <p style={{fontSize: 30, marginTop: 5,color: 'black', marginBottom: 1, fontFamily: "'Hind',sans-serif",textAlign: "center",}}>Ruszyła unikalna ogólnopolska wyszukiwarka zwierząt do adopcji! </p> 
+    <p style={{fontSize: 20, color: 'grey', marginTop: 0, fontFamily: "'Hind',sans-serif",textAlign:"center", width: 1000,marginLeft: 50,}}>Adoptuj, nie kupuj! – Rozpoczynając poszukiwania przyjaciela, można określić kryteria, takie jak rozmiar, płeć, wiek oraz miejsce pobytu. Wyszukiwarka pokaże zwierzęta odpowiadające tym kryteriom. 
+    </p> </div>
       
-       
-        <Grid item >
+      <Grid container spacing={2}>
+      <Grid item >
           <Paper className={classes.paper2}>   <Carusel/>
               </Paper>
         </Grid>

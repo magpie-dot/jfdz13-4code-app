@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import style from "./Pie.module.css";
+import style from "./Dashboard.module.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,12 +32,12 @@ export default function AlignItemsList() {
           <Avatar alt="Kasia" src="images/Kasia.png" />
         </ListItemAvatar>
         <ListItemText style={{fontSize: 13,}}
-          primary="Pracują tam wspaniali ludzie, pełni pasji i zaangażowania pracę wypełnioną miłością do zwierzą."
+          primary="Pracują tam wspaniali ludzie, pełni pasji i zaangażowania 
+          pracę wypełnioną miłością do zwierząt."
           secondary={
             <React.Fragment>
               <Typography style={{fontSize: 15, color: '#EA4C89',}}
                 component="span" 
-              
                 color="#FDA8C9"
               >
                 Katarzyna Bęś-Laskowska, tenisistka
@@ -76,7 +76,7 @@ export default function AlignItemsList() {
         <Avatar alt="Kamil" src="images/Kamil.png" />
         </ListItemAvatar>
         <ListItemText style={{fontSize: 20,}}
-          primary="Tak trzymać! Wasza misja jest ważna"
+          primary="Tak trzymać! Wasza misja jest ważna."
           secondary={
             <React.Fragment>
               <Typography style={{fontSize: 15, color: '#EA4C89',}}
