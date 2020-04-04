@@ -1,11 +1,7 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 
@@ -13,21 +9,21 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: 'Korek, lat 8',
+    label: 'Punio, lat 8',
     imgPath:
-    "images/zd11.jpg" ,
+    "images/zd21.jpg" ,
      
   },
   {
-    label: 'X-men, lat 2',
+    label: 'Royal, lat 3',
     imgPath:
-     "images/zdj15.jpg" ,
+     "images/zdj2.jpg" ,
      
   },
   {
-    label: 'Jogi, lat 12',
+    label: 'Misio, lat 11',
     imgPath:
-    "images/zdj31.jpg" ,
+    "images/zdj69.jpg" ,
   },
  
 ];
@@ -44,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     height: 50,
     paddingLeft: theme.spacing(4),
-    
+
   },
   img: {
     height: 255,
@@ -59,16 +55,7 @@ function SwipeableTextMobileStepper() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
+ 
   const handleStepChange = (step) => {
     setActiveStep(step);
   };

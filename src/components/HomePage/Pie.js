@@ -12,7 +12,6 @@ import { Animation } from "@devexpress/dx-react-chart";
 import { EventTracker, HoverState } from "@devexpress/dx-react-chart";
 
 const data = [
-  { city: "Lublin", val: 40 },
   { city: "Gdańsk", val: 120 },
   { city: "Poznań", val: 60 },
   { city: "Wrocław", val: 250 },
@@ -37,7 +36,7 @@ export default class Pie extends React.PureComponent {
         <Chart data={chartData}>
           <PieSeries valueField="val" argumentField="city" innerRadius={0.4} />
           <Title text="Zwierzaki adoptowane w polskich miastach" />
-          <Legend />
+          <Legend position="right"/>
           <Animation />
           <EventTracker />
           <HoverState />
