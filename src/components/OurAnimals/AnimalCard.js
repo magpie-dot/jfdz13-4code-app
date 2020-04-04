@@ -9,7 +9,7 @@ import {
   Avatar,
   CardContent,
   CardActions,
-  Button, 
+  Button,
   Dialog,
 
 } from "@material-ui/core";
@@ -91,8 +91,8 @@ const DialogActions = withStyles(theme => ({
 }))(MuiDialogActions);
 
 export default function AnimalCard(props) {
+  const { isFavourite, animal, animal: { data: { type, name, age, imageUrl, id }, descriptions: { descriptionBasic, descriptionExtended } } } = props;
   const classes = useStyles();
-  const [like, setLike] = useState("#3c3d47");
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -107,29 +107,28 @@ export default function AnimalCard(props) {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {props.data.type === "pies" ? "P" : "K"}
+            {type === "pies" ? "P" : "K"}
           </Avatar>
         }
-        title={props.data.name}
-        subheader={props.data.age}
+        title={name}
+        subheader={age}
       />
       <CardMedia
         className={classes.media}
-        image={props.data.imageUrl}
-        title={props.data.name}
+        image={imageUrl}
+        title={name}
       />
       <CardContent>
         <Typography color="textSecondary" component="p">
-          {props.descriptions.descriptionBasic}
+          {descriptionBasic}
         </Typography>
       </CardContent>
       <CardActions disableSpacing style={{ position: "absolute", bottom: 10 }}>
         <IconButton
           aria-label="add to favorites"
-          style={{ color: like }}
+          style={{ color: isFavourite ? "#fda8c9" : "#3c3d47" }}
           onClick={() => {
-            setLike("#fda8c9");
-            props.onAddToFavourite();
+            props.onAddToFavourite(animal, isFavourite);
           }}
         >
           <FavoriteIcon />
@@ -153,22 +152,22 @@ export default function AnimalCard(props) {
           <DialogTitle
             id="customized-dialog-title"
             onClose={handleClose}
-            key={props.data.id}
+            key={id}
           >
-            {props.data.name}
+            {name}
             <br />
-            {props.data.age}
+            {age}
             <div>
               <img
-                src={props.data.imageUrl}
+                src={imageUrl}
                 style={{ width: "auto", maxWidth: 530, height: 350 }}
               />
             </div>
           </DialogTitle>
           <DialogContent dividers>
             <Typography style={{ textAlign: "justify", padding: 15 }}>
-              {props.descriptions.descriptionBasic}
-              {props.descriptions.descriptionExtended}
+              {descriptionBasic}
+              {descriptionExtended}
             </Typography>
           </DialogContent>
         </Dialog>
