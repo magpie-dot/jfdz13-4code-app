@@ -7,7 +7,7 @@ const theme = createMuiTheme({
       contrastText: "#fff"
     },
     secondary: {
-      main: "rgb(253, 168, 201)"
+      main: "rgb(234,76,137)",
     },
     action: {
       active: "rgba(0, 0, 0, 0.01)",
@@ -35,6 +35,9 @@ const theme = createMuiTheme({
     body2: {
       fontSize: "2rem"
       
+    },
+    body3: {
+      fontSize: "10px"
     }
   }
 });

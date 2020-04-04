@@ -21,13 +21,13 @@ const tutorialSteps = [
   {
     label: 'Royal, lat 3',
     imgPath:
-     "images/zd19.jpg" ,
+     "images/zdj2.jpg" ,
      
   },
   {
     label: 'Misio, lat 11',
     imgPath:
-    "images/zdj47.jpg" ,
+    "images/zdj69.jpg" ,
   },
  
 ];

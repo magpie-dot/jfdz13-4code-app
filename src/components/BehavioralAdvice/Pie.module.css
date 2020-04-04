@@ -2,10 +2,30 @@
     position: relaive;
     float:right;
     margin-right: 6rem;
-    margin-top: -2rem;
+    margin-top: -3rem;
 }
 
 .top {
-    margin-top: 6rem;
+    margin-top: 7rem;
     margin-bottom: 2rem;
+}
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    width: 1100px;
+    height: 400px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+ position: relative;
+   
+    background-color: white;
+}
+.people {
+ 
+    position: relative;
+    
+}
+
+.font {
+    font-size: 5px;
 }

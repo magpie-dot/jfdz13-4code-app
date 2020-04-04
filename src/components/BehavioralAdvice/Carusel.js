@@ -21,7 +21,7 @@ const tutorialSteps = [
   {
     label: 'X-men, lat 2',
     imgPath:
-     "images/zd21.jpg" ,
+     "images/zdj15.jpg" ,
      
   },
   {

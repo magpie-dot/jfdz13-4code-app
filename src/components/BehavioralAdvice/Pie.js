@@ -6,7 +6,8 @@ import {
   Title,
 } from '@devexpress/dx-react-chart-material-ui';
 
-import style from "./Pie.module.css";
+
+
 import { Animation } from '@devexpress/dx-react-chart';
 
 
@@ -38,18 +39,20 @@ export default class Pie extends React.PureComponent {
   
     return (
      
-      <Paper>
-        <Chart
+      <Paper style={{height:350, width: 350,}}>
+   
+        <Chart 
           data={chartData}
         >
-          <PieSeries
+          <PieSeries 
             valueField="val"
             argumentField="region"
             innerRadius={0.6}
           />
-          <Title
-            text="The Population of Continents and Regions"
+          <Title style={{display: 'none'}}
+            text= ""
           />
+         
           <Animation />
         </Chart>
       </Paper>

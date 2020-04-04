@@ -21,13 +21,13 @@ const tutorialSteps = [
   {
     label: 'Sonia, lat 9',
     imgPath:
-     "images/zd43.jpg" ,
+     "images/zd19.jpg" ,
      
   },
   {
     label: 'Fafik, lat 8',
     imgPath:
-    "images/zdj46.jpg" ,
+    "images/zd29.jpg" ,
   },
  
 ];
