@@ -39,6 +39,7 @@ export class FormUserDetails extends Component {
                   onChange={handleChange("firstName")}
                   defaultValue={values.firstName}
                   fullWidth="true"
+                  input type="text"
                 />
                 <br></br>
                 <br></br>
@@ -49,6 +50,7 @@ export class FormUserDetails extends Component {
                   onChange={handleChange("lastName")}
                   defaultValue={values.lastName}
                   fullWidth="true"
+                  input type="text"
                 />
                 <br></br>
                 <br></br>
@@ -58,6 +60,7 @@ export class FormUserDetails extends Component {
                   onChange={handleChange("email")}
                   defaultValue={values.email}
                   fullWidth="true"
+                  input type="email"
                 />
                 <br></br>
                 <br></br>
