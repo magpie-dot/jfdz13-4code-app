@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Input,
   InputLabel,
   Select,
   MenuItem,
@@ -8,7 +7,7 @@ import {
   Typography
 } from "@material-ui/core";
 import style from "./OurAnimals.module.css";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+
 
 class Filters extends Component {
   state = {

@@ -10,11 +10,9 @@ import {
   CardContent,
   CardActions,
   Button,
-  Dialog,
-
+  Dialog
 } from "@material-ui/core";
 
-import ShareIcon from "@material-ui/icons/Share";
 import CloseIcon from "@material-ui/icons/Close";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
@@ -25,7 +23,8 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   root2: {
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
+
   },
   closeButton: {
     position: "absolute",
@@ -34,7 +33,8 @@ const styles = theme => ({
     color: theme.palette.grey[500]
   },
   openButton: {
-    color: theme.palette.grey[500]
+    color: theme.palette.grey[500],
+   
   }
 });
 
@@ -46,14 +46,16 @@ const useStyles = makeStyles(theme => ({
     height: 470,
     marginBottom: 20,
     marginRight: 20,
-    display: "inline-block"
+    display: "inline-block",
+
   },
   media: {
     height: 0,
     paddingTop: "56.25%" // 16:9
   },
   avatar: {
-    backgroundColor: "#3cc1fa"
+    backgroundColor: "#3cc1fa",
+    marginRight:0
   },
   typography: {
     fontSize: "2rem"
@@ -83,15 +85,15 @@ const DialogContent = withStyles(theme => ({
   }
 }))(MuiDialogContent);
 
-const DialogActions = withStyles(theme => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1)
-  }
-}))(MuiDialogActions);
-
 export default function AnimalCard(props) {
-  const { isFavourite, animal, animal: { data: { type, name, age, imageUrl, id }, descriptions: { descriptionBasic, descriptionExtended } } } = props;
+  const {
+    isFavourite,
+    animal,
+    animal: {
+      data: { type, name, age, imageUrl, id },
+      descriptions: { descriptionBasic, descriptionExtended }
+    }
+  } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -105,6 +107,8 @@ export default function AnimalCard(props) {
   return (
     <Card className={classes.root}>
       <CardHeader
+        titleTypographyProps={{ variant: "h5" }}
+        subheaderTypographyProps={{ variant: "h6" }}
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             {type === "pies" ? "P" : "K"}
@@ -113,28 +117,21 @@ export default function AnimalCard(props) {
         title={name}
         subheader={age}
       />
-      <CardMedia
-        className={classes.media}
-        image={imageUrl}
-        title={name}
-      />
+      <CardMedia className={classes.media} image={imageUrl} title={name} />
       <CardContent>
         <Typography color="textSecondary" component="p">
           {descriptionBasic}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing style={{ position: "absolute", bottom: 10 }}>
+      <CardActions disableSpacing style={{ position: "absolute", bottom: 10, left:35 }}>
         <IconButton
           aria-label="add to favorites"
-          style={{ color: isFavourite ? "#fda8c9" : "#3c3d47" }}
+          style={{ color: isFavourite ? "#fda8c9" : "#3c3d47", paddingRight:20 }}
           onClick={() => {
             props.onAddToFavourite(animal, isFavourite);
           }}
         >
           <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share" style={{ color: " #3c3d47" }}>
-          <ShareIcon />
         </IconButton>
         <Button
           variant="outlined"
