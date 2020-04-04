@@ -7,7 +7,7 @@ import TopBar from "./TopBar.js";
 const listItemsForAll = [
   { text: "Strona główna", page: "" },
   { text: "Nasze zwierzaki", page: "naszezwierzaki" },
-  { text: "Wesprzyj nas", page: "wesprzyjnas" }
+  { text: "Jak nam pomóc?", page: "wesprzyjnas" }
 ];
 const listItemsForUsers = [
   { text: "Panel użytkownika", page: "paneluzytkownika" },
@@ -27,15 +27,14 @@ function Navigation(props) {
       <TopBar handleDrawerToggle={handleDrawerToggle} />
 
       <nav>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
+        <Hidden mdUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true // Better open performance on mobile.
+              keepMounted: true 
             }}
           >
             <div className={style.navSections}>
@@ -49,9 +48,13 @@ function Navigation(props) {
                 listItems={listItemsForUsers}
               />
             </div>
+            <div className={style.logoContainer}>
+              <img  className={style.logo} src="images/logo_grey.png" alt="logo"/>
+              <img  className={style.logoText} src="images/name_grey.png" alt="nazwa"/>
+            </div>
           </Drawer>
         </Hidden>
-        <Hidden xsDown>
+        <Hidden smDown>
           <Drawer variant="permanent" open>
             <div className={style.navSections}>
               <NavSection listItems={listItemsForAll} />
@@ -59,8 +62,8 @@ function Navigation(props) {
               <NavSection listItems={listItemsForUsers} />
             
             <div className={style.logoContainer}>
-              <img  className={style.logo} src="images/logo_grey.png" />
-              <img  className={style.logoText} src="images/name_grey.png" />
+              <img  className={style.logo} src="images/logo_grey.png" alt="logo"/>
+              <img  className={style.logoText} src="images/name_grey.png" alt="nazwa"/>
             </div>
             </div>
           </Drawer>
