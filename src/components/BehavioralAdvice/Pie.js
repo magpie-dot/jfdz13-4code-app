@@ -1,62 +1,49 @@
-import * as React from 'react';
-import Paper from '@material-ui/core/Paper';
+import * as React from "react";
 import {
   Chart,
   PieSeries,
   Title,
-} from '@devexpress/dx-react-chart-material-ui';
+  Tooltip,
+  Legend
+} from "@devexpress/dx-react-chart-material-ui";
 
+import { Animation } from "@devexpress/dx-react-chart";
 
-
-import { Animation } from '@devexpress/dx-react-chart';
-
-
-
-  
+import { EventTracker, HoverState } from "@devexpress/dx-react-chart";
 
 const data = [
-  { region: 'Asia', val: 4119626293 },
-  { region: 'Africa', val: 1012956064 },
-  { region: 'Northern America', val: 344124520 },
-  { region: 'Latin America and the Caribbean', val: 590946440 },
-  { region: 'Europe', val: 727082222 },
-  { region: 'Oceania', val: 35104756 },
+  { city: "Lublin", val: 40 },
+  { city: "Gdańsk", val: 120 },
+  { city: "Poznań", val: 60 },
+  { city: "Wrocław", val: 250 },
+  { city: "Warszawa", val: 80 },
+  { city: "Kraków", val: 130 }
 ];
 
 export default class Pie extends React.PureComponent {
- 
- 
   constructor(props) {
     super(props);
-  
+
     this.state = {
-      data,
+      data
     };
   }
- 
+
   render() {
     const { data: chartData } = this.state;
-  
+
     return (
-     
-      <Paper style={{height:350, width: 350,}}>
-   
-        <Chart 
-          data={chartData}
-        >
-          <PieSeries 
-            valueField="val"
-            argumentField="region"
-            innerRadius={0.6}
-          />
-          <Title style={{display: 'none'}}
-            text= ""
-          />
-         
+      <div>
+        <Chart data={chartData}>
+          <PieSeries valueField="val" argumentField="city" innerRadius={0.4} />
+          <Title text="Zwierzaki adoptowane w polskich miastach" />
+          <Legend />
           <Animation />
+          <EventTracker />
+          <HoverState />
+          <Tooltip />
         </Chart>
-      </Paper>
-  
+      </div>
     );
   }
 }
