@@ -25,7 +25,7 @@ function Navigation(props) {
 
   return (
     <div>
-      <TopBar handleDrawerToggle={handleDrawerToggle} />
+      <TopBar handleDrawerToggle={handleDrawerToggle} favouriteAnimals={props.favouriteAnimals}/>
 
       <nav>
         <Hidden mdUp implementation="css">
