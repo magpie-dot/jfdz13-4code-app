@@ -5,7 +5,7 @@ import CuriosityPanel from "./CuriosityPanel";
 import CharityPanel from "./CharityPanel";
 import FavouriteAnimalPanel from "./FavouriteAnimalPanel";
 
-const UserPanel = () => {
+const UserPanel = ({favouriteAnimals}) => {
   return (
     <>
       <Grid container spacing={3}>
@@ -19,7 +19,7 @@ const UserPanel = () => {
           <CharityPanel/>
         </Grid>
         <Grid item xs={12}>
-          <FavouriteAnimalPanel/>
+          <FavouriteAnimalPanel favouriteAnimals={favouriteAnimals}/>
         </Grid>
       </Grid>
     </>

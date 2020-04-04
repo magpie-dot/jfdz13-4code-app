@@ -65,3 +65,8 @@
   border-radius: 15px;
   text-align: center;
 }
+
+.favouriteImage {
+  width: 300px;
+  height: auto;
+}

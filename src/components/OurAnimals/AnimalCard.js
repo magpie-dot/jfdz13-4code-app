@@ -1,40 +1,29 @@
-import React, { Component, useState } from "react";
-import style from "./OurAnimals.module.css";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  Typography,
+  IconButton,
+  Avatar,
+  CardContent,
+  CardActions,
+  Button,
+  Dialog
+} from "@material-ui/core";
+
+import CloseIcon from "@material-ui/icons/Close";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { typography } from "@material-ui/system";
-import Grid from "@material-ui/core/Grid";
-import { Button } from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
-import Dialog from "@material-ui/core/Dialog";
-import CloseIcon from "@material-ui/icons/Close";
 import { withStyles } from "@material-ui/core/styles";
-import { Header, Image, Modal } from "semantic-ui-react";
-
 
 const styles = theme => ({
   root2: {
-    // margin: 0,
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
 
-    // height:350,
-    // width:'auto'
   },
   closeButton: {
     position: "absolute",
@@ -43,10 +32,8 @@ const styles = theme => ({
     color: theme.palette.grey[500]
   },
   openButton: {
-    // position: 'absolute',
-    // right: theme.spacing(1),
-    // top: theme.spacing(1),
-    color: theme.palette.grey[500]
+    color: theme.palette.grey[500],
+   
   }
 });
 
@@ -58,8 +45,8 @@ const useStyles = makeStyles(theme => ({
     height: 470,
     marginBottom: 20,
     marginRight: 20,
-    display: "inline-block"
-    //  position: "absolute"
+    display: "inline-block",
+
   },
   media: {
     height: 0,
@@ -76,17 +63,20 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: "rotate(180deg)"
   },
-  avatar: {
-    backgroundColor: "#3cc1fa"
-  },
+  
   heart: {
     position: "relative",
     bottom: 10
+  },
+  avatar: {
+    backgroundColor: "#3cc1fa",
+    marginRight:0
   },
   typography: {
     fontSize: "2rem"
   }
 }));
+
 const DialogTitle = withStyles(styles)(props => {
   const { children, classes, onClose, ...other } = props;
   return (
@@ -111,17 +101,16 @@ const DialogContent = withStyles(theme => ({
   }
 }))(MuiDialogContent);
 
-const DialogActions = withStyles(theme => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1)
-  }
-}))(MuiDialogActions);
-
 export default function AnimalCard(props) {
+  const {
+    isFavourite,
+    animal,
+    animal: {
+      data: { type, name, age, imageUrl, id },
+      descriptions: { descriptionBasic, descriptionExtended }
+    }
+  } = props;
   const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
-  const [like, setLike] = useState("#3c3d47");
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -130,47 +119,38 @@ export default function AnimalCard(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card className={classes.root}>
       <CardHeader
+        titleTypographyProps={{ variant: "h5" }}
+        subheaderTypographyProps={{ variant: "h6" }}
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {props.data.type === "pies" ? "P" : "K"}
+            {type === "pies" ? "P" : "K"}
           </Avatar>
         }
-        title={props.data.name}
-        subheader={props.data.age}
+        title={name}
+        subheader={age}
       />
-      <CardMedia
-        className={classes.media}
-        image={props.data.imageUrl}
-        title={props.data.name}
-      />
+      <CardMedia className={classes.media} image={imageUrl} title={name} />
       <CardContent>
         <Typography color="textSecondary" component="p">
-          {props.descriptions.descriptionBasic}
+          {descriptionBasic}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing style={{ position: "absolute", bottom: 10, left:35 }}>
         <IconButton
           aria-label="add to favorites"
-          style={{ color: like }}
+          style={{ color: isFavourite ? "#fda8c9" : "#3c3d47", paddingRight:20 }}
           onClick={() => {
-            setLike("#fda8c9");
+            props.onAddToFavourite(animal, isFavourite);
           }}
         >
-          <FavoriteIcon className={classes.heart} />
-        </IconButton>
-        <IconButton aria-label="share" style={{ color: " #3c3d47" }}>
-          <ShareIcon />
+          <FavoriteIcon />
         </IconButton>
         <Button
           variant="outlined"
-          color="#3cc1fa"
           onClick={handleClickOpen}
           className={classes.openButton}
         >
@@ -184,25 +164,23 @@ export default function AnimalCard(props) {
           <DialogTitle
             id="customized-dialog-title"
             onClose={handleClose}
-            key={props.data.id}
+            key={id}
           >
-            {props.data.name}
+            {name}
             <br />
-            {props.data.age}
+            {age}
             <div>
               <img
-                src={props.data.imageUrl}
+                src={imageUrl}
                 style={{ width: "auto", maxWidth: 530, height: 350 }}
+                alt="zdjęcie zwierzaka"
               />
             </div>
           </DialogTitle>
           <DialogContent dividers>
-            <Typography
-              style={{ textAlign: "justify" }}
-              //  gutterBottom
-            >
-              {props.descriptions.descriptionBasic}
-              {props.descriptions.descriptionExtended}
+            <Typography style={{ textAlign: "justify", padding: 15 }}>
+              {descriptionBasic}
+              {descriptionExtended}
             </Typography>
           </DialogContent>
         </Dialog>

@@ -33,7 +33,7 @@ export class Confirm extends Component {
     } = this.props;
     return (
       <Grid container spacing={3}>
-        <Grid item item xs={6} sm={6}>
+        <Grid item xs={6} sm={6}>
           <Paper elevation={3} style={{ padding: 20 }}>
             <Grid
               container
@@ -113,7 +113,12 @@ export class Confirm extends Component {
         </Grid>
         <Grid item xs={6}>
           <div>
-            <img src="images/picPlayfulCat.png" height="550" width="550"></img>
+            <img
+              src="images/picPlayfulCat.png"
+              height="550"
+              width="550"
+              alt="kot"
+            ></img>
           </div>
         </Grid>
       </Grid>

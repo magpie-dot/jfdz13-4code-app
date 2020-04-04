@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Input,
   InputLabel,
   Select,
   MenuItem,
@@ -8,7 +7,6 @@ import {
   Typography
 } from "@material-ui/core";
 import style from "./OurAnimals.module.css";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 class Filters extends Component {
   state = {
@@ -59,39 +57,23 @@ class Filters extends Component {
     return (
       <>
         <div className={style.multiselect}>
-          {/* <div className={style.filter.type}> */}
-          {/* //  style={{marginTop: '50px'}} */}
           <div className={style.filter}>
             <Typography>Wyszukaj:</Typography>
 
             <InputLabel onChange={this.onNameFilterChanged} />
             <InputLabel onChange={this.onSexFilterChanged} />
             <InputLabel onChange={this.onGoodForKidsFilterChanged} />
-
-            {/*           
-                //  style={{padding: '20px'}}
-                 > */}
             <Select onChange={this.onTypeFilterChanged} value={type}>
               <MenuItem value="empty"></MenuItem>
               <MenuItem value="all">Wszystkie zwierzaki</MenuItem>
               <MenuItem value="pies">Psy</MenuItem>
               <MenuItem value="kot">Koty</MenuItem>
             </Select>
-            {/* </div> */}
-            {/* <div className={style.filter.sex}> */}
-            {/* //  style={{marginTop: '50px'}}
-                 > */}
-            {/* //  style={{padding: '20px'}} */}
             <Select onChange={this.onSexFilterChanged} value={sex}>
               <MenuItem value="all">Płeć</MenuItem>
               <MenuItem value="female">Ona</MenuItem>
               <MenuItem value="male">On</MenuItem>
             </Select>
-            {/* </div>
-          <div className={style.filter.kids}> */}
-            {/* //  style={{marginTop: '50px'}}
-                 > */}
-            {/* //  style={{padding: '20px'}} */}
             <Select
               onChange={this.onGoodForKidsFilterChanged}
               value={goodForKids}
@@ -101,11 +83,6 @@ class Filters extends Component {
               <MenuItem value="no">Nie przepadają za dziećmi</MenuItem>
             </Select>
             <Button variant="outlined" size="medium" onClick = {this.removeAllFilters}> X Usuń filtry</Button>
-            {/* <Typography>
-              Usuń filtry <HighlightOffIcon fontSize="big" onClick={this.removeAllFilters} />{" "}
-            </Typography> */}
-
-            {/* </div> */}
           </div>
         </div>
       </>

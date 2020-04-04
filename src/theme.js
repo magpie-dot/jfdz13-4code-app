@@ -29,6 +29,7 @@ const theme = createMuiTheme({
     body3: {
       fontSize: "10px"
     }
+
   }
 });
 
