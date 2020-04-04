@@ -82,23 +82,27 @@ class OurAnimals extends Component {
         });
     };
 
+    checkFavourite = animal => this.props.favouriteAnimals.some(favouriteAnimal => favouriteAnimal.id === animal.id);
+
     render() {
         return (
             <>
                 {this.props.loading && <CircularProgress thickness={5}/>}
                 {!this.props.loading &&
-                    <div className={style.animalsList}>
-                        <Filters
-                            onTypeFilterChanged={this.onTypeFilterChanged}
-                            onNameFilterChanged={this.onNameFilterChanged}
-                            onSexFilterChanged={this.onSexFilterChanged}
-                            onGoodForKidsFilterChanged={this.onGoodForKidsFilterChanged}
-                            removeAllFilters={this.removeAllFilters}
-                        />
-                        {this.getAnimals().map(({id, data, descriptions}) => (
-                            <AnimalCard key={id} data={data} descriptions={descriptions} onAddToFavourite={this.props.onAddToFavourite}/>
-                        ))}
-                    </div>
+                <div className={style.animalsList}>
+                    <Filters
+                        onTypeFilterChanged={this.onTypeFilterChanged}
+                        onNameFilterChanged={this.onNameFilterChanged}
+                        onSexFilterChanged={this.onSexFilterChanged}
+                        onGoodForKidsFilterChanged={this.onGoodForKidsFilterChanged}
+                        removeAllFilters={this.removeAllFilters}
+                    />
+                    {this.getAnimals().map((animal, index) => (
+                        <AnimalCard key={index} animal={animal}
+                                    isFavourite={this.checkFavourite(animal)}
+                                    onAddToFavourite={this.props.onAddToFavourite}/>
+                    ))}
+                </div>
                 }
 
             </>

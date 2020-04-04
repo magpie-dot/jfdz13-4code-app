@@ -17,7 +17,7 @@ class App extends Component {
         animals: [],
         loading: true,
         error: null,
-        favouriteAnimals: 0,
+        favouriteAnimals: [],
 
     };
 
@@ -34,9 +34,13 @@ class App extends Component {
             .catch(error => this.setState(...this.state, error));
     }
 
-    onAddToFavourite = () => {
-        this.setState ({
-            favouriteAnimals: this.state.favouriteAnimals +1
+    onAddToFavourite = (animal, isFavourite) => {
+        const { favouriteAnimals } = this.state;
+        this.setState({
+            ...this.state,
+            favouriteAnimals: isFavourite
+                    ? [...favouriteAnimals.filter(favouriteAnimal => favouriteAnimal.id !== animal.id)]
+                    : [...favouriteAnimals, animal],
         })
     };
 
@@ -49,10 +53,14 @@ class App extends Component {
                 <CssBaseline/>
                 <ThemeProvider theme={theme}>
                     <div>
-                        <Navigation favouriteAnimals={favouriteAnimals} >
+                        <Navigation favouriteAnimals={favouriteAnimals}>
                             <Switch>
                                 <Route exact path="/" component={HomePage}/>
-                                <Route path="/naszezwierzaki" component={() => <OurAnimals animals={animals} loading={loading} error={error} onAddToFavourite={this.onAddToFavourite} />}/>
+                                <Route path="/naszezwierzaki" component={() => <OurAnimals animals={animals}
+                                                                                           favouriteAnimals={favouriteAnimals}
+                                                                                           loading={loading}
+                                                                                           error={error}
+                                                                                           onAddToFavourite={this.onAddToFavourite}/>}/>
                                 <Route path="/poradybehawiorysty" component={BehavioralAdvice}/>
                                 <Route path="/wesprzyjnas" component={SupportUs}/>
                                 <Route path="/paneluzytkownika" component={UserPanel}/>
