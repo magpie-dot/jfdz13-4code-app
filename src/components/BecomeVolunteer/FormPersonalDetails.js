@@ -4,15 +4,14 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import styles from "./formStyle.css";
 
 export class FormPersonalDetails extends Component {
-  continue = e => {
+  continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
   };
 
-  back = e => {
+  back = (e) => {
     e.preventDefault();
     this.props.prevStep();
   };
@@ -22,14 +21,14 @@ export class FormPersonalDetails extends Component {
     return (
       <Grid container spacing={3}>
         <Grid item item xs={6} sm={6}>
-          <Paper elevation={3} className={styles.paper}>
+          <Paper elevation={3} style={{ padding: 20 }}>
             <Grid
               container
               direction="column"
               justify="center"
               alignItems="center"
             >
-              <div id={styles.root}>
+              <div>
                 <h2>Formularz rejestracji wolontariusza</h2>
 
                 <TextField
@@ -90,13 +89,8 @@ export class FormPersonalDetails extends Component {
         </Grid>
 
         <Grid item xs={6}>
-          <div className={styles.picture}>
-            <img
-              className={styles.dog}
-              src="images/picPlayfulCat.png"
-              height="550"
-              width="550"
-            ></img>
+          <div>
+            <img src="images/picPlayfulCat.png" height="550" width="550"></img>
           </div>
         </Grid>
       </Grid>
