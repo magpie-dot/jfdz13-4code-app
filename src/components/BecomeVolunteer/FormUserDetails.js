@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 export class FormUserDetails extends Component {
-  continue = (e) => {
+  continue = e => {
     e.preventDefault();
     this.props.nextStep();
   };
@@ -20,7 +20,7 @@ export class FormUserDetails extends Component {
 
     return (
       <Grid container spacing={3}>
-        <Grid item item xs={6} sm={6}>
+        <Grid item xs={6} sm={6}>
           <Paper elevation={3} style={{ padding: 20 }}>
             <Grid
               container
@@ -31,13 +31,11 @@ export class FormUserDetails extends Component {
               <div>
                 <h2>Formularz rejestracji wolontariusza</h2>
                 <TextField
-                  type="email"
                   label="Imię"
                   variant="outlined"
                   onChange={handleChange("firstName")}
                   defaultValue={values.firstName}
-                  fullWidth="true"
-                  input
+                  fullWidth
                   type="text"
                 />
                 <br></br>
@@ -47,8 +45,7 @@ export class FormUserDetails extends Component {
                   variant="outlined"
                   onChange={handleChange("lastName")}
                   defaultValue={values.lastName}
-                  fullWidth="true"
-                  input
+                  fullWidth
                   type="text"
                 />
                 <br></br>
@@ -58,8 +55,7 @@ export class FormUserDetails extends Component {
                   variant="outlined"
                   onChange={handleChange("email")}
                   defaultValue={values.email}
-                  fullWidth="true"
-                  input
+                  fullWidth
                   type="email"
                 />
                 <br></br>
@@ -70,7 +66,7 @@ export class FormUserDetails extends Component {
                   variant="outlined"
                   onChange={handleChange("adress")}
                   defaultValue={values.adress}
-                  fullWidth="true"
+                  fullWidth
                 />
                 <br></br>
                 <br></br>
@@ -79,7 +75,7 @@ export class FormUserDetails extends Component {
                   variant="outlined"
                   onChange={handleChange("postalCode")}
                   defaultValue={values.postalCode}
-                  fullWidth="true"
+                  fullWidth
                 />
                 <br></br>
                 <br></br>
@@ -88,17 +84,26 @@ export class FormUserDetails extends Component {
                   variant="outlined"
                   onChange={handleChange("phoneNumber")}
                   defaultValue={values.phoneNumber}
-                  fullWidth="true"
+                  fullWidth
                 />
-                <br></br>
-                <br></br>
-                <Button
-                  variant="contained"
-                  color="Primary"
-                  onClick={this.continue}
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: 20
+                  }}
                 >
-                  Zapisz
-                </Button>
+                  <br></br>
+                  <br></br>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.continue}
+                  >
+                    Zapisz
+                  </Button>
+                </div>
               </div>
             </Grid>
           </Paper>
@@ -106,7 +111,7 @@ export class FormUserDetails extends Component {
 
         <Grid item xs={6}>
           <div>
-            <img src="images/picPlayfulCat.png" height="550" width="550"></img>
+            <img src="images/picPlayfulCat.png" height="550" width="550" alt="kot"></img>
           </div>
         </Grid>
       </Grid>

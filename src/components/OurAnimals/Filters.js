@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core";
 import style from "./OurAnimals.module.css";
 
-
 class Filters extends Component {
   state = {
     type: "all",

@@ -7,12 +7,10 @@ const theme = createMuiTheme({
       contrastText: "#fff"
     },
     secondary: {
-      main: "rgb(253, 168, 201)",
-      contrastText: "#fff"
+      main: "rgb(234,76,137)",
     },
     action: {
-      hover: "rgb(253, 168,201)",
-
+      hover: "rgb(234,76,137)",
     }
   },
   zIndex: {
@@ -26,6 +24,10 @@ const theme = createMuiTheme({
     },
     body2: {
       fontSize: "1.1rem"
+      
+    },
+    body3: {
+      fontSize: "10px"
     }
 
   }

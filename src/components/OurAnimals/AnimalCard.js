@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
@@ -17,7 +17,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -53,6 +52,22 @@ const useStyles = makeStyles(theme => ({
     height: 0,
     paddingTop: "56.25%" // 16:9
   },
+  expand: {
+    color: " #3c3d47",
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest
+    })
+  },
+  expandOpen: {
+    transform: "rotate(180deg)"
+  },
+  
+  heart: {
+    position: "relative",
+    bottom: 10
+  },
   avatar: {
     backgroundColor: "#3cc1fa",
     marginRight:0
@@ -61,6 +76,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: "2rem"
   }
 }));
+
 const DialogTitle = withStyles(styles)(props => {
   const { children, classes, onClose, ...other } = props;
   return (
@@ -135,7 +151,6 @@ export default function AnimalCard(props) {
         </IconButton>
         <Button
           variant="outlined"
-          color="#3cc1fa"
           onClick={handleClickOpen}
           className={classes.openButton}
         >
@@ -158,6 +173,7 @@ export default function AnimalCard(props) {
               <img
                 src={imageUrl}
                 style={{ width: "auto", maxWidth: 530, height: 350 }}
+                alt="zdjęcie zwierzaka"
               />
             </div>
           </DialogTitle>

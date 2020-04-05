@@ -7,7 +7,6 @@ import TopBar from "./TopBar.js";
 const listItemsForAll = [
   { text: "Strona główna", page: "" },
   { text: "Nasze zwierzaki", page: "naszezwierzaki" },
-  { text: "Porady behawiorysty", page: "poradybehawiorysty" },
   { text: "Jak nam pomóc?", page: "wesprzyjnas" }
 ];
 const listItemsForUsers = [
@@ -25,7 +24,10 @@ function Navigation(props) {
 
   return (
     <div>
-      <TopBar handleDrawerToggle={handleDrawerToggle} favouriteAnimals={props.favouriteAnimals}/>
+      <TopBar
+        handleDrawerToggle={handleDrawerToggle}
+        favouriteAnimals={props.favouriteAnimals}
+      />
 
       <nav>
         <Hidden mdUp implementation="css">
@@ -35,7 +37,7 @@ function Navigation(props) {
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true 
+              keepMounted: true
             }}
           >
             <div className={style.navSections}>
@@ -50,21 +52,40 @@ function Navigation(props) {
               />
             </div>
             <div className={style.logoContainer}>
-              <img  className={style.logo} src="images/logo_grey.png" alt="logo"/>
-              <img  className={style.logoText} src="images/name_grey.png" alt="nazwa"/>
+              <img
+                className={style.logo}
+                src="images/logo_grey.png"
+                alt="logo"
+              />
+              <img
+                className={style.logoText}
+                src="images/name_grey.png"
+                alt="nazwa"
+              />
             </div>
           </Drawer>
         </Hidden>
         <Hidden smDown>
           <Drawer variant="permanent" open>
             <div className={style.navSections}>
-              <NavSection listItems={listItemsForAll} />
-              <Divider />
-              <NavSection listItems={listItemsForUsers} />
-            </div>
-            <div className={style.logoContainer}>
-              <img  className={style.logo} src="images/logo_grey.png" alt="logo"/>
-              <img  className={style.logoText} src="images/name_grey.png" alt="nazwa"/>
+              <div>
+                <NavSection listItems={listItemsForAll} />
+                <Divider />
+                <NavSection listItems={listItemsForUsers} />
+              </div>
+
+              <div className={style.logoContainer}>
+                <img
+                  className={style.logo}
+                  src="images/logo_grey.png"
+                  alt="logo"
+                />
+                <img
+                  className={style.logoText}
+                  src="images/name_grey.png"
+                  alt="nazwa"
+                />
+              </div>
             </div>
           </Drawer>
         </Hidden>

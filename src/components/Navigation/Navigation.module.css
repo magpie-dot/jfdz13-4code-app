@@ -1,42 +1,35 @@
 .navSections {
-    height: 100%;
-    padding: 70px 0;
-    background-color: #3c3d47;
-    width: 350px;
-    color: whitesmoke;
-    font-family: 'Hind', sans-serif;   
+  height: 100%;
+  padding: 100px 0 0;
+  background-color: #3c3d47;
+  width: 350px;
+  color: whitesmoke;
+  font-family: "Hind", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
 
 .listItems {
-    margin: 30px 0 ;
-}
-
-.petIcon {
-    color: #3a3d4f;
-}
-
-.image{
-    width: 300px;
-    padding: 0 px;
+  margin: 30px 0;
 }
 
 .logoContainer {
-    background-color: #3c3d47;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 50px;
+  background-color: #3c3d47;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
 }
 
 .logo {
-    width: 70px;
+  width: 80px;
+  top: 80px;
 }
 
 .logoText {
-    height: 80px;
-    width: 200px;
+  height: 90px;
+  top: 100px;
 }
-

@@ -11,7 +11,7 @@
 .circle {
   width: 150px;
   height: 150px;
-  background-color: rgb(253, 168, 201);
+  background-color: rgb(234,76,137);
   position: absolute;
   left: 50%;
   top: 40px;
@@ -61,7 +61,12 @@
 .curiosity {
   padding: 45px 20px 20px;
   margin: -55px 20px 20px;
-  border: solid 5px #fda8c9;
+  border: solid 5px rgb(234,76,137);
   border-radius: 15px;
   text-align: center;
+}
+
+.favouriteImage {
+  width: 300px;
+  height: auto;
 }
