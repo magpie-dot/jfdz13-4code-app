@@ -38,14 +38,14 @@ const useStyles = makeStyles((theme) => ({
   header: {
     display: 'flex',
     alignItems: 'center',
-    height: 50,
+    height: 40,
     paddingLeft: theme.spacing(4),
 
   },
   img: {
     height: 255,
     display: 'block',
-    maxWidth: 400,
+    maxWidth: 440,
     overflow: 'hidden',
     width: '100%',
   },

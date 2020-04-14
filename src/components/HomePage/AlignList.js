@@ -35,11 +35,11 @@ export default function AlignItemsList() {
         </ListItemAvatar>
         <ListItemText
           style={{ fontSize: 13 }}
-          primary="Pracują tam wspaniali ludzie, zaangażowani w pracę wypełnioną miłością do zwierząt."
-          secondary={
+          secondary="Pracują tam wspaniali ludzie, zaangażowani w pracę wypełnioną miłością do zwierząt."
+          primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "#EA4C89" }}
+                style={{ fontSize: 15, color: "black"}} 
                 component="span"
                 color="#FDA8C9"
               >
@@ -58,11 +58,11 @@ export default function AlignItemsList() {
           <Avatar alt="Monika" src="images/Monika.png" />
         </ListItemAvatar>
         <ListItemText
-          primary="Super fundacja!Pomagają zwierzakom odzyskać nadzieję na lepszy los."
-          secondary={
+          secondary="Super fundacja!Pomagają zwierzakom odzyskać nadzieję na lepszy los."
+          primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "#EA4C89" }}
+                style={{ fontSize: 15, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"
@@ -83,11 +83,11 @@ export default function AlignItemsList() {
         </ListItemAvatar>
         <ListItemText
           style={{ fontSize: 20 }}
-          primary="Tak trzymać! Wasza misja jest ważna."
-          secondary={
+          secondary="Tak trzymać! Wasza misja jest ważna."
+          primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "#EA4C89" }}
+                style={{ fontSize: 15, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"
@@ -108,11 +108,11 @@ export default function AlignItemsList() {
         </ListItemAvatar>
         <ListItemText
           style={{ fontSize: 20 }}
-          primary="Niesamowici! Ratują zwierzaki i nie są obojętni na ich krzywdę. "
-          secondary={
+          secondary="Niesamowici! Ratują zwierzaki i nie są obojętni na ich krzywdę. "
+          primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "#EA4C89" }}
+                style={{ fontSize: 15, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"
@@ -133,11 +133,11 @@ export default function AlignItemsList() {
         </ListItemAvatar>
         <ListItemText
           style={{ fontSize: 20 }}
-          primary="Wspaniała ekipa i projekt!!!"
-          secondary={
+          secondary="Wspaniała ekipa i projekt!!!"
+          primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "#EA4C89" }}
+                style={{ fontSize: 15, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"

@@ -12,13 +12,13 @@ const tutorialSteps = [
     label: 'Korek, lat 8',
     imgPath:
     "images/zd11.jpg" ,
-     
+ 
   },
+ 
   {
     label: 'X-men, lat 2',
     imgPath:
      "images/zdj15.jpg" ,
-     
   },
   {
     label: 'Jogi, lat 12',
@@ -27,6 +27,9 @@ const tutorialSteps = [
   },
  
 ];
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,14 +41,14 @@ const useStyles = makeStyles((theme) => ({
   header: {
     display: 'flex',
     alignItems: 'center',
-    height: 50,
+    height: 40,
     paddingLeft: theme.spacing(4),
     
   },
   img: {
     height: 255,
     display: 'block',
-    maxWidth: 400,
+    maxWidth: 440,
     overflow: 'hidden',
     width: '100%',
   },
@@ -60,8 +63,10 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
+    
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
+  
         <Typography>{tutorialSteps[activeStep].label}</Typography>
       </Paper>
       <AutoPlaySwipeableViews

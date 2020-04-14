@@ -27,14 +27,14 @@ const useStyles = makeStyles(theme => ({
   paper2: {
     padding: theme.spacing(2),
 
-    height: 350,
+    height: 340,
     textAlign: "center",
     color: theme.palette.text.secondary
   },
 
   paper5: {
     padding: theme.spacing(3),
-    height: 540,
+    height: 500,
     textAlign: "left",
     textColor: "black",
     fontSize: 19,
@@ -43,9 +43,9 @@ const useStyles = makeStyles(theme => ({
   },
   paper6: {
     padding: theme.spacing(2),
-    textAlign: "left",
     textColor: "grey",
-    color: theme.palette.text.secondary
+    
+ 
   },
 
   description: {
@@ -75,13 +75,13 @@ export default function HomePage() {
         </p>
         <p
           style={{
-            fontSize: 20,
+            fontSize: 16,
             color: "grey",
             marginTop: 0,
-            fontFamily: "'Hind',sans-serif",
-            textAlign: "center",
-            width: 1000,
-            marginLeft: 50
+            fontFamily: "roboto",
+            textAlign: "left",
+            width: 800,
+            marginLeft: 170
           }}
         >
           Adoptuj, nie kupuj! – Rozpoczynając poszukiwania przyjaciela, można
@@ -92,8 +92,7 @@ export default function HomePage() {
 
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <Paper className={classes.paper2}>
-            <Carusel />
+          <Paper className={classes.paper2}> <Carusel /> 
           </Paper>
         </Grid>
         <Grid item xs={4}>
@@ -109,26 +108,17 @@ export default function HomePage() {
         </Grid>
         <Grid item xs={8}>
           <Paper className={classes.paper5}>
-            <p
-              style={{
-                fontSize: 23,
-                marginTop: 5,
-                color: "black",
-                marginBottom: 1,
-                fontFamily: "'Hind',sans-serif",
-                textAlign: "center"
-              }}
-            >
-              Współpracują z nami najwięksi celebryci. Zobacz ich opinie o
-              naszej fundacji.
-            </p>
+           
             <AlignList />
           </Paper>
         </Grid>
 
         <Grid item xs={4}>
+   
           <Paper className={style.paper6}>
-            <Pie />
+         
+            <Pie/> 
+            <img className={style.down} src="images/womendogrb.png" alt="dziewczyna z psem" />
           </Paper>
         </Grid>
       </Grid>
