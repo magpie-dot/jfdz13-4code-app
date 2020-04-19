@@ -31,7 +31,7 @@ class FavouriteAnimalPanel extends React.Component {
               {console.log(animal.data.type)}
               return (
                 <Grid item>
-                <Card>
+                <Card className={styles.card}>
                   <img className={styles.favouriteImage} src={animal.data.imageUrl} alt="zwierzak"/>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">

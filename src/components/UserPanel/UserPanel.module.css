@@ -67,6 +67,10 @@
 }
 
 .favouriteImage {
+  height: 200px;
+  background-size: cover;
+}
+
+.card {
   width: 300px;
-  height: auto;
 }
