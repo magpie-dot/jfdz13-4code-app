@@ -33,3 +33,7 @@
   height: 90px;
   top: 100px;
 }
+
+.active {
+  color: rgb(234,76,137);
+}
