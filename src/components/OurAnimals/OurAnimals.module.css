@@ -22,13 +22,25 @@
 }
 
 .select {
-width:220px;
+width:240px;
+
 }
 
-@media (max-width: 100px) {
+@media (max-width: 800px) {
     .filter {
         text-align: center;
         width: 100%;
       display: block;
     }
+    .select {
+      width:180px;
+    }
+
   }
+
+
+@media (max-width: 600px) {
+  .fromControl {
+    font-size:1rem;
+  }
+}

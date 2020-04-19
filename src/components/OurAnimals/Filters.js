@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  InputLabel,
   Select,
   MenuItem,
   Button,
@@ -64,55 +63,45 @@ class Filters extends Component {
             <Typography>Wyszukaj:</Typography>
             </div>
 <div className = {styles.filter}>
-<FormControl variant="outlined"
-//  className={classes.formControl}
+<FormControl variant="outlined" className = {styles.formControl}
  >
 <Select
 className = {styles.select}
-  // labelId="demo-simple-select-outlined-label"
-  // id="demo-simple-select-outlined"
+
   value={type}
   onChange={this.onTypeFilterChanged}
   label="Wszystkie zwierzaki"
-  // style = {{marginRight:70}}
 >
-  {/* <MenuItem value={"empty"}></MenuItem> */}
+
   <MenuItem value="all">Wszystkie zwierzaki</MenuItem>
   <MenuItem value="pies">Psy</MenuItem>
   <MenuItem value="kot">Koty</MenuItem>
 </Select>
 </FormControl>
 <FormControl variant="outlined"
-//  className={classes.formControl}
+
  >
 <Select
 className = {styles.select}
-  // labelId="demo-simple-select-outlined-label"
-  // id="demo-simple-select-outlined"
   value={sex}
   onChange={this.onSexFilterChanged}
   label="Wszystkie zwierzaki"
-//  style = {{marginRight:70}} 
+
 >
-  {/* <MenuItem value={"empty"}></MenuItem> */}
   <MenuItem value="all">Płeć</MenuItem>
   <MenuItem value="female">Ona</MenuItem>
   <MenuItem value="male">On</MenuItem>
 </Select>
 </FormControl>
 <FormControl variant="outlined"
-//  className={classes.formControl}
+
  >
 <Select
 className = {styles.select}
-  // labelId="demo-simple-select-outlined-label"
-  // id="demo-simple-select-outlined"
   value={goodForKids}
   onChange={this.onGoodForKidsFilterChanged}
   label="Dodatkowe informacje"
-  // style = {{ width:220}}
 >
-  {/* <MenuItem value={"empty"}></MenuItem> */}
   <MenuItem value="all">Dodatkowe informacje</MenuItem>
   <MenuItem value="yes">Idealne do domu z dziećmi</MenuItem>
   <MenuItem value="no">Nie przepadają za dziećmi</MenuItem>
