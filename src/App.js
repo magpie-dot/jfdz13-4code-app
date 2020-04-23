@@ -10,6 +10,8 @@ import Navigation from "./components/Navigation";
 import OurAnimals from "./components/OurAnimals";
 import SupportUs from "./components/SupportUs";
 import UserPanel from "./components/UserPanel";
+import Sign from "./components/Sign";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
 class App extends Component {
   state = {
@@ -20,6 +22,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    // fetch('https://code-for-animals-90802.firebaseio.com/animals')
     fetch("animals.json")
       .then(response => response.json())
       .then(response =>
@@ -53,8 +56,8 @@ class App extends Component {
         <CssBaseline />
         <ThemeProvider theme={theme}>
           <div>
-            <Navigation favouriteAnimals={favouriteAnimals}>
-              <Switch>
+            <Switch>
+              <Navigation favouriteAnimals={favouriteAnimals}>
                 <Route exact path="/" component={HomePage} />
                 <Route
                   path="/naszezwierzaki"
@@ -79,8 +82,14 @@ class App extends Component {
                   path="/zostanwolontariuszem"
                   component={BecomeVolunteer}
                 />
-              </Switch>
-            </Navigation>
+                <Route path="/sign-up">
+                  <Sign isSignUp />
+                </Route>
+                <Route path="/sign-in">
+                  <Sign />
+                </Route>
+              </Navigation>
+            </Switch>
           </div>
         </ThemeProvider>
       </BrowserRouter>

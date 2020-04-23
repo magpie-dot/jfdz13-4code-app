@@ -6,15 +6,30 @@ import {
   Typography,
   Hidden,
   Badge,
-  Grid
+  Grid,
+  Button
 } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MenuIcon from "@material-ui/icons/Menu";
+import firebase from "../Firebase"; 
+import Sign from "../Sign";
+import UserProvider from "../UserProvider"
+import {Link} from 'react-router-dom';
 
 
 const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
+  const handleSignOut = () => {
+    firebase.auth().signOut();
+    window.location = "/";
+  };
+  const handleSignIn = () => {
+    window.location = "/sign-in";
+  };
   return (
+    <UserProvider >
+    {user => {
+      return(
     <AppBar position="fixed">
       <Toolbar>
         <Hidden mdUp implementation="css">
@@ -33,7 +48,11 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
           justify="space-between"
           alignItems="center"
         >
-          <Typography style={{marginLeft: 40, color: 'blueGrey'}} variant="h6" noWrap>
+          <Typography
+            style={{ marginLeft: 40, color: "blueGrey" }}
+            variant="h6"
+            noWrap
+          >
             4 CODE FOR ANIMALS
           </Typography>
           <div>
@@ -45,11 +64,30 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
             <IconButton color="inherit">
               <AccountCircleIcon style={{ fontSize: 34 }} />
             </IconButton>
-          </div>
+        
+          {user ? (
+        <Button
+        size="large"
+        style={{marginRight:20}}
+          onClick={handleSignOut}
+        >
+          Wyloguj się
+        </Button>
+      ) : (
+          <Button variant="contained" color="secondary"
+              onClick={handleSignIn}
+              >
+            Zaloguj się
+          </Button>
+          // <Link to="/sign-in">Zaloguj</Link>
+      )}
+        </div>
         </Grid>
       </Toolbar>
     </AppBar>
   );
-};
+}}
+</UserProvider >
+)}
 
 export default TopBar;

@@ -22,6 +22,7 @@
     "react-scripts": "3.4.0",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-native": "^0.13.2",
+    "recompose": "^0.30.0",
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
