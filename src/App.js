@@ -4,34 +4,42 @@ import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 import BecomeVolunteer from "./components/BecomeVolunteer";
-
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import OurAnimals from "./components/OurAnimals";
 import SupportUs from "./components/SupportUs";
 import UserPanel from "./components/UserPanel";
 import Sign from "./components/Sign";
-
 import CssBaseline from "@material-ui/core/CssBaseline";
+import UserProvider from "./components/UserProvider";
+
 class App extends Component {
   state = {
     animals: [],
     loading: true,
     error: null,
-    favouriteAnimals: []
+    favouriteAnimals: [],
+    
   };
 
   componentDidMount() {
-    // fetch('https://code-for-animals-90802.firebaseio.com/animals')
-    fetch("animals.json")
+    fetch("https://code-for-animals-90802.firebaseio.com/animals.json")
+      // fetch("animals.json")
       .then(response => response.json())
-      .then(response =>
+      .then(objectAnimals => {
+        const keys = Object.keys(objectAnimals);
+        const arrayAnimals = keys.map(key => {
+          return {
+            id: key,
+            ...objectAnimals[key]
+          };
+        });
         this.setState({
           ...this.state,
-          animals: response,
+          animals: arrayAnimals,
           loading: false
-        })
-      )
+        });
+      })
       .catch(error => this.setState(...this.state, error));
   }
 
@@ -50,47 +58,59 @@ class App extends Component {
   };
 
   render() {
-    const { animals, loading, error, favouriteAnimals } = this.state;
+    const { animals, loading, error, favouriteAnimals, url } = this.state;
     return (
       <BrowserRouter>
         <CssBaseline />
         <ThemeProvider theme={theme}>
-          <div>
-            <Switch>
-              <Navigation favouriteAnimals={favouriteAnimals}>
-                <Route exact path="/" component={HomePage} />
-                <Route
-                  path="/naszezwierzaki"
-                  component={() => (
-                    <OurAnimals
-                      animals={animals}
-                      favouriteAnimals={favouriteAnimals}
-                      loading={loading}
-                      error={error}
-                      onAddToFavourite={this.onAddToFavourite}
-                    />
-                  )}
-                />
-                <Route path="/wesprzyjnas" component={SupportUs} />
-                <Route
-                  path="/paneluzytkownika"
-                  component={() => (
-                    <UserPanel favouriteAnimals={favouriteAnimals} />
-                  )}
-                />
-                <Route
-                  path="/zostanwolontariuszem"
-                  component={BecomeVolunteer}
-                />
-                <Route path="/sign-up">
-                  <Sign isSignUp />
-                </Route>
-                <Route path="/sign-in">
-                  <Sign />
-                </Route>
-              </Navigation>
-            </Switch>
-          </div>
+          <UserProvider>
+            {user => {
+              return (
+                <div>
+                  <Switch>
+                    <Navigation favouriteAnimals={favouriteAnimals} url = {url}>
+                      <Route exact path="/" component={HomePage} />
+                      <Route
+                        path="/naszezwierzaki"
+                        component={() => (
+                          <OurAnimals
+                            animals={animals}
+                            favouriteAnimals={favouriteAnimals}
+                            loading={loading}
+                            error={error}
+                            onAddToFavourite={this.onAddToFavourite}
+                          />
+                        )}
+                      />
+                      <Route path="/wesprzyjnas" component={SupportUs} />
+                      {user && (
+                        <Route
+                          path="/paneluzytkownika"
+                          component={() => (
+                            <UserPanel favouriteAnimals={favouriteAnimals} url = {url} />
+
+                          )}
+                        />
+                      )}
+                      { user && (
+                      <Route
+                        path="/zostanwolontariuszem"
+                        component={BecomeVolunteer}
+                      />
+                      )}
+                      
+                      <Route path="/sign-up">
+                        <Sign isSignUp />
+                      </Route>
+                      <Route path="/sign-in">
+                        <Sign />
+                      </Route>
+                    </Navigation>
+                  </Switch>
+                </div>
+              );
+            }}
+          </UserProvider>
         </ThemeProvider>
       </BrowserRouter>
     );

@@ -76,3 +76,24 @@
 .card {
   width: 300px;
 }
+
+.button {
+  position: absolute;
+  right: 10px;
+  top:10px;
+}
+
+.avatarsContainer {
+  display: flex;
+  width:100%;
+  justify-content: space-around;
+
+}
+.avatars {
+width:40px;
+height:40px;
+}
+
+.avatars:hover {
+  transform: scale(1.1);
+}

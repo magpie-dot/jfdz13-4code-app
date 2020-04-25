@@ -5,12 +5,12 @@ import CuriosityPanel from "./CuriosityPanel";
 import CharityPanel from "./CharityPanel";
 import FavouriteAnimalPanel from "./FavouriteAnimalPanel";
 
-const UserPanel = ({favouriteAnimals}) => {
+const UserPanel = ({favouriteAnimals, url}) => {
   return (
     <>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={4}>
-          <ProfilePanel />
+          <ProfilePanel url = {url}/>
         </Grid>
         <Grid item sm={8} xs={12}>
           <CuriosityPanel/>

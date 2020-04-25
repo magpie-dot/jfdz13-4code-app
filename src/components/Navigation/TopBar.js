@@ -56,6 +56,8 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
             4 CODE FOR ANIMALS
           </Typography>
           <div>
+             {user && (
+               <>
             <IconButton aria-label="show 2 new notifications" color="inherit">
               <Badge badgeContent={favouriteAnimals.length} color="secondary">
                 <FavoriteIcon style={{ fontSize: 30 }} />
@@ -64,6 +66,8 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
             <IconButton color="inherit">
               <AccountCircleIcon style={{ fontSize: 34 }} />
             </IconButton>
+            </>
+             )}
         
           {user ? (
         <Button

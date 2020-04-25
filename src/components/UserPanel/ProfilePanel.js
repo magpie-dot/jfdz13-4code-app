@@ -1,112 +1,188 @@
-import React, {Component} from "react";
-import { Paper, Grid, Avatar, Typography } from "@material-ui/core";
+import React, { Component } from "react";
+import {
+  Paper,
+  Grid,
+  Avatar,
+  Typography,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Button,
+  Input
+} from "@material-ui/core";
 import styles from "./UserPanel.module.css";
-import placeholder from "../Raspberry_Pi_Logo.svg"
+import placeholder from "../ee11528c2192ed4402d96c564d38d05f.svg";
 import firebase from "firebase";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+
 class ProfilePanel extends Component {
   state = {
     file: null,
-    url: '',
+    url: "",
     ref: null,
-    user: null
-};
+    user: null,
+    open: false
+  };
 
-componentDidMount() {
-    const ref = firebase.auth().onAuthStateChanged((user) => {
-        this.setState({ user });
-        this.fetchAvatarUrl();
+  componentDidMount() {
+    const ref = firebase.auth().onAuthStateChanged(user => {
+      this.setState({ user });
+      this.fetchAvatarUrl();
     });
 
-    this.setState({ ref })
-}
+    this.setState({ ref });
+  }
 
-componentWillUnmount() {
+  componentWillUnmount() {
     this.state.ref();
-}
+  }
 
-handleOnChange = (event) => {
+  handleOnChange = event => {
     this.setState({
-        file: event.target.files[0]
-    })
-};
+      file: event.target.files[0]
+    });
+  };
 
-handleOnClick = () => {
-    firebase.storage().ref(`avatars/${this.state.user.uid}`)
-        .put(this.state.file)
-        .then(() => {
-            this.fetchAvatarUrl();
+
+
+  handleOnClick = () => {
+    firebase
+      .storage()
+      .ref(`avatars/${this.state.user.uid}`)
+      .put(this.state.file)
+      .then(() => {
+        this.fetchAvatarUrl();
+      });
+  };
+  handleOpen = () => {
+    this.setState({
+      open: true
+    });
+  };
+  handleClose = () => {
+    this.setState({
+      open: false
+    });
+  };
+
+  fetchAvatarUrl = () => {
+    firebase
+      .storage()
+      .ref(`avatars/${this.state.user.uid}`)
+      .getDownloadURL()
+      .then(url => {
+        this.setState({
+          url
         });
-};
+      });
+  };
 
-fetchAvatarUrl = () => {
-    firebase.storage().ref(`avatars/${this.state.user.uid}`).getDownloadURL()
-        .then(url => {
-            this.setState({
-                url
-            })
-        })
-};
+  removeAvatar = () => {
+    this.setState({
+      url: ""
+    });
+  };
 
+  render() {
+    return (
+      this.state.user && (
+        <Paper elevation={3} className={styles.paper}>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <div className={styles.avatarContainer}>
+              <div className={styles.button}>
+                {this.state.url ? (
+                  <Button onClick={this.handleOpen}> Zmień zdjęcie</Button>
+                ) : (
+                  <Button onClick={this.handleOpen}> Dodaj zdjęcie</Button>
+                )}
+                <Dialog
+                  open={this.state.open}
+                  keepMounted
+                  onClose={this.handleClose}
+                  aria-labelledby="alert-dialog-slide-title"
+                  aria-describedby="alert-dialog-slide-description"
+                >
+                  <DialogTitle>Dodaj zdjęcie</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description"></DialogContentText>
+                    <Input type="file" onChange={this.handleOnChange} />
 
+                    <Button onClick={this.handleOnClick}>Dodaj</Button>
+                  </DialogContent>
+                  <DialogTitle>Wybierz avatar</DialogTitle>
+                  <DialogContent className={styles.avatarsContainer}>
+                    <Avatar
+                      src="images/avatars/avatar5.png"
+                      className={styles.avatars}
+                    />
+                    <img
+                    onClick = {this.handleOnChange}
+                      src="images/avatars/avatar6.png"
+                      className={styles.avatars}
+                    />
+                    <img
+                      src="images/avatars/avatar7.png"
+                      className={styles.avatars}
+                    />
+                    <img
+                      src="images/avatars/avatar8.png"
+                      className={styles.avatars}
+                    />
+                    <img
+                      src="images/avatars/avatar9.png"
+                      className={styles.avatars}
+                    />
+                    <img
+                      src="images/avatars/avatar10.png"
+                      className={styles.avatars}
+                    />
+                    <Button onClick={this.handleOnClick}>Dodaj</Button>
+                  </DialogContent>
+                  <div>
+                    <DialogActions style = {{marginTop:'20px'}}>
+                      <Button onClick={this.removeAvatar} style={{color:'red'}}>Usuń zdjęcie</Button>
 
-  render () {
-  return this.state.user
-  && <Paper elevation={3} className={styles.paper}>
-      <Grid container direction="column" justify="center" alignItems="center">
-        <div className={styles.avatarContainer}>
-          <Avatar
-            alt="avatar"
-            src={this.state.url || <AccountCircleIcon />}
-            className={styles.avatar}
-            style={{ height: "150px", width: "150px" }}
-            onChange={this.handleOnChange}
-          />
-          {/* <input type="file" onChange={this.handleOnChange} /> */}
-           <button onClick={this.handleOnClick}>Dodaj zdjęcie</button>
-          <div className={styles.circle}></div>
-        </div>
-        <Typography variant="body1" style={{ textAlign: "center", margin: "20px 0"}}>
-          Witaj 
-          {this.state.user.email}
-          </Typography>
-          <Typography variant="body1" style={{ textAlign: "center" }}>
-          Jesteś z nami 31 dni.
-        </Typography>
-      </Grid>
-    </Paper>
-};
+                      <Button onClick={this.handleClose} style={{color:'black'}}>
+                        Wyjdź
+                      </Button>
+                    </DialogActions>
+                  </div>
+                </Dialog>
+              </div>
+              <Avatar
+                alt="avatar"
+                src={this.state.url || placeholder}
+                className={styles.avatar}
+                style={{ height: "150px", width: "150px" }}
+                onChange={this.handleOnChange}
+              />
+
+              {/*             
+              <div className={styles.circle}></div> */}
+              {/* </div> */}
+            </div>
+            <Typography
+              variant="body1"
+              style={{ textAlign: "center", margin: "20px 0" }}
+            >
+              <div>Witaj</div>
+              {this.state.user.email}
+            </Typography>
+            <Typography variant="body1" style={{ textAlign: "center" }}>
+              Jesteś z nami 31 dni.
+            </Typography>
+          </Grid>
+        </Paper>
+      )
+    );
+  }
 }
 
 export default ProfilePanel;
-
-
-// import React from "react";
-// import { Paper, Grid, Avatar, Typography } from "@material-ui/core";
-// import styles from "./UserPanel.module.css";
-
-// const ProfilePanel = () => {
-//   return (
-//     <Paper elevation={3} className={styles.paper}>
-//       <Grid container direction="column" justify="center" alignItems="center">
-//         <div className={styles.avatarContainer}>
-//           <Avatar
-//             alt="avatar"
-//             src="images/avatars/avatar1.png"
-//             className={styles.avatar}
-//             style={{ height: "150px", width: "150px" }}
-//           />
-//           <div className={styles.circle}></div>
-//         </div>
-//         <Typography variant="body1" style={{ textAlign: "center", margin: "20px 0"}}>
-//           Witaj Anna
-//           </Typography>
-//           <Typography variant="body1" style={{ textAlign: "center" }}>
-//           Jesteś z nami 31 dni.
-//         </Typography>
-//       </Grid>
-//     </Paper>
-//   );
-// };
-
-// export default ProfilePanel;

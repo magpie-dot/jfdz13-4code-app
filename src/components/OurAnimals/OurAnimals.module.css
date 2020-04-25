@@ -44,3 +44,6 @@ width:240px;
     font-size:1rem;
   }
 }
+.hidden {
+  display: none;
+}
