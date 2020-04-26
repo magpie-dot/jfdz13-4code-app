@@ -18,8 +18,7 @@ class App extends Component {
     animals: [],
     loading: true,
     error: null,
-    favouriteAnimals: [],
-    
+    favouriteAnimals: []
   };
 
   componentDidMount() {
@@ -68,7 +67,7 @@ class App extends Component {
               return (
                 <div>
                   <Switch>
-                    <Navigation favouriteAnimals={favouriteAnimals} url = {url}>
+                    <Navigation favouriteAnimals={favouriteAnimals} url={url}>
                       <Route exact path="/" component={HomePage} />
                       <Route
                         path="/naszezwierzaki"
@@ -87,18 +86,20 @@ class App extends Component {
                         <Route
                           path="/paneluzytkownika"
                           component={() => (
-                            <UserPanel favouriteAnimals={favouriteAnimals} url = {url} />
-
+                            <UserPanel
+                              favouriteAnimals={favouriteAnimals}
+                              url={url}
+                            />
                           )}
                         />
                       )}
-                      { user && (
-                      <Route
-                        path="/zostanwolontariuszem"
-                        component={BecomeVolunteer}
-                      />
+                      {user && (
+                        <Route
+                          path="/zostanwolontariuszem"
+                          component={BecomeVolunteer}
+                        />
                       )}
-                      
+
                       <Route path="/sign-up">
                         <Sign isSignUp />
                       </Route>

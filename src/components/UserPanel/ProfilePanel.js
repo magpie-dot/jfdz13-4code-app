@@ -17,13 +17,15 @@ import placeholder from "../ee11528c2192ed4402d96c564d38d05f.svg";
 import firebase from "firebase";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
+
 class ProfilePanel extends Component {
   state = {
     file: null,
     url: "",
     ref: null,
     user: null,
-    open: false
+    open: false,
+    avatarType: " "
   };
 
   componentDidMount() {
@@ -45,8 +47,6 @@ class ProfilePanel extends Component {
     });
   };
 
-
-
   handleOnClick = () => {
     firebase
       .storage()
@@ -67,6 +67,27 @@ class ProfilePanel extends Component {
     });
   };
 
+  handleOnImageClick = event => {
+    this.setState({
+      avatarType: event.target.src.slice(-26)
+    });
+  };
+
+  handleOnImageAdd = () => {
+    if (this.state.avatarType) {
+      localStorage.setItem("avatar", this.state.avatarType);
+      // this.fetchAvatarUrl();
+      //ZMIENIĆ Z REMOVE AVATAR BEZ LS
+      firebase
+      .storage()
+      .ref(`avatars/${this.state.user.uid}`)
+      .delete()
+      .finally(() => {
+        this.fetchAvatarUrl();
+      });
+    }
+  };
+
   fetchAvatarUrl = () => {
     firebase
       .storage()
@@ -76,13 +97,30 @@ class ProfilePanel extends Component {
         this.setState({
           url
         });
-      });
+      })
+      .catch(()=>{
+        const avatar = localStorage.getItem('avatar')
+        if(avatar) {
+          this.setState ({
+            url: avatar
+          })
+        } else {
+          this.setState ({
+            url: ''
+          })
+        }
+      })
   };
 
   removeAvatar = () => {
-    this.setState({
-      url: ""
-    });
+    firebase
+      .storage()
+      .ref(`avatars/${this.state.user.uid}`)
+      .delete()
+      .finally(() => {
+        this.fetchAvatarUrl();
+        localStorage.removeItem('avatar')
+      });
   };
 
   render() {
@@ -118,38 +156,51 @@ class ProfilePanel extends Component {
                   </DialogContent>
                   <DialogTitle>Wybierz avatar</DialogTitle>
                   <DialogContent className={styles.avatarsContainer}>
-                    <Avatar
+                    <img
+                     onClick={this.handleOnImageClick}
                       src="images/avatars/avatar5.png"
                       className={styles.avatars}
                     />
                     <img
-                    onClick = {this.handleOnChange}
+                      onClick={this.handleOnImageClick}
                       src="images/avatars/avatar6.png"
                       className={styles.avatars}
                     />
                     <img
+                     onClick={this.handleOnImageClick}
                       src="images/avatars/avatar7.png"
                       className={styles.avatars}
                     />
                     <img
+                     onClick={this.handleOnImageClick}
                       src="images/avatars/avatar8.png"
                       className={styles.avatars}
                     />
                     <img
+                     onClick={this.handleOnImageClick}
                       src="images/avatars/avatar9.png"
                       className={styles.avatars}
                     />
                     <img
+                     onClick={this.handleOnImageClick}
                       src="images/avatars/avatar10.png"
                       className={styles.avatars}
                     />
-                    <Button onClick={this.handleOnClick}>Dodaj</Button>
+                    <Button onClick={this.handleOnImageAdd}>Dodaj</Button>
                   </DialogContent>
                   <div>
-                    <DialogActions style = {{marginTop:'20px'}}>
-                      <Button onClick={this.removeAvatar} style={{color:'red'}}>Usuń zdjęcie</Button>
+                    <DialogActions style={{ marginTop: "20px" }}>
+                      <Button
+                        onClick={this.removeAvatar}
+                        style={{ color: "red" }}
+                      >
+                        Usuń zdjęcie
+                      </Button>
 
-                      <Button onClick={this.handleClose} style={{color:'black'}}>
+                      <Button
+                        onClick={this.handleClose}
+                        style={{ color: "black" }}
+                      >
                         Wyjdź
                       </Button>
                     </DialogActions>
@@ -161,12 +212,8 @@ class ProfilePanel extends Component {
                 src={this.state.url || placeholder}
                 className={styles.avatar}
                 style={{ height: "150px", width: "150px" }}
-                onChange={this.handleOnChange}
+                // onChange={this.handleOnChange}
               />
-
-              {/*             
-              <div className={styles.circle}></div> */}
-              {/* </div> */}
             </div>
             <Typography
               variant="body1"
