@@ -1,0 +1,9 @@
+[
+    { "name": "Gdańsk", "value": 730 },
+    { "name": "Warszawa", "value": 330 },
+    { "name": "Łódź", "value": 287 },
+    { "name": "Wrocław", "value": 160 },
+    { "name": "Szczecin", "value": 60 },
+    { "name": "Kraków", "value": 860 },
+    { "name": "Wolbórz", "value": 60 }
+  ]

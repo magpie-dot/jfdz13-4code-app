@@ -11,6 +11,7 @@ import OurAnimals from "./components/OurAnimals";
 import SupportUs from "./components/SupportUs";
 import UserPanel from "./components/UserPanel";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
 class App extends Component {
   state = {
     animals: [],
