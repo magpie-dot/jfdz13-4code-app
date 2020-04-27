@@ -97,3 +97,10 @@ height:40px;
 .avatars:hover {
   transform: scale(1.1);
 }
+.avatars:active {
+  transform: scale(1.2);
+}
+
+.dialogTop {
+  display: inline-block;
+}

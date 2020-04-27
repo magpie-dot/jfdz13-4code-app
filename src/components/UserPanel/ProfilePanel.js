@@ -10,13 +10,14 @@ import {
   DialogContentText,
   DialogTitle,
   Button,
-  Input
+  Input,
+  IconButton
 } from "@material-ui/core";
 import styles from "./UserPanel.module.css";
 import placeholder from "../ee11528c2192ed4402d96c564d38d05f.svg";
 import firebase from "firebase";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-
+import CloseIcon from "@material-ui/icons/Close";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 class ProfilePanel extends Component {
   state = {
@@ -25,7 +26,8 @@ class ProfilePanel extends Component {
     ref: null,
     user: null,
     open: false,
-    avatarType: " "
+    avatarType: " ",
+    openFileWindow: false
   };
 
   componentDidMount() {
@@ -56,6 +58,7 @@ class ProfilePanel extends Component {
         this.fetchAvatarUrl();
       });
   };
+
   handleOpen = () => {
     this.setState({
       open: true
@@ -69,22 +72,20 @@ class ProfilePanel extends Component {
 
   handleOnImageClick = event => {
     this.setState({
-      avatarType: event.target.src.slice(-26)
+      avatarType: event.target.src.slice(-27)
     });
   };
 
   handleOnImageAdd = () => {
     if (this.state.avatarType) {
       localStorage.setItem("avatar", this.state.avatarType);
-      // this.fetchAvatarUrl();
-      //ZMIENIĆ Z REMOVE AVATAR BEZ LS
       firebase
-      .storage()
-      .ref(`avatars/${this.state.user.uid}`)
-      .delete()
-      .finally(() => {
-        this.fetchAvatarUrl();
-      });
+        .storage()
+        .ref(`avatars/${this.state.user.uid}`)
+        .delete()
+        .finally(() => {
+          this.fetchAvatarUrl();
+        });
     }
   };
 
@@ -98,18 +99,18 @@ class ProfilePanel extends Component {
           url
         });
       })
-      .catch(()=>{
-        const avatar = localStorage.getItem('avatar')
-        if(avatar) {
-          this.setState ({
+      .catch(() => {
+        const avatar = localStorage.getItem("avatar");
+        if (avatar) {
+          this.setState({
             url: avatar
-          })
+          });
         } else {
-          this.setState ({
-            url: ''
-          })
+          this.setState({
+            url: ""
+          });
         }
-      })
+      });
   };
 
   removeAvatar = () => {
@@ -119,8 +120,20 @@ class ProfilePanel extends Component {
       .delete()
       .finally(() => {
         this.fetchAvatarUrl();
-        localStorage.removeItem('avatar')
+        localStorage.removeItem("avatar");
       });
+  };
+
+  showFileWindow = () => {
+    this.setState({
+      openFileWindow: true
+    });
+  };
+
+  closeFileWindow = () => {
+    this.setState({
+      openFileWindow: false
+    });
   };
 
   render() {
@@ -141,48 +154,74 @@ class ProfilePanel extends Component {
                   <Button onClick={this.handleOpen}> Dodaj zdjęcie</Button>
                 )}
                 <Dialog
+                  fullWidth="true"
                   open={this.state.open}
                   keepMounted
                   onClose={this.handleClose}
                   aria-labelledby="alert-dialog-slide-title"
                   aria-describedby="alert-dialog-slide-description"
                 >
-                  <DialogTitle>Dodaj zdjęcie</DialogTitle>
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description"></DialogContentText>
-                    <Input type="file" onChange={this.handleOnChange} />
+                  <div className={styles.dialogTop}>
+                    <DialogTitle>
+                      Dodaj zdjęcie
+                      <IconButton onClick={this.showFileWindow}>
+                        <AddCircleOutlineIcon
+                          color="primary"
+                          style={{ width: "40", height: "40" }}
+                        ></AddCircleOutlineIcon>
+                      </IconButton>
+                    </DialogTitle>
+                  </div>
+                  <Dialog
+                    open={this.state.openFileWindow}
+                    keepMounted
+                    onClose={this.handleClose}
+                  >
+                    <DialogContent>
+                      <DialogContentText id="alert-dialog-slide-description"></DialogContentText>
+                      <Input type="file" onChange={this.handleOnChange} />
 
-                    <Button onClick={this.handleOnClick}>Dodaj</Button>
-                  </DialogContent>
+                      <Button onClick={this.handleOnClick}>Dodaj</Button>
+                    </DialogContent>
+                    <IconButton onClick={this.closeFileWindow}>
+                      <CloseIcon />
+                    </IconButton>
+                  </Dialog>
                   <DialogTitle>Wybierz avatar</DialogTitle>
                   <DialogContent className={styles.avatarsContainer}>
                     <img
-                     onClick={this.handleOnImageClick}
+                      alt="avatar"
+                      onClick={this.handleOnImageClick}
                       src="images/avatars/avatar5.png"
                       className={styles.avatars}
                     />
                     <img
+                      alt="avatar"
                       onClick={this.handleOnImageClick}
                       src="images/avatars/avatar6.png"
                       className={styles.avatars}
                     />
                     <img
-                     onClick={this.handleOnImageClick}
+                      alt="avatar"
+                      onClick={this.handleOnImageClick}
                       src="images/avatars/avatar7.png"
                       className={styles.avatars}
                     />
                     <img
-                     onClick={this.handleOnImageClick}
+                      alt="avatar"
+                      onClick={this.handleOnImageClick}
                       src="images/avatars/avatar8.png"
                       className={styles.avatars}
                     />
                     <img
-                     onClick={this.handleOnImageClick}
+                      alt="avatar"
+                      onClick={this.handleOnImageClick}
                       src="images/avatars/avatar9.png"
                       className={styles.avatars}
                     />
                     <img
-                     onClick={this.handleOnImageClick}
+                      alt="avatar"
+                      onClick={this.handleOnImageClick}
                       src="images/avatars/avatar10.png"
                       className={styles.avatars}
                     />
@@ -212,7 +251,6 @@ class ProfilePanel extends Component {
                 src={this.state.url || placeholder}
                 className={styles.avatar}
                 style={{ height: "150px", width: "150px" }}
-                // onChange={this.handleOnChange}
               />
             </div>
             <Typography

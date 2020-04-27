@@ -133,10 +133,11 @@ export default function AnimalCard(props) {
               }
               title={name}
               subheader={age}
-            />
+            ></CardHeader>
             <CardMedia
               className={classes.media}
               image={imageUrl}
+              alt="animal picture"
               title={name}
             />
             <CardContent>
@@ -146,7 +147,14 @@ export default function AnimalCard(props) {
             </CardContent>
             <CardActions
               disableSpacing
-              style={{ position: "absolute", bottom: 10, left: 35 }}
+              // style={{ position: "absolute", bottom: 10, left: 35 }}
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                position: "absolute",
+                bottom: 10
+              }}
             >
               {user ? (
                 <IconButton
@@ -159,27 +167,14 @@ export default function AnimalCard(props) {
                   <FavoriteIcon />
                 </IconButton>
               ) : null}
-              {user ? 
-                <Button
-                  variant="outlined"
-                  onClick={handleClickOpen}
-                  className={classes.openButton}
-                >
-                  Więcej informacji
-                </Button>
-               : 
-              ( <div className = {styles.buttonNonUser}>
-                <Button
-                  variant="outlined"
-                  onClick={handleClickOpen}
-                  className={classes.openButton}
-                  // style = {{display: 'flex', width:'100%', justifyContent:'center'}}
-                >
-                  Więcej informacji
-                </Button>
-                </div>)
-              }
 
+              <Button
+                variant="outlined"
+                onClick={handleClickOpen}
+                className={classes.openButton}
+              >
+                Więcej informacji
+              </Button>
               <Dialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"

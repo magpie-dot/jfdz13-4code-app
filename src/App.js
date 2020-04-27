@@ -11,7 +11,7 @@ import SupportUs from "./components/SupportUs";
 import UserPanel from "./components/UserPanel";
 import Sign from "./components/Sign";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import UserProvider from "./components/UserProvider";
+  
 
 class App extends Component {
   state = {
@@ -23,7 +23,6 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://code-for-animals-90802.firebaseio.com/animals.json")
-      // fetch("animals.json")
       .then(response => response.json())
       .then(objectAnimals => {
         const keys = Object.keys(objectAnimals);
@@ -62,9 +61,6 @@ class App extends Component {
       <BrowserRouter>
         <CssBaseline />
         <ThemeProvider theme={theme}>
-          <UserProvider>
-            {user => {
-              return (
                 <div>
                   <Switch>
                     <Navigation favouriteAnimals={favouriteAnimals} url={url}>
@@ -82,7 +78,6 @@ class App extends Component {
                         )}
                       />
                       <Route path="/wesprzyjnas" component={SupportUs} />
-                      {user && (
                         <Route
                           path="/paneluzytkownika"
                           component={() => (
@@ -92,14 +87,10 @@ class App extends Component {
                             />
                           )}
                         />
-                      )}
-                      {user && (
                         <Route
                           path="/zostanwolontariuszem"
                           component={BecomeVolunteer}
                         />
-                      )}
-
                       <Route path="/sign-up">
                         <Sign isSignUp />
                       </Route>
@@ -109,9 +100,6 @@ class App extends Component {
                     </Navigation>
                   </Switch>
                 </div>
-              );
-            }}
-          </UserProvider>
         </ThemeProvider>
       </BrowserRouter>
     );
