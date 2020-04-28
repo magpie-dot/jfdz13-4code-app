@@ -142,7 +142,7 @@ export default function AnimalCard(props) {
       <CardActions disableSpacing style={{ position: "absolute", bottom: 10, left:35 }}>
         <IconButton
           aria-label="add to favorites"
-          style={{ color: isFavourite ? "#fda8c9" : "#3c3d47", paddingRight:20 }}
+          style={{ color: isFavourite ? "rgb(234,76,137)": "#3c3d47"}}
           onClick={() => {
             props.onAddToFavourite(animal, isFavourite);
           }}
