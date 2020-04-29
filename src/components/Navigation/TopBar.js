@@ -71,14 +71,15 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
         
           {user ? (
         <Button
-        size="large"
-        style={{marginRight:20}}
+        variant='outlined'
+        style={{marginRight:10, borderColor:'white', color:'white', fontWeight:'bold', letterSpacing:'1px'}}
           onClick={handleSignOut}
         >
           Wyloguj się
         </Button>
       ) : (
           <Button variant="contained" color="secondary"
+          style={{ fontWeight:'bold', letterSpacing:'1px'}}
               onClick={handleSignIn}
               >
             Zaloguj się
