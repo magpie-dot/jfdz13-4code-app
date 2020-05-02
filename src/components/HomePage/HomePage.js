@@ -2,12 +2,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import style from "./Dashboard.module.css";
+import style from "./HomePage.module.css";
 import Carusel from "./Carusel";
 import Carusel2 from "./Carusel2";
 import Carusel3 from "./Carusel3";
 import Pie from "./Pie";
 import AlignList from "./AlignList";
+import BasicTextFields from "./Textfield";
+import Box from "./Box"; 
+
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,6 +57,10 @@ const useStyles = makeStyles(theme => ({
     color: "blue"
   }
 }));
+
+
+
+
 
 export default function HomePage() {
   const classes = useStyles();
@@ -116,9 +125,10 @@ export default function HomePage() {
         <Grid item xs={4}>
    
           <Paper className={style.paper6}>
-         
+            
+           <BasicTextFields/>
             <Pie/> 
-            <img className={style.down} src="images/womendogrb.png" alt="dziewczyna z psem" />
+            <Box/>
           </Paper>
         </Grid>
       </Grid>

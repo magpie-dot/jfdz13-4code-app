@@ -28,18 +28,18 @@ export default function AlignItemsList() {
     <List className={classes.root}>
       <ListItem
         alignItems="flex-start"
-        style={{ height: 50, marginBottom: 35}}
+        style={{ height: 55, marginBottom: 35}}
       >
         <ListItemAvatar>
           <Avatar alt="Kasia" src="images/Kasia.png" />
         </ListItemAvatar>
         <ListItemText
-          style={{ fontSize: 13 }}
+          style={{ fontSize: 15 }}
           secondary="Pracują tam wspaniali ludzie, zaangażowani w pracę wypełnioną miłością do zwierząt."
           primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "black"}} 
+                style={{ fontSize: 17, color: "black"}} 
                 component="span"
                 color="#FDA8C9"
               >
@@ -52,7 +52,7 @@ export default function AlignItemsList() {
       <Divider variant="inset" component="li" />
       <ListItem
         alignItems="flex-start"
-        style={{ height: 50, marginBottom: 35 }}
+        style={{ height: 55, marginBottom: 35 }}
       >
         <ListItemAvatar>
           <Avatar alt="Monika" src="images/Monika.png" />
@@ -62,7 +62,7 @@ export default function AlignItemsList() {
           primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "black" }}
+                style={{ fontSize: 17, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"
@@ -76,7 +76,7 @@ export default function AlignItemsList() {
       <Divider variant="inset" component="li" />
       <ListItem
         alignItems="flex-start"
-        style={{ height: 50, marginBottom: 35 }}
+        style={{ height: 55, marginBottom: 35 }}
       >
         <ListItemAvatar>
           <Avatar alt="Kamil" src="images/Kamil.png" />
@@ -87,7 +87,7 @@ export default function AlignItemsList() {
           primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "black" }}
+                style={{ fontSize: 17, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"
@@ -101,7 +101,7 @@ export default function AlignItemsList() {
       <Divider variant="inset" component="li" />
       <ListItem
         alignItems="flex-start"
-        style={{ height: 50, marginBottom: 35 }}
+        style={{ height: 55, marginBottom: 35 }}
       >
         <ListItemAvatar>
           <Avatar alt="Aga" src="images/Aga.png" />
@@ -112,7 +112,7 @@ export default function AlignItemsList() {
           primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "black" }}
+                style={{ fontSize: 17, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"
@@ -126,7 +126,7 @@ export default function AlignItemsList() {
       <Divider variant="inset" component="li" />
       <ListItem
         alignItems="flex-start"
-        style={{ height: 50, marginBottom: 35 }}
+        style={{ height: 55, marginBottom: 35 }}
       >
         <ListItemAvatar>
           <Avatar alt="Paweł" src="images/Pawel.png" />
@@ -137,7 +137,7 @@ export default function AlignItemsList() {
           primary={
             <React.Fragment>
               <Typography
-                style={{ fontSize: 15, color: "black" }}
+                style={{ fontSize: 17, color: "black" }}
                 component="span"
                 variant="body2"
                 color="textPrimary"

@@ -79,7 +79,7 @@ function SwipeableTextMobileStepper() {
         {tutorialSteps.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <NavLink className="link" exact to={"/zostanwolontariuszem"}>
+              <NavLink className="link" exact to={"/naszezwierzaki"}>
               <img className={classes.img} src={step.imgPath} alt={step.label} />
               </NavLink>
             ) : null}
