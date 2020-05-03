@@ -1,15 +1,15 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
-const data = [
-  { name: "Gdańsk", value: 730 },
-  { name: "Warszawa", value: 330 },
-  { name: "Łódź", value: 287 },
-  { name: "Wrocław", value: 160 },
-  { name: "Szczecin", value: 60 },
-  { name: "Kraków", value: 860 },
-  { name: "Wolbórz", value: 60 },
-];
+//const data = [
+ // { name: "Gdańsk", value: 730 },
+ // { name: "Warszawa", value: 330 },
+ // { name: "Łódź", value: 287 },
+ // { name: "Wrocław", value: 160 },
+//  { name: "Szczecin", value: 60 },
+ // { name: "Kraków", value: 860 },
+//  { name: "Wolbórz", value: 60 },
+//];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -85,25 +85,37 @@ const renderActiveShape = (props) => {
   );
 };
 
-export default class Example extends PureComponent {
+export default class Chart extends PureComponent {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/hqnrgxpj/";
 
   state = {
-    activeIndex: 0,
-    data: []
+  activeIndex: 0,
+  data: []
   };
 
-  onPieEnter = (data, index) => {
-    this.setState({
-      activeIndex: index,
-    });
-  };
+  
+
   componentDidMount() {
-    fetch("data.json")
+    this.fetchData();
+}
+
+fetchData = () => { 
+    fetch('https://code-for-animals-90802.firebaseio.com/data.json')
     .then(res => res.json())
-    .then(data => {
+    .then(objectData => {
+      const keys = Object.keys(objectData);
+      const arrayData = keys.map(key => {
+        return {
+          id: key,
+          ...objectData[key]
+        }
+      })
+      
+       
+      
       this.setState({
-        data
+       data: arrayData,
+    activeIndex: this.state.activeIndex
       })
     })
   }
@@ -114,7 +126,7 @@ export default class Example extends PureComponent {
     return (
       <PieChart width={450} height={260}>
         <Pie
-          activeIndex={this.state.activeIndex}
+         activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
           data={this.state.data}
          
