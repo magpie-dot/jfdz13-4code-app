@@ -1,15 +1,6 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
-//const data = [
- // { name: "Gdańsk", value: 730 },
- // { name: "Warszawa", value: 330 },
- // { name: "Łódź", value: 287 },
- // { name: "Wrocław", value: 160 },
-//  { name: "Szczecin", value: 60 },
- // { name: "Kraków", value: 860 },
-//  { name: "Wolbórz", value: 60 },
-//];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -89,8 +80,15 @@ export default class Chart extends PureComponent {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/hqnrgxpj/";
 
   state = {
+  data: [],
   activeIndex: 0,
-  data: []
+  }
+  
+  
+  onPieEnter = (data, index) => {
+    this.setState({
+      activeIndex: index,
+    });
   };
 
   
@@ -111,11 +109,9 @@ fetchData = () => {
         }
       })
       
-       
-      
       this.setState({
        data: arrayData,
-    activeIndex: this.state.activeIndex
+   
       })
     })
   }
