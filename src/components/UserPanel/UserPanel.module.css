@@ -84,6 +84,7 @@
 }
 
 .avatarsContainer {
+
   display: flex;
   width:100%;
   justify-content: space-around;
@@ -103,4 +104,8 @@ height:40px;
 
 .dialogTop {
   display: inline-block;
+}
+
+.UserPanel_avatarsContainer__27NRT {
+  padding: 26px 16px;
 }

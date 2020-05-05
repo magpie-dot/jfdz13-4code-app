@@ -1,0 +1,15 @@
+.bottomLinks {
+margin-top: 20px;
+
+}
+
+.bottomLinks a{
+color:rgba(0, 0, 0, 0.87);
+font-size: 1.2em;
+font-family: 'Hind',sans-serif;
+font-weight: 400;
+}
+
+.MuiDialogTitle-root {
+    padding-top: 26px;
+}

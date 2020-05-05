@@ -28,7 +28,6 @@ function Navigation(props) {
       <div>
         <UserProvider>
           {user => {
-            console.log(user);
             return (
               <>
                 <TopBar

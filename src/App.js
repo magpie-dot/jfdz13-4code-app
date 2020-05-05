@@ -56,14 +56,14 @@ class App extends Component {
   };
 
   render() {
-    const { animals, loading, error, favouriteAnimals, url } = this.state;
+    const { animals, loading, error, favouriteAnimals} = this.state;
     return (
       <BrowserRouter>
         <CssBaseline />
         <ThemeProvider theme={theme}>
                 <div>
                   <Switch>
-                    <Navigation favouriteAnimals={favouriteAnimals} url={url}>
+                    <Navigation favouriteAnimals={favouriteAnimals}>
                       <Route exact path="/" component={HomePage} />
                       <Route
                         path="/naszezwierzaki"
@@ -83,7 +83,6 @@ class App extends Component {
                           component={() => (
                             <UserPanel
                               favouriteAnimals={favouriteAnimals}
-                              url={url}
                             />
                           )}
                         />
