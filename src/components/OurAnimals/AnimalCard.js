@@ -18,12 +18,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import { withStyles } from "@material-ui/core/styles";
+import UserProvider from "../UserProvider";
 
 const styles = theme => ({
   root2: {
     padding: theme.spacing(2),
-    textAlign: "center",
-
+    textAlign: "center"
   },
   closeButton: {
     position: "absolute",
@@ -32,8 +32,7 @@ const styles = theme => ({
     color: theme.palette.grey[500]
   },
   openButton: {
-    color: theme.palette.grey[500],
-   
+    color: theme.palette.grey[500]
   }
 });
 
@@ -45,8 +44,7 @@ const useStyles = makeStyles(theme => ({
     height: 470,
     marginBottom: 20,
     marginRight: 20,
-    display: "inline-block",
-
+    display: "inline-block"
   },
   media: {
     height: 0,
@@ -63,14 +61,14 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: "rotate(180deg)"
   },
-  
+
   heart: {
     position: "relative",
     bottom: 10
   },
   avatar: {
     backgroundColor: "#3cc1fa",
-    marginRight:0
+    marginRight: 0
   },
   typography: {
     fontSize: "2rem"
@@ -121,70 +119,94 @@ export default function AnimalCard(props) {
   };
 
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        titleTypographyProps={{ variant: "h5" }}
-        subheaderTypographyProps={{ variant: "h6" }}
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            {type === "pies" ? "P" : "K"}
-          </Avatar>
-        }
-        title={name}
-        subheader={age}
-      />
-      <CardMedia className={classes.media} image={imageUrl} title={name} />
-      <CardContent>
-        <Typography color="textSecondary" component="p">
-          {descriptionBasic}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing style={{ position: "absolute", bottom: 10, left:35 }}>
-        <IconButton
-          aria-label="add to favorites"
-          style={{ color: isFavourite ? "rgb(234,76,137)": "#3c3d47"}}
-          onClick={() => {
-            props.onAddToFavourite(animal, isFavourite);
-          }}
-        >
-          <FavoriteIcon />
-        </IconButton>
-        <Button
-          variant="outlined"
-          onClick={handleClickOpen}
-          className={classes.openButton}
-        >
-          Więcej informacji
-        </Button>
-        <Dialog
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-        >
-          <DialogTitle
-            id="customized-dialog-title"
-            onClose={handleClose}
-            key={id}
-          >
-            {name}
-            <br />
-            {age}
-            <div>
-              <img
-                src={imageUrl}
-                style={{ width: "auto", maxWidth: 530, height: 350 }}
-                alt="zdjęcie zwierzaka"
-              />
-            </div>
-          </DialogTitle>
-          <DialogContent dividers>
-            <Typography style={{ textAlign: "justify", padding: 15 }}>
-              {descriptionBasic}
-              {descriptionExtended}
-            </Typography>
-          </DialogContent>
-        </Dialog>
-      </CardActions>
-    </Card>
+    <UserProvider>
+      {user => {
+        return (
+          <Card className={classes.root}>
+            <CardHeader
+              titleTypographyProps={{ variant: "h5" }}
+              subheaderTypographyProps={{ variant: "h6" }}
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  {type === "pies" ? "P" : "K"}
+                </Avatar>
+              }
+              title={name}
+              subheader={age}
+            ></CardHeader>
+            <CardMedia
+              className={classes.media}
+              image={imageUrl}
+              alt="animal picture"
+              title={name}
+            />
+            <CardContent>
+              <Typography color="textSecondary" component="p">
+                {descriptionBasic}
+              </Typography>
+            </CardContent>
+            <CardActions
+              disableSpacing
+              // style={{ position: "absolute", bottom: 10, left: 35 }}
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                position: "absolute",
+                bottom: 10
+              }}
+            >
+              {user ? (
+                <IconButton
+                  aria-label="add to favorites"
+                  style={{ color: isFavourite ? "rgb(234,76,137)" : "#3c3d47" }}
+                  onClick={() => {
+                    props.onAddToFavourite(animal, isFavourite);
+                  }}
+                >
+                  <FavoriteIcon />
+                </IconButton>
+              ) : null}
+
+              <Button
+                variant="outlined"
+                onClick={handleClickOpen}
+                className={classes.openButton}
+              >
+                Więcej informacji
+              </Button>
+              <Dialog
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
+                open={open}
+              >
+                <DialogTitle
+                  id="customized-dialog-title"
+                  onClose={handleClose}
+                  key={id}
+                >
+                  {name}
+                  <br />
+                  {age}
+                  <div>
+                    <img
+                      src={imageUrl}
+                      style={{ width: "auto", maxWidth: 530, height: 350 }}
+                      alt="zdjęcie zwierzaka"
+                    />
+                  </div>
+                </DialogTitle>
+                <DialogContent dividers>
+                  <Typography style={{ textAlign: "justify", padding: 15 }}>
+                    {descriptionBasic}
+                    {descriptionExtended}
+                  </Typography>
+                </DialogContent>
+              </Dialog>
+            </CardActions>
+          </Card>
+        );
+      }}
+    </UserProvider>
   );
 }

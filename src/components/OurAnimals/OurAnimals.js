@@ -87,7 +87,7 @@ class OurAnimals extends Component {
     render() {
         return (
             <>
-                {this.props.loading && <CircularProgress style={{ margin:"auto"}}thickness={5}/>}
+                {this.props.loading && <CircularProgress style={{ display:'flex', justifyContent:'center'}}thickness={5}/>}
                 {!this.props.loading &&
                 <div className={style.animalsList}>
                     <Filters
