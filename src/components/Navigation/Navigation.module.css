@@ -37,3 +37,7 @@
 .active {
   color: rgb(234,76,137);
 }
+
+.active:hover {
+  color: whitesmoke;
+}

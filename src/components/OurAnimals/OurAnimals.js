@@ -3,6 +3,8 @@ import AnimalCard from "./AnimalCard";
 import Filters from "./Filters";
 import style from "./OurAnimals.module.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {connect} from 'react-redux';
+import {fetchAnimals} from '../../state/animals'
 
 class OurAnimals extends Component {
     constructor(props) {
@@ -84,6 +86,10 @@ class OurAnimals extends Component {
 
     checkFavourite = animal => this.props.favouriteAnimals.some(favouriteAnimal => favouriteAnimal.id === animal.id);
 
+    componentDidMount() {
+        this.props.fetchAnimals()
+    }
+
     render() {
         return (
             <>
@@ -110,4 +116,12 @@ class OurAnimals extends Component {
     }
 }
 
-export default OurAnimals;
+const mapStateToProps = (state) => ({
+    animals: state.animals.data,
+});
+
+const mapDispatchToProps = {
+    fetchAnimals
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OurAnimals);
