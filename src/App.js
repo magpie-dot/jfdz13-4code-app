@@ -15,7 +15,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends Component {
   state = {
-    animals: [],
     loading: false,
     error: null,
     favouriteAnimals: []
@@ -56,7 +55,7 @@ class App extends Component {
   };
 
   render() {
-    const { animals, loading, error, favouriteAnimals} = this.state;
+    const { loading, error, favouriteAnimals} = this.state;
     return (
       <BrowserRouter>
         <CssBaseline />
@@ -69,7 +68,6 @@ class App extends Component {
                         path="/naszezwierzaki"
                         component={() => (
                           <OurAnimals
-                            animals={animals}
                             favouriteAnimals={favouriteAnimals}
                             loading={loading}
                             error={error}

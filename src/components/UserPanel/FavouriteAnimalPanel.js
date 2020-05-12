@@ -8,6 +8,8 @@ import {
 } from "@material-ui/core";
 import styles from "./UserPanel.module.css";
 
+import { connect } from "react-redux";
+
 class FavouriteAnimalPanel extends React.Component {
   state = {
     favouriteAnimals: this.props.favouriteAnimals
@@ -28,7 +30,6 @@ class FavouriteAnimalPanel extends React.Component {
              spacing={3}
            >
             {this.state.favouriteAnimals.map(animal => {
-              {console.log(animal.data.type)}
               return (
                 <Grid item>
                 <Card className={styles.card}>
@@ -50,4 +51,12 @@ class FavouriteAnimalPanel extends React.Component {
   }
 }
 
-export default FavouriteAnimalPanel;
+
+const mapStateToProps = (state) => ({
+  user: state.animals.user,
+});
+
+const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavouriteAnimalPanel);

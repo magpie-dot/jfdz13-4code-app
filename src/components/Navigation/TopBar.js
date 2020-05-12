@@ -12,10 +12,8 @@ import {
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MenuIcon from "@material-ui/icons/Menu";
-import firebase from "../Firebase"; 
-import Sign from "../Sign";
+import firebase from "../Firebase";
 import UserProvider from "../UserProvider"
-import {Link} from 'react-router-dom';
 
 
 const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
@@ -84,7 +82,6 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
               >
             Zaloguj się
           </Button>
-          // <Link to="/sign-in">Zaloguj</Link>
       )}
         </div>
         </Grid>

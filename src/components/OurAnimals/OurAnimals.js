@@ -4,7 +4,7 @@ import Filters from "./Filters";
 import style from "./OurAnimals.module.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {connect} from 'react-redux';
-import {fetchAnimals} from '../../state/animals'
+import {fetchAnimals, fetchUser} from '../../state/animals'
 
 class OurAnimals extends Component {
     constructor(props) {
@@ -68,8 +68,8 @@ class OurAnimals extends Component {
         });
     };
 
-    getAnimals = () => {
-        return this.props.animals.filter(animal => {
+    getAnimals = (animals) => {
+        return animals.filter(animal => {
             return (
                 animal.data.name
                     .toLowerCase()
@@ -87,14 +87,16 @@ class OurAnimals extends Component {
     checkFavourite = animal => this.props.favouriteAnimals.some(favouriteAnimal => favouriteAnimal.id === animal.id);
 
     componentDidMount() {
-        this.props.fetchAnimals()
+        this.props.fetchAnimals();
+        this.props.fetchUser();
     }
 
     render() {
+        const {animals, loading} = this.props
         return (
             <>
-                {this.props.loading && <CircularProgress style={{ display:'flex', justifyContent:'center'}}thickness={5}/>}
-                {!this.props.loading &&
+                {loading && <CircularProgress style={{ display:'flex', justifyContent:'center'}}thickness={5}/>}
+                {!loading &&
                 <div className={style.animalsList}>
                     <Filters
                         onTypeFilterChanged={this.onTypeFilterChanged}
@@ -103,7 +105,7 @@ class OurAnimals extends Component {
                         onGoodForKidsFilterChanged={this.onGoodForKidsFilterChanged}
                         removeAllFilters={this.removeAllFilters}
                     />
-                    {this.getAnimals().map((animal, index) => (
+                    {this.getAnimals(animals).map((animal, index) => (
                         <AnimalCard key={index} animal={animal}
                                     isFavourite={this.checkFavourite(animal)}
                                     onAddToFavourite={this.props.onAddToFavourite}/>
@@ -118,10 +120,14 @@ class OurAnimals extends Component {
 
 const mapStateToProps = (state) => ({
     animals: state.animals.data,
+    loading: state.animals.loading,
+    error: state.animals.error,
+    user: state.animals.user,
 });
 
 const mapDispatchToProps = {
-    fetchAnimals
+    fetchAnimals,
+    fetchUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OurAnimals);
