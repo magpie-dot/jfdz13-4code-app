@@ -11,13 +11,13 @@ import styles from "./UserPanel.module.css";
 import { connect } from "react-redux";
 
 class FavouriteAnimalPanel extends React.Component {
-  state = {
-    favouriteAnimals: this.props.favouriteAnimals
-  };
 
   render() {
+    const userData = this.props
     return (
-      <Paper elevation={3} className={styles.paperLong}>
+      !userData.favouriteAnimals
+    ? null
+    : <Paper elevation={3} className={styles.paperLong}>
         <Grid container>
           <Grid item>
             <Typography variant="body1" style={{ margin: "15px 0" }}>
@@ -29,7 +29,7 @@ class FavouriteAnimalPanel extends React.Component {
              alignItems="center"
              spacing={3}
            >
-            {this.state.favouriteAnimals.map(animal => {
+            {userData.favouriteAnimals.map(animal => {
               return (
                 <Grid item>
                 <Card className={styles.card}>
@@ -53,7 +53,7 @@ class FavouriteAnimalPanel extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  user: state.animals.user,
+  userData: state.animals.user,
 });
 
 const mapDispatchToProps = {

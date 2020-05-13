@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from 'redux-thunk';
 
 import animals from './state/animals'
+import users from './state/users'
 
 const reducers = combineReducers({
-    animals
+    animals,
+    users
 });
 
 const logger = store => next => action => {

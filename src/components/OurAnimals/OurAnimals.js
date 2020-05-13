@@ -4,7 +4,7 @@ import Filters from "./Filters";
 import style from "./OurAnimals.module.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {connect} from 'react-redux';
-import {fetchAnimals, fetchUser} from '../../state/animals'
+import {fetchAnimals} from '../../state/animals'
 
 class OurAnimals extends Component {
     constructor(props) {
@@ -88,7 +88,6 @@ class OurAnimals extends Component {
 
     componentDidMount() {
         this.props.fetchAnimals();
-        this.props.fetchUser();
     }
 
     render() {
@@ -122,12 +121,10 @@ const mapStateToProps = (state) => ({
     animals: state.animals.data,
     loading: state.animals.loading,
     error: state.animals.error,
-    user: state.animals.user,
 });
 
 const mapDispatchToProps = {
     fetchAnimals,
-    fetchUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OurAnimals);

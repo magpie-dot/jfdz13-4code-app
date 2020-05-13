@@ -20,26 +20,6 @@ class App extends Component {
     favouriteAnimals: []
   };
 
-  // componentDidMount() {
-  //   fetch("https://code-for-animals-90802.firebaseio.com/animals.json")
-  //     .then(response => response.json())
-  //     .then(objectAnimals => {
-  //       const keys = Object.keys(objectAnimals);
-  //       const arrayAnimals = keys.map(key => {
-  //         return {
-  //           id: key,
-  //           ...objectAnimals[key]
-  //         };
-  //       });
-  //       this.setState({
-  //         ...this.state,
-  //         animals: arrayAnimals,
-  //         loading: false
-  //       });
-  //     })
-  //     .catch(error => this.setState(...this.state, error));
-  // }
-
   onAddToFavourite = (animal, isFavourite) => {
     const { favouriteAnimals } = this.state;
     this.setState({

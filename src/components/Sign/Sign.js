@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import UserProvider from "../UserProvider";
 import style from "./Sign.module.css";
 import { connect } from "react-redux";
-import { fetchUser } from "../../state/animals";
+import { fetchUser } from "../../state/users";
 
 class Sign extends React.Component {
   state = {
@@ -39,13 +39,12 @@ class Sign extends React.Component {
           const uid = resp.user.uid;
           const creationDate = resp.user.metadata.creationTime;
           this.setState({
-            redirect: true,
             id: uid,
           });
           fetch(
             `https://code-for-animals-90802.firebaseio.com/Users/${uid}.json`,
             {
-              method: "PUT",
+              method: "POST",
               body: JSON.stringify({
                 id: uid,
                 name: this.state.name,
@@ -56,7 +55,12 @@ class Sign extends React.Component {
             }
           );
         })
-        .then(() => {this.props.fetchUser(this.state.id)})
+        .then(() => {
+          this.props.fetchUser(this.state.id);
+          this.setState({
+            redirect: true,
+          });
+        })
         .catch(function (error) {
           const errorMessage = error.message;
           alert(errorMessage);
@@ -66,13 +70,17 @@ class Sign extends React.Component {
         .auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then((resp) => {
-            const uid = resp.user.uid
+          const uid = resp.user.uid;
           this.setState({
-            redirect: true,
-            id: uid
+            id: uid,
           });
         })
-        .then(() => this.props.fetchUser(this.state.id))
+        .then(() => {
+          this.props.fetchUser(this.state.id);
+          this.setState({
+            redirect: true,
+          });
+        })
         .catch(function (error) {
           const errorMessage = error.message;
           alert(errorMessage);
@@ -181,7 +189,7 @@ class Sign extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.animals.user,
+  userData: state.users.userData,
 });
 
 const mapDispatchToProps = {

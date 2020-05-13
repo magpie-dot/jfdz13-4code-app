@@ -11,13 +11,15 @@ import {
   DialogTitle,
   Button,
   Input,
-  IconButton
+  IconButton,
 } from "@material-ui/core";
 import styles from "./UserPanel.module.css";
 import placeholder from "../ee11528c2192ed4402d96c564d38d05f.svg";
 import firebase from "firebase";
 import CloseIcon from "@material-ui/icons/Close";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { connect } from "react-redux";
+import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 
 class ProfilePanel extends Component {
   state = {
@@ -27,11 +29,11 @@ class ProfilePanel extends Component {
     user: null,
     open: false,
     avatarType: " ",
-    openFileWindow: false
+    openFileWindow: false,
   };
 
   componentDidMount() {
-    const ref = firebase.auth().onAuthStateChanged(user => {
+    const ref = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
       this.fetchAvatarUrl();
     });
@@ -43,9 +45,9 @@ class ProfilePanel extends Component {
     this.state.ref();
   }
 
-  handleOnChange = event => {
+  handleOnChange = (event) => {
     this.setState({
-      file: event.target.files[0]
+      file: event.target.files[0],
     });
   };
 
@@ -61,18 +63,18 @@ class ProfilePanel extends Component {
 
   handleOpen = () => {
     this.setState({
-      open: true
+      open: true,
     });
   };
   handleClose = () => {
     this.setState({
-      open: false
+      open: false,
     });
   };
 
-  handleOnImageClick = event => {
+  handleOnImageClick = (event) => {
     this.setState({
-      avatarType: event.target.src.slice(-27)
+      avatarType: event.target.src.slice(-27),
     });
   };
 
@@ -94,20 +96,20 @@ class ProfilePanel extends Component {
       .storage()
       .ref(`avatars/${this.state.user.uid}`)
       .getDownloadURL()
-      .then(url => {
+      .then((url) => {
         this.setState({
-          url
+          url,
         });
       })
       .catch(() => {
         const avatar = localStorage.getItem("avatar");
         if (avatar) {
           this.setState({
-            url: avatar
+            url: avatar,
           });
         } else {
           this.setState({
-            url: ""
+            url: "",
           });
         }
       });
@@ -126,17 +128,40 @@ class ProfilePanel extends Component {
 
   showFileWindow = () => {
     this.setState({
-      openFileWindow: true
+      openFileWindow: true,
     });
   };
 
   closeFileWindow = () => {
     this.setState({
-      openFileWindow: false
+      openFileWindow: false,
     });
   };
 
+  getTimeWithUs = (creationDate) => {
+    const daysDifference = differenceInCalendarDays(
+      new Date(creationDate),
+      new Date(Date.now())
+    );
+    switch (daysDifference) {
+      case 0:
+        return "Witaj w naszym gronie";
+      case 1:
+        return `Jesteś z nami ${daysDifference} dzień`;
+      default:
+        return `Jesteś z nami już ${daysDifference} dni`;
+    }
+  };
+
   render() {
+    const { userData } = this.props;
+    {
+      console.log(userData);
+    }
+    console.log(new Date(userData[0].creationDate));
+    console.log(new Date(Date.now()));
+    console.log(typeof userData[0].creationDate);
+    console.log(typeof new Date(Date.now()));
     return (
       this.state.user && (
         <Paper elevation={3} className={styles.paper}>
@@ -258,10 +283,10 @@ class ProfilePanel extends Component {
               style={{ textAlign: "center", margin: "20px 0" }}
             >
               <div>Witaj</div>
-              {this.state.user.email}
+              {userData[0].name}
             </Typography>
             <Typography variant="body1" style={{ textAlign: "center" }}>
-              Jesteś z nami 31 dni.
+              {this.getTimeWithUs(userData[0].creationDate)}
             </Typography>
           </Grid>
         </Paper>
@@ -270,4 +295,10 @@ class ProfilePanel extends Component {
   }
 }
 
-export default ProfilePanel;
+const mapStateToProps = (state) => ({
+  userData: state.users.userData,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePanel);

@@ -4,14 +4,13 @@ const DATABASE = "https://code-for-animals-90802.firebaseio.com";
 const SET_DATA = "SET_DATA";
 const SET_LOADING = "SET_LOADING";
 const SET_ERROR = "SET_ERROR";
-const FETCH_USER = "FETCH_USER";
 
 // INITIAL STATE
 const initialState = {
   loading: false,
   data: [],
   error: null,
-  user: null,
+  favouriteAnimals: [],
 };
 
 // REDUCER
@@ -35,11 +34,6 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
-    case FETCH_USER:
-      return {
-        ...state,
-        user: action.payload,
-      };
     default:
       return state;
   }
@@ -61,15 +55,4 @@ export const fetchAnimals = () => (dispatch) => {
     .catch((err) => {
       dispatch({ type: SET_ERROR, payload: err });
     });
-};
-
-export const fetchUser = (id) => (dispatch) => {
-  fetch(`${DATABASE}/Users/${id}.json`)
-    .then((res) => res.json())
-    .then((user) => { console.log(user)
-      dispatch({ type: FETCH_USER, payload: user});
-    })
-    .catch((err) => {
-        dispatch({ type: SET_ERROR, payload: err });
-      });
 };
