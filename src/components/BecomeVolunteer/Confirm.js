@@ -20,15 +20,15 @@ export class Confirm extends Component {
   render() {
     const {
       values: {
-        firstName,
-        lastName,
-        adress,
-        postalCode,
-        email,
-        phoneNumber,
-        bio,
-        exp,
-        help
+        username,
+    surName,
+    adress,
+    postalCode,
+    email,
+    phone,
+    bio,
+    exp,
+    help,
       }
     } = this.props;
     return (
@@ -48,7 +48,7 @@ export class Confirm extends Component {
                     <ListItemText primary="Imię" secondary={firstName} />
                   </ListItem>
                   <ListItem>
-                    <ListItemText primary="Nazwisko" secondary={lastName} />
+                    <ListItemText primary="Nazwisko" secondary={surName} />
                   </ListItem>
                   <ListItem>
                     <ListItemText primary="Adres" secondary={adress} />
