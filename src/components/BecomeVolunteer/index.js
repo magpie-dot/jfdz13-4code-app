@@ -1,3 +1,3 @@
-import BecomeVolunteer from "./BecomeVolunteer"
+import BecomeVolunteer from "./BecomeVolunteer";
 
-export default BecomeVolunteer
+export default BecomeVolunteer;

@@ -13,13 +13,13 @@ export class UserForm extends Component {
     phone: "",
     bio: "",
     exp: "",
-    help: ""
+    help: "",
   };
 
   nextStep = () => {
     const { step } = this.state;
     this.setState({
-      step: step + 1
+      step: step + 1,
     });
   };
 
@@ -30,7 +30,7 @@ export class UserForm extends Component {
   //   });
   // };
 
-  handleChange = input => e => {
+  handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
 
@@ -38,25 +38,25 @@ export class UserForm extends Component {
     const { step } = this.state;
     const {
       username,
-    surName,
-    adress,
-    postalCode,
-    email,
-    phone,
-    bio,
-    exp,
-    help,
+      surName,
+      adress,
+      postalCode,
+      email,
+      phone,
+      bio,
+      exp,
+      help,
     } = this.state;
     const values = {
       username,
-    surName,
-    adress,
-    postalCode,
-    email,
-    phone,
-    bio,
-    exp,
-    help,
+      surName,
+      adress,
+      postalCode,
+      email,
+      phone,
+      bio,
+      exp,
+      help,
     };
 
     switch (step) {
@@ -68,9 +68,8 @@ export class UserForm extends Component {
             values={values}
           />
         );
-    
-          
-        case 2:
+
+      case 2:
         return <Success />;
     }
   }

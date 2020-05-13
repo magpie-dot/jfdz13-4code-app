@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
+
 function ValidationMessage(props) {
   if (!props.valid) {
     return <div className="error-msg">{props.message}</div>;
@@ -17,15 +18,6 @@ export class Form extends React.Component {
     this.props.nextStep();
   };
 
-  
-
-  constructor(props) {
-    super(props);
-    this.state = { helperText: "", error: false };
-  }
-
-  
-
   state = {
     username: "",
     usernameValid: false,
@@ -36,6 +28,9 @@ export class Form extends React.Component {
     phone: "",
     phoneValid: false,
     formValid: false,
+    bio: "",
+    exp: "",
+    help: "",
     errorMsg: {},
   };
 
@@ -139,6 +134,7 @@ export class Form extends React.Component {
                     id="username"
                     name="username"
                     className="form-field"
+                    required="true"
                     fullWidth
                     value={this.state.username}
                     onChange={(e) => this.updateUsername(e.target.value)}
@@ -157,6 +153,7 @@ export class Form extends React.Component {
                     id="surname"
                     name="surname"
                     className="form-field"
+                    required="true"
                     fullWidth
                     value={this.state.surname}
                     onChange={(e) => this.updateSurname(e.target.value)}
@@ -174,6 +171,7 @@ export class Form extends React.Component {
                     id="email"
                     name="Email"
                     className="form-field"
+                    required="true"
                     fullWidth
                     value={this.state.email}
                     onChange={(e) => this.updateEmail(e.target.value)}
@@ -211,6 +209,7 @@ export class Form extends React.Component {
                     imput="phone"
                     id="phone"
                     name="phone"
+                    required="true"
                     value={this.state.phone}
                     onChange={(e) => this.updatePhone(e.target.value)}
                   />
@@ -275,13 +274,13 @@ export class Form extends React.Component {
           </Paper>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item>
           <div>
             <img
               src="images/picPlayfulCat.png"
+              alt="kot"
               height="550"
               width="550"
-              alt="kot"
             ></img>
           </div>
         </Grid>
