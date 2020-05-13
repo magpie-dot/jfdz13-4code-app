@@ -4,7 +4,6 @@ const DATABASE = "https://code-for-animals-90802.firebaseio.com";
 const SET_LOADING = "SET_LOADING";
 const SET_ERROR = "SET_ERROR";
 const FETCH_USER = "FETCH_USER";
-const UPDATE_USER = "UPDATE_USER";
 const TOGGLE_FAVOURITE = "TOGGLE_FAVOURITE";
 
 // INITIAL STATE
@@ -34,12 +33,6 @@ export default (state = initialState, action) => {
         ...state,
         userData: action.payload,
       };
-    case UPDATE_USER:
-      return {
-        ...state,
-        userData: action.payload,
-      };
-
     case TOGGLE_FAVOURITE:
       return {
         ...state,
@@ -76,10 +69,21 @@ export const updateUser = (id, user) => (dispatch) => {
       charity: user.charity,
       creationDate: user.creationDate,
     }),
-  });
+  })
+    .then(() => fetchUser(user.id)(dispatch))
+    .catch((err) => {
+      dispatch({ type: SET_ERROR, payload: err });
+    });
 };
 
-export const addToFavourite = (favouriteAnimals, animal) => (dispatch) => {
-  const favouriteAnimalsArray = favouriteAnimals.push(animal.id);
-  dispatch({ type: TOGGLE_FAVOURITE, payload: favouriteAnimalsArray });
+export const toggleFavourite = (id, favouriteAnimalsId) => (dispatch) => {
+    const animalsIdArray = 
+  favouriteAnimalsId.includes(id)
+        ? [
+            ...favouriteAnimalsId.filter(
+              favouriteAnimalId => favouriteAnimalId !== id
+            )
+          ]
+        : [...favouriteAnimalsId, id]
+  dispatch({ type: TOGGLE_FAVOURITE, payload: animalsIdArray });
 };

@@ -155,13 +155,6 @@ class ProfilePanel extends Component {
 
   render() {
     const { userData } = this.props;
-    {
-      console.log(userData);
-    }
-    console.log(new Date(userData[0].creationDate));
-    console.log(new Date(Date.now()));
-    console.log(typeof userData[0].creationDate);
-    console.log(typeof new Date(Date.now()));
     return (
       this.state.user && (
         <Paper elevation={3} className={styles.paper}>

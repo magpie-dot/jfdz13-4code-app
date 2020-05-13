@@ -5,6 +5,7 @@ import style from "./OurAnimals.module.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {connect} from 'react-redux';
 import {fetchAnimals} from '../../state/animals'
+import {updateUser, toggleFavourite} from '../../state/users'
 
 class OurAnimals extends Component {
     constructor(props) {
@@ -84,6 +85,11 @@ class OurAnimals extends Component {
         });
     };
 
+    handleOnClickFavourite = (animalId, favouriteAnimals) => {
+        this.props.toggleFavourite(animalId, favouriteAnimals);
+        this.props.updateUser(this.props.userData[0].id, this.props.userData[0])
+    }
+
     checkFavourite = animal => this.props.favouriteAnimals.some(favouriteAnimal => favouriteAnimal.id === animal.id);
 
     componentDidMount() {
@@ -107,7 +113,7 @@ class OurAnimals extends Component {
                     {this.getAnimals(animals).map((animal, index) => (
                         <AnimalCard key={index} animal={animal}
                                     isFavourite={this.checkFavourite(animal)}
-                                    onAddToFavourite={this.props.onAddToFavourite}/>
+                                    onAddToFavourite={this.onHandleOnClickFavourite}/>
                     ))}
                 </div>
                 }
@@ -121,10 +127,13 @@ const mapStateToProps = (state) => ({
     animals: state.animals.data,
     loading: state.animals.loading,
     error: state.animals.error,
+    userData: state.users.userData,
 });
 
 const mapDispatchToProps = {
     fetchAnimals,
+    updateUser,
+    toggleFavourite
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OurAnimals);

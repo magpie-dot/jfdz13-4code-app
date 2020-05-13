@@ -20,6 +20,8 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import { withStyles } from "@material-ui/core/styles";
 import UserProvider from "../UserProvider";
 
+import {connect} from 'react-redux';
+
 const styles = theme => ({
   root2: {
     padding: theme.spacing(2),
@@ -99,10 +101,9 @@ const DialogContent = withStyles(theme => ({
   }
 }))(MuiDialogContent);
 
-export default function AnimalCard(props) {
+const AnimalCard = (props) => {
   const {
     isFavourite,
-    animal,
     animal: {
       data: { type, name, age, imageUrl, id },
       descriptions: { descriptionBasic, descriptionExtended }
@@ -161,7 +162,7 @@ export default function AnimalCard(props) {
                   aria-label="add to favorites"
                   style={{ color: isFavourite ? "rgb(234,76,137)" : "#3c3d47" }}
                   onClick={() => {
-                    props.onAddToFavourite(animal, isFavourite);
+                    props.onAddToFavourite(id, this.props.userData[0].favouriteAnimals);
                   }}
                 >
                   <FavoriteIcon />
@@ -210,3 +211,16 @@ export default function AnimalCard(props) {
     </UserProvider>
   );
 }
+
+
+const mapStateToProps = (state) => ({
+  animals: state.animals.data,
+  loading: state.animals.loading,
+  error: state.animals.error,
+  userData: state.users.userData,
+});
+
+const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AnimalCard);
