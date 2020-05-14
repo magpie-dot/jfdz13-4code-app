@@ -10,7 +10,7 @@ import {
   CardContent,
   CardActions,
   Button,
-  Dialog
+  Dialog,
 } from "@material-ui/core";
 
 import CloseIcon from "@material-ui/icons/Close";
@@ -20,25 +20,25 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import { withStyles } from "@material-ui/core/styles";
 import UserProvider from "../UserProvider";
 
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root2: {
     padding: theme.spacing(2),
-    textAlign: "center"
+    textAlign: "center",
   },
   closeButton: {
     position: "absolute",
     right: theme.spacing(1),
     top: theme.spacing(1),
-    color: theme.palette.grey[500]
+    color: theme.palette.grey[500],
   },
   openButton: {
-    color: theme.palette.grey[500]
-  }
+    color: theme.palette.grey[500],
+  },
 });
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: 350,
     position: "relative",
@@ -46,38 +46,38 @@ const useStyles = makeStyles(theme => ({
     height: 470,
     marginBottom: 20,
     marginRight: 20,
-    display: "inline-block"
+    display: "inline-block",
   },
   media: {
     height: 0,
-    paddingTop: "56.25%" // 16:9
+    paddingTop: "56.25%", // 16:9
   },
   expand: {
     color: " #3c3d47",
     transform: "rotate(0deg)",
     marginLeft: "auto",
     transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest
-    })
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   expandOpen: {
-    transform: "rotate(180deg)"
+    transform: "rotate(180deg)",
   },
 
   heart: {
     position: "relative",
-    bottom: 10
+    bottom: 10,
   },
   avatar: {
     backgroundColor: "#3cc1fa",
-    marginRight: 0
+    marginRight: 0,
   },
   typography: {
-    fontSize: "2rem"
-  }
+    fontSize: "2rem",
+  },
 }));
 
-const DialogTitle = withStyles(styles)(props => {
+const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root2} {...other}>
@@ -95,19 +95,19 @@ const DialogTitle = withStyles(styles)(props => {
   );
 });
 
-const DialogContent = withStyles(theme => ({
+const DialogContent = withStyles((theme) => ({
   root: {
-    padding: theme.spacing(2)
-  }
+    padding: theme.spacing(2),
+  },
 }))(MuiDialogContent);
 
 const AnimalCard = (props) => {
   const {
-    isFavourite,
+    onClickFavourite,
     animal: {
       data: { type, name, age, imageUrl, id },
-      descriptions: { descriptionBasic, descriptionExtended }
-    }
+      descriptions: { descriptionBasic, descriptionExtended },
+    },
   } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -119,9 +119,17 @@ const AnimalCard = (props) => {
     setOpen(false);
   };
 
+  const handleOnClickFavourite = () => {
+    onClickFavourite(id,
+      props.userData.favouriteAnimals)
+  }
+  // const checkFavourite = ()props.userData[0].favouriteAnimals.includes(id)
+  //   ? "rgb(234,76,137)"
+  //   : "#3c3d47";
+
   return (
     <UserProvider>
-      {user => {
+      {(user) => {
         return (
           <Card className={classes.root}>
             <CardHeader
@@ -154,16 +162,16 @@ const AnimalCard = (props) => {
                 display: "flex",
                 justifyContent: "center",
                 position: "absolute",
-                bottom: 10
+                bottom: 10,
               }}
             >
               {user ? (
                 <IconButton
                   aria-label="add to favorites"
-                  style={{ color: isFavourite ? "rgb(234,76,137)" : "#3c3d47" }}
-                  onClick={() => {
-                    props.onAddToFavourite(id, this.props.userData[0].favouriteAnimals);
+                  style={{
+                    color: "#3c3d47",
                   }}
+                  onClick={handleOnClickFavourite}
                 >
                   <FavoriteIcon />
                 </IconButton>
@@ -210,8 +218,7 @@ const AnimalCard = (props) => {
       }}
     </UserProvider>
   );
-}
-
+};
 
 const mapStateToProps = (state) => ({
   animals: state.animals.data,
@@ -220,7 +227,6 @@ const mapStateToProps = (state) => ({
   userData: state.users.userData,
 });
 
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AnimalCard);

@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 
 class FavouriteAnimalPanel extends React.Component {
 
+
   render() {
     const userData = this.props
     return (
@@ -54,6 +55,7 @@ class FavouriteAnimalPanel extends React.Component {
 
 const mapStateToProps = (state) => ({
   userData: state.animals.user,
+  loggedUserId: state.users.loggedUser,
 });
 
 const mapDispatchToProps = {

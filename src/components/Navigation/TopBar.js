@@ -14,16 +14,27 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MenuIcon from "@material-ui/icons/Menu";
 import firebase from "../Firebase";
 import UserProvider from "../UserProvider"
+import { connect } from "react-redux";
 
 
-const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
-  const handleSignOut = () => {
+class TopBar extends React.Component{
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      this.props.loggedUserId = user.uid
+    });
+  }
+
+  handleSignOut = () => {
     firebase.auth().signOut();
     window.location = "/";
   };
-  const handleSignIn = () => {
+
+  handleSignIn = () => {
     window.location = "/sign-in";
   };
+
+  render(){
   return (
     <UserProvider >
     {user => {
@@ -35,7 +46,7 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
+            onClick={this.props.handleDrawerToggle}
           >
             <MenuIcon />
           </IconButton>
@@ -57,7 +68,7 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
              {user && (
                <>
             <IconButton aria-label="show 2 new notifications" color="inherit">
-              <Badge badgeContent={favouriteAnimals.length} color="secondary">
+              <Badge badgeContent={this.props.favouriteAnimals.length} color="secondary">
                 <FavoriteIcon style={{ fontSize: 30 }} />
               </Badge>
             </IconButton>
@@ -71,14 +82,14 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
         <Button
         variant='outlined'
         style={{marginRight:10, borderColor:'white', color:'white', fontWeight:'bold', letterSpacing:'1px'}}
-          onClick={handleSignOut}
+          onClick={this.handleSignOut}
         >
           Wyloguj się
         </Button>
       ) : (
           <Button variant="contained" color="secondary"
           style={{ fontWeight:'bold', letterSpacing:'1px'}}
-              onClick={handleSignIn}
+              onClick={this.handleSignIn}
               >
             Zaloguj się
           </Button>
@@ -90,6 +101,15 @@ const TopBar = ({ handleDrawerToggle, favouriteAnimals }) => {
   );
 }}
 </UserProvider >
-)}
+)}}
 
-export default TopBar;
+
+const mapStateToProps = (state) => ({
+  userData: state.users.userData,
+  loggedUserId: state.users.loggedUser,
+});
+
+const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar);

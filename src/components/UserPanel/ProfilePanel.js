@@ -20,6 +20,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { connect } from "react-redux";
 import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
+import { setUser } from "../../state/users";
 
 class ProfilePanel extends Component {
   state = {
@@ -36,6 +37,7 @@ class ProfilePanel extends Component {
     const ref = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
       this.fetchAvatarUrl();
+      this.props.setUser(user.uid)
     });
 
     this.setState({ ref });
@@ -140,8 +142,8 @@ class ProfilePanel extends Component {
 
   getTimeWithUs = (creationDate) => {
     const daysDifference = differenceInCalendarDays(
-      new Date(creationDate),
-      new Date(Date.now())
+      new Date(Date.now()),
+      new Date(creationDate)
     );
     switch (daysDifference) {
       case 0:
@@ -276,10 +278,10 @@ class ProfilePanel extends Component {
               style={{ textAlign: "center", margin: "20px 0" }}
             >
               <div>Witaj</div>
-              {userData[0].name}
+              {userData !== null ? userData.name : null}
             </Typography>
             <Typography variant="body1" style={{ textAlign: "center" }}>
-              {this.getTimeWithUs(userData[0].creationDate)}
+              {this.getTimeWithUs(userData !== null ? userData.creationDate : null)}
             </Typography>
           </Grid>
         </Paper>
@@ -290,8 +292,11 @@ class ProfilePanel extends Component {
 
 const mapStateToProps = (state) => ({
   userData: state.users.userData,
+  loggedUserId: state.users.loggedUser,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  setUser,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePanel);

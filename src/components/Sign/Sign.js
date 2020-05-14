@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import UserProvider from "../UserProvider";
 import style from "./Sign.module.css";
 import { connect } from "react-redux";
-import { fetchUser } from "../../state/users";
+import { fetchUser, updateUser, setUser } from "../../state/users";
 
 class Sign extends React.Component {
   state = {
@@ -44,11 +44,11 @@ class Sign extends React.Component {
           fetch(
             `https://code-for-animals-90802.firebaseio.com/Users/${uid}.json`,
             {
-              method: "POST",
+              method: "PUT",
               body: JSON.stringify({
                 id: uid,
                 name: this.state.name,
-                favouriteAnimals: [],
+                favouriteAnimals: false,
                 charity: 0,
                 creationDate,
               }),
@@ -57,6 +57,9 @@ class Sign extends React.Component {
         })
         .then(() => {
           this.props.fetchUser(this.state.id);
+          this.props.setUser(this.state.id);
+        })
+        .then(() => {
           this.setState({
             redirect: true,
           });
@@ -77,6 +80,9 @@ class Sign extends React.Component {
         })
         .then(() => {
           this.props.fetchUser(this.state.id);
+          this.props.setUser(this.state.id);
+        })
+        .then(() => {
           this.setState({
             redirect: true,
           });
@@ -95,7 +101,7 @@ class Sign extends React.Component {
 
     return (
       <UserProvider>
-        {(user) => {
+        {(user) => {    
           return user ? (
             <h2 style={{ textAlign: "center", marginTop: 20 }}>
               Jesteś już zalogowany!
@@ -190,10 +196,13 @@ class Sign extends React.Component {
 
 const mapStateToProps = (state) => ({
   userData: state.users.userData,
+  loggedUser: state.users.loggedUser,
 });
 
 const mapDispatchToProps = {
   fetchUser,
+  updateUser,
+  setUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sign);
