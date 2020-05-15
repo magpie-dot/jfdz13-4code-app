@@ -9,7 +9,6 @@ import firebase from 'firebase';
 import {Redirect} from "react-router";
 import {Link} from 'react-router-dom';
 import UserProvider from "../UserProvider";
-import { StylesContext } from '@material-ui/styles';
 import style from "./Sign.module.css"
 
 

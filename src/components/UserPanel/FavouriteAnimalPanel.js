@@ -28,7 +28,6 @@ class FavouriteAnimalPanel extends React.Component {
              spacing={3}
            >
             {this.state.favouriteAnimals.map(animal => {
-              {console.log(animal.data.type)}
               return (
                 <Grid item>
                 <Card className={styles.card}>
