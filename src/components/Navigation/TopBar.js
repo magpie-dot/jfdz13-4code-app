@@ -18,11 +18,21 @@ import { connect } from "react-redux";
 
 
 class TopBar extends React.Component{
+  state = {
+    ref: null,
+    user: null,
+  };
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      this.props.loggedUserId = user.uid
+    const ref = firebase.auth().onAuthStateChanged((user) => {
+      this.setState({ user });
     });
+
+    this.setState({ ref });
+  }
+
+  componentWillUnmount() {
+    this.state.ref();
   }
 
   handleSignOut = () => {

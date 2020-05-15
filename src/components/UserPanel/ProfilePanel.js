@@ -20,7 +20,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { connect } from "react-redux";
 import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
-import { setUser } from "../../state/users";
+import { setUser, fetchUser } from "../../state/users";
 
 class ProfilePanel extends Component {
   state = {
@@ -37,7 +37,8 @@ class ProfilePanel extends Component {
     const ref = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
       this.fetchAvatarUrl();
-      this.props.setUser(user.uid)
+      this.props.setUser(user.uid);
+      this.props.fetchUser(user.uid)
     });
 
     this.setState({ ref });
@@ -174,7 +175,7 @@ class ProfilePanel extends Component {
                   <Button onClick={this.handleOpen}> Dodaj zdjęcie</Button>
                 )}
                 <Dialog
-                  fullWidth="true"
+                  fullWidth
                   open={this.state.open}
                   keepMounted
                   onClose={this.handleClose}
@@ -297,6 +298,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   setUser,
+  fetchUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePanel);
