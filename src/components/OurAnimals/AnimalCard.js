@@ -103,11 +103,12 @@ const DialogContent = withStyles((theme) => ({
 
 const AnimalCard = (props) => {
   const {
-    onClickFavourite,
     animal: {
-      data: { type, name, age, imageUrl, id },
+      data: { type, name, age, imageUrl},
       descriptions: { descriptionBasic, descriptionExtended },
+      id
     },
+    onClickFavourite,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -120,13 +121,11 @@ const AnimalCard = (props) => {
   };
 
   const handleOnClickFavourite = () => {
-    onClickFavourite(id,
-      props.userData.favouriteAnimals)
+    onClickFavourite(id, props.userData.favouriteAnimals, props.userData)
   }
   // const checkFavourite = ()props.userData[0].favouriteAnimals.includes(id)
   //   ? "rgb(234,76,137)"
   //   : "#3c3d47";
-
   return (
     <UserProvider>
       {(user) => {

@@ -86,6 +86,7 @@ export const fetchUser = (id) => (dispatch) => {
 };
 
 export const updateUser = (id, user) => (dispatch) => {
+    console.log(user)
   fetch(`${DATABASE}/Users/${id}.json`, {
     method: "PUT",
     body: JSON.stringify({
@@ -107,22 +108,28 @@ export const setUser = (id) => (dispatch) => {
 };
 
 export const setCharity = (value, user) => (dispatch) => {
-    const charityValue = Number(user.charity) + Number(value)
-  dispatch({ type: SET_CHARITY, payload: charityValue })
+  const charityValue = Number(user.charity) + Number(value);
+  dispatch({ type: SET_CHARITY, payload: charityValue });
 };
 
-export const toggleFavourite = (id, favouriteAnimalsId) => (dispatch) => {
+export const toggleFavourite = (id, favouriteAnimalsId, user) => (dispatch) => {
+  //  console.log(user)
+    let animalsIdArray = []
   if (!favouriteAnimalsId) {
-    const animalsIdArray = [id];
-    return animalsIdArray;
+    animalsIdArray = [id];
   } else {
-    const animalsIdArray = favouriteAnimalsId.includes(id)
+    animalsIdArray = favouriteAnimalsId.includes(id)
       ? [
           ...favouriteAnimalsId.filter(
             (favouriteAnimalId) => favouriteAnimalId !== id
           ),
         ]
       : [...favouriteAnimalsId, id];
-    dispatch({ type: TOGGLE_FAVOURITE, payload: animalsIdArray });
   }
+  dispatch({ type: TOGGLE_FAVOURITE, payload: animalsIdArray });
+  //console.log(user)
+  updateUser(user.id,
+     Object.assign({}, user, {     
+      favouriteAnimals: animalsIdArray
+    }))(dispatch);
 };

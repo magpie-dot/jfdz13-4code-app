@@ -87,8 +87,8 @@ class OurAnimals extends Component {
     });
   };
 
-  handleOnClickFavourite = (animalId, favouriteAnimals) => {
-    this.props.toggleFavourite(animalId, favouriteAnimals);
+  handleOnClickFavourite = (animalId, favouriteAnimals, userData) => {
+    this.props.toggleFavourite(animalId, favouriteAnimals, userData);
     this.props.updateUser(this.props.userData.id, this.props.userData);
   };
 
