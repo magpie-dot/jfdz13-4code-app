@@ -6,13 +6,13 @@ import Grid from "@material-ui/core/Grid";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 export class Confirm extends Component {
-  continue = e => {
+  continue = (e) => {
     e.preventDefault();
     //TU PRZESYŁANIE DANYCH//
     this.props.nextStep();
   };
 
-  back = e => {
+  back = (e) => {
     e.preventDefault();
     this.props.prevStep();
   };
@@ -20,16 +20,16 @@ export class Confirm extends Component {
   render() {
     const {
       values: {
-        firstName,
-        lastName,
+        username,
+        surName,
         adress,
         postalCode,
         email,
-        phoneNumber,
+        phone,
         bio,
         exp,
-        help
-      }
+        help,
+      },
     } = this.props;
     return (
       <Grid container spacing={3}>
@@ -48,7 +48,7 @@ export class Confirm extends Component {
                     <ListItemText primary="Imię" secondary={firstName} />
                   </ListItem>
                   <ListItem>
-                    <ListItemText primary="Nazwisko" secondary={lastName} />
+                    <ListItemText primary="Nazwisko" secondary={surName} />
                   </ListItem>
                   <ListItem>
                     <ListItemText primary="Adres" secondary={adress} />
@@ -83,7 +83,7 @@ export class Confirm extends Component {
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
-                    marginTop: 20
+                    marginTop: 20,
                   }}
                 >
                   <br></br>
