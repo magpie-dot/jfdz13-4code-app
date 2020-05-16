@@ -27,6 +27,7 @@ class ProfilePanel extends Component {
     user: null,
     open: false,
     avatarType: " ",
+    isAvatarActive: false,
     openFileWindow: false
   };
 
@@ -72,13 +73,14 @@ class ProfilePanel extends Component {
 
   handleOnImageClick = event => {
     this.setState({
-      avatarType: event.target.src.slice(-27)
+      avatarType: event.target.src.slice(-27),
+      isAvatarActive: !this.state.isAvatarActive
     });
   };
 
   handleOnImageAdd = () => {
     if (this.state.avatarType) {
-      localStorage.setItem("avatar", this.state.avatarType);
+      localStorage.setItem("avatar" +this.state.user.uid, this.state.avatarType);
       firebase
         .storage()
         .ref(`avatars/${this.state.user.uid}`)
@@ -87,6 +89,10 @@ class ProfilePanel extends Component {
           this.fetchAvatarUrl();
         });
     }
+    this.setState({
+      isAvatarActive: false,
+      open: false,
+    });
   };
 
   fetchAvatarUrl = () => {
@@ -100,7 +106,7 @@ class ProfilePanel extends Component {
         });
       })
       .catch(() => {
-        const avatar = localStorage.getItem("avatar");
+        const avatar = localStorage.getItem("avatar"+this.state.user.uid);
         if (avatar) {
           this.setState({
             url: avatar
@@ -120,7 +126,7 @@ class ProfilePanel extends Component {
       .delete()
       .finally(() => {
         this.fetchAvatarUrl();
-        localStorage.removeItem("avatar");
+        localStorage.removeItem("avatar"+this.state.user.uid);
       });
   };
 
@@ -132,7 +138,8 @@ class ProfilePanel extends Component {
 
   closeFileWindow = () => {
     this.setState({
-      openFileWindow: false
+      openFileWindow: false,
+      open: false,
     });
   };
 
@@ -161,9 +168,77 @@ class ProfilePanel extends Component {
                   aria-labelledby="alert-dialog-slide-title"
                   aria-describedby="alert-dialog-slide-description"
                 >
+                  <DialogTitle>Wybierz avatar</DialogTitle>
+                  <div className={styles.avatarsContainer}>
+                    <DialogContent className={styles.avatarsImages}>
+                      <img
+                        alt="avatar"
+                        onClick={this.handleOnImageClick}
+                        src="images/avatars/avatar5.png"
+                        className={
+                          this.state.isAvatarActive
+                            ? styles.avatarsActive
+                            : styles.avatars
+                        }
+                      />
+                      <img
+                        alt="avatar"
+                        onClick={this.handleOnImageClick}
+                        src="images/avatars/avatar6.png"
+                        className={
+                          this.state.isAvatarActive
+                            ? styles.avatarsActive
+                            : styles.avatars
+                        }
+                      />
+                      <img
+                        alt="avatar"
+                        onClick={this.handleOnImageClick}
+                        src="images/avatars/avatar7.png"
+                        className={
+                          this.state.isAvatarActive
+                            ? styles.avatarsActive
+                            : styles.avatars
+                        }
+                      />
+                      <img
+                        alt="avatar"
+                        onClick={this.handleOnImageClick}
+                        src="images/avatars/avatar8.png"
+                        className={
+                          this.state.isAvatarActive
+                            ? styles.avatarsActive
+                            : styles.avatars
+                        }
+                      />
+                      <img
+                        alt="avatar"
+                        onClick={this.handleOnImageClick}
+                        src="images/avatars/avatar9.png"
+                        className={
+                          this.state.isAvatarActive
+                            ? styles.avatarsActive
+                            : styles.avatars
+                        }
+                      />
+                      <img
+                        alt="avatar"
+                        onClick={this.handleOnImageClick}
+                        src="images/avatars/avatar10.png"
+                        className={
+                          this.state.isAvatarActive
+                            ? styles.avatarsActive
+                            : styles.avatars
+                        }
+                      />
+                      <div className={styles.addButton}>
+                        <Button onClick={this.handleOnImageAdd}>Dodaj</Button>
+                      </div>
+                    </DialogContent>
+                  </div>
                   <div className={styles.dialogTop}>
                     <DialogTitle>
-                      Dodaj zdjęcie
+                      lub dodaj swoje zdjęcie
                       <IconButton onClick={this.showFileWindow}>
                         <AddCircleOutlineIcon
                           color="primary"
@@ -187,46 +262,6 @@ class ProfilePanel extends Component {
                       <CloseIcon />
                     </IconButton>
                   </Dialog>
-                  <DialogTitle>Wybierz avatar</DialogTitle>
-                  <DialogContent className={styles.avatarsContainer}>
-                    <img
-                      alt="avatar"
-                      onClick={this.handleOnImageClick}
-                      src="images/avatars/avatar5.png"
-                      className={styles.avatars}
-                    />
-                    <img
-                      alt="avatar"
-                      onClick={this.handleOnImageClick}
-                      src="images/avatars/avatar6.png"
-                      className={styles.avatars}
-                    />
-                    <img
-                      alt="avatar"
-                      onClick={this.handleOnImageClick}
-                      src="images/avatars/avatar7.png"
-                      className={styles.avatars}
-                    />
-                    <img
-                      alt="avatar"
-                      onClick={this.handleOnImageClick}
-                      src="images/avatars/avatar8.png"
-                      className={styles.avatars}
-                    />
-                    <img
-                      alt="avatar"
-                      onClick={this.handleOnImageClick}
-                      src="images/avatars/avatar9.png"
-                      className={styles.avatars}
-                    />
-                    <img
-                      alt="avatar"
-                      onClick={this.handleOnImageClick}
-                      src="images/avatars/avatar10.png"
-                      className={styles.avatars}
-                    />
-                    <Button onClick={this.handleOnImageAdd}>Dodaj</Button>
-                  </DialogContent>
                   <div>
                     <DialogActions style={{ marginTop: "20px" }}>
                       <Button

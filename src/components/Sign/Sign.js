@@ -9,7 +9,6 @@ import firebase from 'firebase';
 import {Redirect} from "react-router";
 import {Link} from 'react-router-dom';
 import UserProvider from "../UserProvider";
-import { StylesContext } from '@material-ui/styles';
 import style from "./Sign.module.css"
 
 
@@ -64,7 +63,7 @@ class Sign extends React.Component {
             <UserProvider>
                 {(user) => {
                     return user
-                    ? <h2 style={{textAlign: "center", marginTop: 20}}>Jesteś już zalogowany!</h2>
+                    ? <h2 style={{textAlign: "center", marginTop: 20}}></h2>
                     : <Container component="main" maxWidth="xs" className = {style.formContainer}>
                             <div style={{marginTop: 230, textAlign: "center"}}>
                                 <Typography component="h1" variant="h5">
