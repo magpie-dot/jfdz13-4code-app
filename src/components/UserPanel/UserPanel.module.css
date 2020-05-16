@@ -83,29 +83,41 @@
   top:10px;
 }
 
-.avatarsContainer {
-
+.avatarsImages {
   display: flex;
-  width:100%;
+  width:90%;
+  min-height: 80px;
   justify-content: space-around;
+}
 
+
+.avatarsContainer {
+  display: inline-block;
 }
 .avatars {
-width:40px;
-height:40px;
+width:50px;
+height:50px;
 }
 
 .avatars:hover {
-  transform: scale(1.1);
+  transform: scale(1.4);
 }
-.avatars:active {
-  transform: scale(1.2);
+.avatarsActive {
+  width:80px;
+  height:80px;
 }
+
 
 .dialogTop {
   display: inline-block;
 }
 
-.UserPanel_avatarsContainer__27NRT {
+/* .UserPanel_avatarsContainer__27NRT {
   padding: 26px 16px;
+} */
+
+.addButton {
+  position: absolute;
+  right: 10px;
+  top:85px;
 }
