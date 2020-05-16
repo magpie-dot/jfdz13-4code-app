@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import styles from "./BecomeVolunteer.module.css"
 
 
 function ValidationMessage(props) {
@@ -113,9 +114,9 @@ export class Form extends React.Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <Grid container spacing={3}>
-        <Grid item xs={6} sm={6}>
-          <Paper elevation={3} style={{ padding: 20 }}>
+      <Grid container spacing={6} >
+        <Grid item  md ={12} lg={6}>
+          <Paper elevation={3} style={{ padding: 20 }}  >
             <Grid
               container
               direction="column"
@@ -271,18 +272,15 @@ export class Form extends React.Component {
             </Grid>
           </Paper>
         </Grid>
-
-        <Grid item>
-          <div>
+              <Grid item  md ={12} lg={6}>
             <img
+            className = {styles.image}
               src="images/picPlayfulCat.png"
               alt="kot"
-              height="550"
-              width="550"
             ></img>
-          </div>
+            </Grid>
         </Grid>
-      </Grid>
+
     );
   }
 }
