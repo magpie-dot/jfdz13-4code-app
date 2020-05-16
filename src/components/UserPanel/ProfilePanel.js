@@ -21,7 +21,16 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { connect } from "react-redux";
 import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 import { setUser, fetchUser } from "../../state/users";
+import UserAvatar from "./Avatars";
 
+const images = [
+  "images/avatars/avatar5.png",
+  "images/avatars/avatar6.png",
+  "images/avatars/avatar7.png",
+  "images/avatars/avatar8.png",
+  "images/avatars/avatar9.png",
+  "images/avatars/avatar10.png",
+];
 class ProfilePanel extends Component {
   state = {
     file: null,
@@ -30,8 +39,8 @@ class ProfilePanel extends Component {
     user: null,
     open: false,
     avatarType: " ",
-    isAvatarActive: false,
-    openFileWindow: false
+    openFileWindow: false,
+    activeAvatarId: null,
   };
 
   componentDidMount() {
@@ -39,7 +48,7 @@ class ProfilePanel extends Component {
       this.setState({ user });
       this.fetchAvatarUrl();
       this.props.setUser(user.uid);
-      this.props.fetchUser(user.uid)
+      this.props.fetchUser(user.uid);
     });
 
     this.setState({ ref });
@@ -76,16 +85,19 @@ class ProfilePanel extends Component {
     });
   };
 
-  handleOnImageClick = (event) => {
+  handleOnImageClick = (event, id) => {
     this.setState({
       avatarType: event.target.src.slice(-27),
-      isAvatarActive: !this.state.isAvatarActive
+      activeAvatarId: id,
     });
   };
 
   handleOnImageAdd = () => {
     if (this.state.avatarType) {
-      localStorage.setItem("avatar" +this.state.user.uid, this.state.avatarType);
+      localStorage.setItem(
+        "avatar" + this.state.user.uid,
+        this.state.avatarType
+      );
       firebase
         .storage()
         .ref(`avatars/${this.state.user.uid}`)
@@ -95,7 +107,6 @@ class ProfilePanel extends Component {
         });
     }
     this.setState({
-      isAvatarActive: false,
       open: false,
     });
   };
@@ -106,12 +117,13 @@ class ProfilePanel extends Component {
       .ref(`avatars/${this.state.user.uid}`)
       .getDownloadURL()
       .then((url) => {
+        console.log("url: ", url);
         this.setState({
           url,
         });
       })
       .catch(() => {
-        const avatar = localStorage.getItem("avatar"+this.state.user.uid);
+        const avatar = localStorage.getItem("avatar" + this.state.user.uid);
         if (avatar) {
           this.setState({
             url: avatar,
@@ -131,7 +143,7 @@ class ProfilePanel extends Component {
       .delete()
       .finally(() => {
         this.fetchAvatarUrl();
-        localStorage.removeItem("avatar"+this.state.user.uid);
+        localStorage.removeItem("avatar" + this.state.user.uid);
       });
   };
 
@@ -163,6 +175,8 @@ class ProfilePanel extends Component {
     }
   };
 
+
+
   render() {
     const { userData } = this.props;
     return (
@@ -192,66 +206,15 @@ class ProfilePanel extends Component {
                   <DialogTitle>Wybierz avatar</DialogTitle>
                   <div className={styles.avatarsContainer}>
                     <DialogContent className={styles.avatarsImages}>
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar5.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar6.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar7.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar8.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar9.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar10.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
+                      {images.map((image, index) => (
+                        <UserAvatar
+                          image={image}
+                          id={index}
+                          key={index}
+                          activeAvatarId={this.state.activeAvatarId}
+                          handleOnImageClick={this.handleOnImageClick}
+                        />
+                      ))}
                       <div className={styles.addButton}>
                         <Button onClick={this.handleOnImageAdd}>Dodaj</Button>
                       </div>
@@ -316,7 +279,9 @@ class ProfilePanel extends Component {
               Witaj <span> {userData !== null ? userData.name : null}</span>
             </Typography>
             <Typography variant="body1" style={{ textAlign: "center" }}>
-              {this.getTimeWithUs(userData !== null ? userData.creationDate : null)}
+              {this.getTimeWithUs(
+                userData !== null ? userData.creationDate : null
+              )}
             </Typography>
           </Grid>
         </Paper>
