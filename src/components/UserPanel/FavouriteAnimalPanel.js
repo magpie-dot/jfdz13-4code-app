@@ -32,9 +32,9 @@ class FavouriteAnimalPanel extends React.Component {
                   .filter((animal) =>
                     userData.favouriteAnimals.includes(animal.id)
                   )
-                  .map((animal) => {
+                  .map((animal, key) => {
                     return (
-                      <Grid item>
+                      <Grid item key={key}>
                         <Card className={styles.card}>
                           <img
                             className={styles.favouriteImage}
