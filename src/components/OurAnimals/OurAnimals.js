@@ -89,7 +89,7 @@ class OurAnimals extends Component {
 
   handleOnClickFavourite = (animalId, favouriteAnimals, userData) => {
     this.props.toggleFavourite(animalId, favouriteAnimals, userData);
-    this.props.updateUser(this.props.userData.id, this.props.userData);
+    // this.props.updateUser(this.props.userData.id, this.props.userData);
   };
 
   componentDidMount() {
@@ -98,7 +98,7 @@ class OurAnimals extends Component {
 
       this.props.fetchAnimals();
       this.props.setUser(user.uid);
-      this.props.fetchUser(user.uid)
+      !this.props.userData && this.props.fetchUser(user.uid)
     });
 
     this.setState({ ref });

@@ -113,7 +113,6 @@ export const setCharity = (value, user) => (dispatch) => {
 };
 
 export const toggleFavourite = (id, favouriteAnimalsId, user) => (dispatch) => {
-  //  console.log(user)
     let animalsIdArray = []
   if (!favouriteAnimalsId) {
     animalsIdArray = [id];
@@ -127,7 +126,6 @@ export const toggleFavourite = (id, favouriteAnimalsId, user) => (dispatch) => {
       : [...favouriteAnimalsId, id];
   }
   dispatch({ type: TOGGLE_FAVOURITE, payload: animalsIdArray });
-  //console.log(user)
   updateUser(user.id,
      Object.assign({}, user, {     
       favouriteAnimals: animalsIdArray

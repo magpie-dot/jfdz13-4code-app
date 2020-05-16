@@ -2,14 +2,9 @@ import React from "react";
 import { Paper, Grid, Typography } from "@material-ui/core";
 import styles from "./UserPanel.module.css";
 
-import { setUser } from "../../state/users";
 import { connect } from "react-redux";
 
 class CharityPanel extends React.Component {
-
-componentDidMount(){
-  this.props.setUser(this.props.loggedUserId)
-}
 
   render() {
     const { userData } = this.props;
@@ -42,7 +37,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  setUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CharityPanel);

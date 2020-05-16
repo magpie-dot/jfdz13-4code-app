@@ -104,12 +104,13 @@ const DialogContent = withStyles((theme) => ({
 const AnimalCard = (props) => {
   const {
     animal: {
-      data: { type, name, age, imageUrl},
+      data: { type, name, age, imageUrl },
       descriptions: { descriptionBasic, descriptionExtended },
-      id
+      id,
     },
     onClickFavourite,
   } = props;
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -121,11 +122,14 @@ const AnimalCard = (props) => {
   };
 
   const handleOnClickFavourite = () => {
-    onClickFavourite(id, props.userData.favouriteAnimals, props.userData)
-  }
-  // const checkFavourite = ()props.userData[0].favouriteAnimals.includes(id)
-  //   ? "rgb(234,76,137)"
-  //   : "#3c3d47";
+    onClickFavourite(id, props.userData.favouriteAnimals, props.userData);
+  };
+  const checkFavourite = () =>
+    props.userData.favouriteAnimals &&
+    props.userData.favouriteAnimals.includes(id)
+      ? "rgb(234,76,137)"
+      : "#3c3d47";
+
   return (
     <UserProvider>
       {(user) => {
@@ -155,7 +159,6 @@ const AnimalCard = (props) => {
             </CardContent>
             <CardActions
               disableSpacing
-              // style={{ position: "absolute", bottom: 10, left: 35 }}
               style={{
                 width: "100%",
                 display: "flex",
@@ -168,7 +171,7 @@ const AnimalCard = (props) => {
                 <IconButton
                   aria-label="add to favorites"
                   style={{
-                    color: "#3c3d47",
+                    color: checkFavourite(),
                   }}
                   onClick={handleOnClickFavourite}
                 >

@@ -41,7 +41,6 @@ export default function AlignItemsList() {
               <Typography
                 style={{ fontSize: 15, color: "#EA4C89" }}
                 component="span"
-                color="#FDA8C9"
               >
                 Katarzyna Bęś-Laskowska, tenisistka
               </Typography>

@@ -278,8 +278,7 @@ class ProfilePanel extends Component {
               variant="body1"
               style={{ textAlign: "center", margin: "20px 0" }}
             >
-              <div>Witaj</div>
-              {userData !== null ? userData.name : null}
+              Witaj <span> {userData !== null ? userData.name : null}</span>
             </Typography>
             <Typography variant="body1" style={{ textAlign: "center" }}>
               {this.getTimeWithUs(userData !== null ? userData.creationDate : null)}

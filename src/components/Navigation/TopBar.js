@@ -78,7 +78,7 @@ class TopBar extends React.Component{
              {user && (
                <>
             <IconButton aria-label="show 2 new notifications" color="inherit">
-              <Badge badgeContent={this.props.favouriteAnimals.length} color="secondary">
+              <Badge badgeContent={this.props.userData && this.props.userData.favouriteAnimals && this.props.userData.favouriteAnimals.length} color="secondary">
                 <FavoriteIcon style={{ fontSize: 30 }} />
               </Badge>
             </IconButton>
