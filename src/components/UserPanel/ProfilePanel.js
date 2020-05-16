@@ -80,7 +80,7 @@ class ProfilePanel extends Component {
 
   handleOnImageAdd = () => {
     if (this.state.avatarType) {
-      localStorage.setItem("avatar", this.state.avatarType);
+      localStorage.setItem("avatar" +this.state.user.uid, this.state.avatarType);
       firebase
         .storage()
         .ref(`avatars/${this.state.user.uid}`)
@@ -106,7 +106,7 @@ class ProfilePanel extends Component {
         });
       })
       .catch(() => {
-        const avatar = localStorage.getItem("avatar");
+        const avatar = localStorage.getItem("avatar"+this.state.user.uid);
         if (avatar) {
           this.setState({
             url: avatar
@@ -126,7 +126,7 @@ class ProfilePanel extends Component {
       .delete()
       .finally(() => {
         this.fetchAvatarUrl();
-        localStorage.removeItem("avatar");
+        localStorage.removeItem("avatar"+this.state.user.uid);
       });
   };
 
