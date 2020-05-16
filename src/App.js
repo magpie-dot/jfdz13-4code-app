@@ -15,31 +15,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends Component {
   state = {
-    animals: [],
-    loading: true,
+    loading: false,
     error: null,
     favouriteAnimals: []
   };
-
-  componentDidMount() {
-    fetch("https://code-for-animals-90802.firebaseio.com/animals.json")
-      .then(response => response.json())
-      .then(objectAnimals => {
-        const keys = Object.keys(objectAnimals);
-        const arrayAnimals = keys.map(key => {
-          return {
-            id: key,
-            ...objectAnimals[key]
-          };
-        });
-        this.setState({
-          ...this.state,
-          animals: arrayAnimals,
-          loading: false
-        });
-      })
-      .catch(error => this.setState(...this.state, error));
-  }
 
   onAddToFavourite = (animal, isFavourite) => {
     const { favouriteAnimals } = this.state;
@@ -56,7 +35,7 @@ class App extends Component {
   };
 
   render() {
-    const { animals, loading, error, favouriteAnimals} = this.state;
+    const { loading, error, favouriteAnimals} = this.state;
     return (
       <BrowserRouter>
         <CssBaseline />
@@ -69,7 +48,6 @@ class App extends Component {
                         path="/naszezwierzaki"
                         component={() => (
                           <OurAnimals
-                            animals={animals}
                             favouriteAnimals={favouriteAnimals}
                             loading={loading}
                             error={error}

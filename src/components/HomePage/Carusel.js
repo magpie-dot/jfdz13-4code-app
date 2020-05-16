@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import {NavLink} from 'react-router-dom'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -38,14 +39,14 @@ const useStyles = makeStyles((theme) => ({
   header: {
     display: 'flex',
     alignItems: 'center',
-    height: 50,
+    height: 40,
     paddingLeft: theme.spacing(4),
     
   },
   img: {
     height: 255,
     display: 'block',
-    maxWidth: 400,
+    maxWidth: 440,
     overflow: 'hidden',
     width: '100%',
   },
@@ -73,7 +74,9 @@ function SwipeableTextMobileStepper() {
         {tutorialSteps.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
+              <NavLink className="link" exact to={"/naszezwierzaki"}>
               <img className={classes.img} src={step.imgPath} alt={step.label} />
+              </NavLink>
             ) : null}
           </div>
         ))}

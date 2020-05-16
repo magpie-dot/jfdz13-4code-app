@@ -11,14 +11,26 @@ import {
   DialogTitle,
   Button,
   Input,
-  IconButton
+  IconButton,
 } from "@material-ui/core";
 import styles from "./UserPanel.module.css";
 import placeholder from "../ee11528c2192ed4402d96c564d38d05f.svg";
 import firebase from "firebase";
 import CloseIcon from "@material-ui/icons/Close";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { connect } from "react-redux";
+import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
+import { setUser, fetchUser } from "../../state/users";
+import UserAvatar from "./Avatars";
 
+const images = [
+  "images/avatars/avatar5.png",
+  "images/avatars/avatar6.png",
+  "images/avatars/avatar7.png",
+  "images/avatars/avatar8.png",
+  "images/avatars/avatar9.png",
+  "images/avatars/avatar10.png",
+];
 class ProfilePanel extends Component {
   state = {
     file: null,
@@ -27,14 +39,16 @@ class ProfilePanel extends Component {
     user: null,
     open: false,
     avatarType: " ",
-    isAvatarActive: false,
-    openFileWindow: false
+    openFileWindow: false,
+    activeAvatarId: null,
   };
 
   componentDidMount() {
-    const ref = firebase.auth().onAuthStateChanged(user => {
+    const ref = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
       this.fetchAvatarUrl();
+      this.props.setUser(user.uid);
+      this.props.fetchUser(user.uid);
     });
 
     this.setState({ ref });
@@ -44,9 +58,9 @@ class ProfilePanel extends Component {
     this.state.ref();
   }
 
-  handleOnChange = event => {
+  handleOnChange = (event) => {
     this.setState({
-      file: event.target.files[0]
+      file: event.target.files[0],
     });
   };
 
@@ -62,25 +76,28 @@ class ProfilePanel extends Component {
 
   handleOpen = () => {
     this.setState({
-      open: true
+      open: true,
     });
   };
   handleClose = () => {
     this.setState({
-      open: false
+      open: false,
     });
   };
 
-  handleOnImageClick = event => {
+  handleOnImageClick = (event, id) => {
     this.setState({
       avatarType: event.target.src.slice(-27),
-      isAvatarActive: !this.state.isAvatarActive
+      activeAvatarId: id,
     });
   };
 
   handleOnImageAdd = () => {
     if (this.state.avatarType) {
-      localStorage.setItem("avatar" +this.state.user.uid, this.state.avatarType);
+      localStorage.setItem(
+        "avatar" + this.state.user.uid,
+        this.state.avatarType
+      );
       firebase
         .storage()
         .ref(`avatars/${this.state.user.uid}`)
@@ -90,7 +107,6 @@ class ProfilePanel extends Component {
         });
     }
     this.setState({
-      isAvatarActive: false,
       open: false,
     });
   };
@@ -100,20 +116,21 @@ class ProfilePanel extends Component {
       .storage()
       .ref(`avatars/${this.state.user.uid}`)
       .getDownloadURL()
-      .then(url => {
+      .then((url) => {
+        console.log("url: ", url);
         this.setState({
-          url
+          url,
         });
       })
       .catch(() => {
-        const avatar = localStorage.getItem("avatar"+this.state.user.uid);
+        const avatar = localStorage.getItem("avatar" + this.state.user.uid);
         if (avatar) {
           this.setState({
-            url: avatar
+            url: avatar,
           });
         } else {
           this.setState({
-            url: ""
+            url: "",
           });
         }
       });
@@ -126,13 +143,13 @@ class ProfilePanel extends Component {
       .delete()
       .finally(() => {
         this.fetchAvatarUrl();
-        localStorage.removeItem("avatar"+this.state.user.uid);
+        localStorage.removeItem("avatar" + this.state.user.uid);
       });
   };
 
   showFileWindow = () => {
     this.setState({
-      openFileWindow: true
+      openFileWindow: true,
     });
   };
 
@@ -143,7 +160,25 @@ class ProfilePanel extends Component {
     });
   };
 
+  getTimeWithUs = (creationDate) => {
+    const daysDifference = differenceInCalendarDays(
+      new Date(Date.now()),
+      new Date(creationDate)
+    );
+    switch (daysDifference) {
+      case 0:
+        return "Witaj w naszym gronie";
+      case 1:
+        return `Jesteś z nami ${daysDifference} dzień`;
+      default:
+        return `Jesteś z nami już ${daysDifference} dni`;
+    }
+  };
+
+
+
   render() {
+    const { userData } = this.props;
     return (
       this.state.user && (
         <Paper elevation={3} className={styles.paper}>
@@ -161,7 +196,7 @@ class ProfilePanel extends Component {
                   <Button onClick={this.handleOpen}> Dodaj zdjęcie</Button>
                 )}
                 <Dialog
-                  fullWidth="true"
+                  fullWidth
                   open={this.state.open}
                   keepMounted
                   onClose={this.handleClose}
@@ -171,66 +206,15 @@ class ProfilePanel extends Component {
                   <DialogTitle>Wybierz avatar</DialogTitle>
                   <div className={styles.avatarsContainer}>
                     <DialogContent className={styles.avatarsImages}>
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar5.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar6.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar7.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar8.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar9.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
-                      <img
-                        alt="avatar"
-                        onClick={this.handleOnImageClick}
-                        src="images/avatars/avatar10.png"
-                        className={
-                          this.state.isAvatarActive
-                            ? styles.avatarsActive
-                            : styles.avatars
-                        }
-                      />
+                      {images.map((image, index) => (
+                        <UserAvatar
+                          image={image}
+                          id={index}
+                          key={index}
+                          activeAvatarId={this.state.activeAvatarId}
+                          handleOnImageClick={this.handleOnImageClick}
+                        />
+                      ))}
                       <div className={styles.addButton}>
                         <Button onClick={this.handleOnImageAdd}>Dodaj</Button>
                       </div>
@@ -292,11 +276,12 @@ class ProfilePanel extends Component {
               variant="body1"
               style={{ textAlign: "center", margin: "20px 0" }}
             >
-              <div>Witaj</div>
-              {this.state.user.email}
+              Witaj <span> {userData !== null ? userData.name : null}</span>
             </Typography>
             <Typography variant="body1" style={{ textAlign: "center" }}>
-              Jesteś z nami 31 dni.
+              {this.getTimeWithUs(
+                userData !== null ? userData.creationDate : null
+              )}
             </Typography>
           </Grid>
         </Paper>
@@ -305,4 +290,14 @@ class ProfilePanel extends Component {
   }
 }
 
-export default ProfilePanel;
+const mapStateToProps = (state) => ({
+  userData: state.users.userData,
+  loggedUserId: state.users.loggedUser,
+});
+
+const mapDispatchToProps = {
+  setUser,
+  fetchUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePanel);

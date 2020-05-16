@@ -185,7 +185,6 @@ export class Form extends React.Component {
                   <TextField
                     label="Adres"
                     variant="outlined"
-                    label="Adres"
                     imput="Adress"
                     id="Adress"
                     name="Adress"
@@ -205,7 +204,6 @@ export class Form extends React.Component {
                     label="Numer telefonu"
                     variant="outlined"
                     fullWidth
-                    label="Telefon"
                     imput="phone"
                     id="phone"
                     name="phone"

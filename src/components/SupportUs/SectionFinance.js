@@ -7,10 +7,10 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  CircularProgress
 } from "@material-ui/core";
 import styles from "./SupportUs.module.css";
 import NewSlider from "./Slider.js";
+import { connect } from "react-redux";
 
 const SectionFinance = () => {
   const [open, setOpen] = React.useState(false);
@@ -69,7 +69,7 @@ const SectionFinance = () => {
           </Typography>
           <div className={styles.sliderContainer}>
             <div className={styles.slider}>
-              <NewSlider />
+              <NewSlider/>
             </div>
             <Button
               color="secondary"
@@ -83,17 +83,15 @@ const SectionFinance = () => {
             <Dialog
               open={open}
               onClose={handleClose}
-              aria-describedby="alert-dialog-description"
             >
               <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                  Za chwilę zostaniesz przekierowany na stronę płatności.
+                <DialogContentText>
+                  Dziękujemy za wpłatę!
                 </DialogContentText>
-                <CircularProgress style={{ marginLeft: 210 }} />
               </DialogContent>
               <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                  OK
+                <Button onClick={handleClose} color="secondary" autoFocus>
+                  Ok
                 </Button>
               </DialogActions>
             </Dialog>
@@ -111,4 +109,13 @@ const SectionFinance = () => {
   );
 };
 
-export default SectionFinance;
+
+const mapStateToProps = (state) => ({
+  userData: state.users.userData,
+  loggedUserId: state.users.loggedUser,
+});
+
+const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SectionFinance);

@@ -34,6 +34,12 @@
   top: 100px;
 }
 
-.active {
+.active.active {
   color: rgb(234,76,137);
+  text-decoration: none;
+}
+
+.active.active:hover {
+  color: whitesmoke;
+  text-decoration: none;
 }

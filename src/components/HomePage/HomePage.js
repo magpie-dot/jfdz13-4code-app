@@ -2,12 +2,15 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import style from "./Dashboard.module.css";
 import Carusel from "./Carusel";
 import Carusel2 from "./Carusel2";
 import Carusel3 from "./Carusel3";
 import Pie from "./Pie";
+import style from "./HomePage.module.css";
 import AlignList from "./AlignList";
+import BasicTextFields from "./TextField";
+import Box from "./Box"; 
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,19 +30,17 @@ const useStyles = makeStyles(theme => ({
   paper2: {
     padding: theme.spacing(2),
 
-    height: 350,
+    height: 340,
     textAlign: "center",
     color: theme.palette.text.secondary
   },
 
   paper5: {
     padding: theme.spacing(3),
-    height: 540,
-    textAlign: "left",
+    height: 500,
     textColor: "black",
     fontSize: 19,
     fontFamily: "'Hind',sans-serif",
-    color: theme.palette.text.secondary
   },
   paper6: {
     padding: theme.spacing(2),
@@ -75,13 +76,13 @@ export default function HomePage() {
         </p>
         <p
           style={{
-            fontSize: 20,
+            fontSize: 16,
             color: "grey",
             marginTop: 0,
-            fontFamily: "'Hind',sans-serif",
-            textAlign: "center",
-            width: 1000,
-            marginLeft: 50
+            fontFamily: "roboto",
+            textAlign: "left",
+            width: 800,
+            marginLeft: 170
           }}
         >
           Adoptuj, nie kupuj! – Rozpoczynając poszukiwania przyjaciela, można
@@ -109,26 +110,16 @@ export default function HomePage() {
         </Grid>
         <Grid item xs={8}>
           <Paper className={classes.paper5}>
-            <p
-              style={{
-                fontSize: 23,
-                marginTop: 5,
-                color: "black",
-                marginBottom: 1,
-                fontFamily: "'Hind',sans-serif",
-                textAlign: "center"
-              }}
-            >
-              Współpracują z nami najwięksi celebryci. Zobacz ich opinie o
-              naszej fundacji.
-            </p>
+            
             <AlignList />
           </Paper>
         </Grid>
 
         <Grid item xs={4}>
           <Paper className={style.paper6}>
-            <Pie />
+          <BasicTextFields/>
+            <Pie/> 
+            <Box/>
           </Paper>
         </Grid>
       </Grid>

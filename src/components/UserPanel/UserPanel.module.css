@@ -27,7 +27,7 @@
 .paper {
   position: relative;
   padding: 20px;
-  min-height: 350px;
+  height: 100%;
 }
 @media (max-width: 600px) {
   .paper {
