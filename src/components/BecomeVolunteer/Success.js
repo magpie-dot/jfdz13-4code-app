@@ -28,7 +28,12 @@ export class Success extends Component {
               </div>
 
               <div>
-                <img src="images/catOnCouch.png" height="400" width="500" alt="kot na kanapie"></img>
+                <img
+                  src="images/catOnCouch.png"
+                  height="400"
+                  width="500"
+                  alt="kot na kanapie"
+                ></img>
               </div>
             </Grid>
           </Paper>
