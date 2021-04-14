@@ -1,6 +1,6 @@
 .ilu {
     position: relaive;
-    float:right;
+    float: right;
     margin-right: 6rem;
     margin-top: -3rem;
 }
@@ -13,17 +13,16 @@
 .paper6 {
     height: 500px;
     justify-content: center;
-
 }
+
 .down {
     height: 13rem;
     width: 17rem;
     position: relative;
     margin-left: 11rem;
     margin-top: -8rem;
-
-
 }
+
 .title {
     font-family: "'Hind',sans-serif";
     font-size: 1.5rem;
@@ -31,6 +30,7 @@
     margin-left: 40px;
     margin-right: 40px;
 }
+
 #chart {
     height: 440px;
 }
@@ -64,13 +64,12 @@
 
 .boxBorder {
     border: 20px solid rgb(60, 193, 250);
-    height: 135px;
-    color:grey;
+    /* height: 135px; */
+    color: grey;
 }
 
 .box {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 20px;
-
-    } 
+}

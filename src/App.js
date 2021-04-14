@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 import BecomeVolunteer from "./components/BecomeVolunteer";
 import HomePage from "./components/HomePage";
-import Navigation from "./components/Navigation";
+import TopBar from "./components/Navigation";
 import OurAnimals from "./components/OurAnimals";
 import SupportUs from "./components/SupportUs";
 import UserPanel from "./components/UserPanel";
@@ -42,7 +42,7 @@ class App extends Component {
         <ThemeProvider theme={theme}>
                 <div>
                   <Switch>
-                    <Navigation favouriteAnimals={favouriteAnimals}>
+                    <TopBar favouriteAnimals={favouriteAnimals}>
                       <Route exact path="/" component={HomePage} />
                       <Route
                         path="/naszezwierzaki"
@@ -74,7 +74,7 @@ class App extends Component {
                       <Route path="/sign-in">
                         <Sign />
                       </Route>
-                    </Navigation>
+                    </TopBar>
                   </Switch>
                 </div>
         </ThemeProvider>

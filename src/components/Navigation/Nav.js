@@ -1,115 +1,97 @@
 import React from "react";
-import { Divider, Drawer, Hidden } from "@material-ui/core";
+import { Menu, Button, IconButton, MenuItem } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 import NavSection from "./NavSection.js";
+import { NavLink } from "react-router-dom";
+import firebase from "../Firebase";
 import style from "./Navigation.module.css";
-import TopBar from "./TopBar.js";
 import UserProvider from "../UserProvider";
 
 const listItemsForAll = [
-  { text: "Strona główna", page: "" },
   { text: "Nasze zwierzaki", page: "naszezwierzaki" },
-  { text: "Jak nam pomóc?", page: "wesprzyjnas" }
+  { text: "Jak nam pomóc?", page: "wesprzyjnas" },
 ];
 const listItemsForUsers = [
   { text: "Panel użytkownika", page: "paneluzytkownika" },
-  { text: "Zostań wolontariuszem", page: "zostanwolontariuszem" }
+  { text: "Zostań wolontariuszem", page: "zostanwolontariuszem" },
 ];
 
-function Navigation(props) {
-  const { container } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+const Nav = (props) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleSignOut = () => {
+    firebase.auth().signOut();
   };
 
   return (
     <>
       <div>
         <UserProvider>
-          {user => {
+          {(user) => {
             return (
               <>
-                <TopBar
-                  handleDrawerToggle={handleDrawerToggle}
-                  favouriteAnimals={props.favouriteAnimals}
-                />
                 <nav>
-                  <Hidden mdUp implementation="css">
-                    <Drawer
-                      container={container}
-                      variant="temporary"
-                      open={mobileOpen}
-                      onClose={handleDrawerToggle}
-                      ModalProps={{
-                        keepMounted: true
-                      }}
+                  <div>
+                    <IconButton
+                      color="inherit"
+                      edge="start"
+                      onClick={handleClick}
                     >
-                      <div className={style.navSections}>
+                      <MenuIcon />
+                    </IconButton>
+                    <Menu
+                      id="simple-menu"
+                      anchorEl={anchorEl}
+                      keepMounted
+                      open={Boolean(anchorEl)}
+                      onClose={handleClose}
+                    >
+                      <NavSection
+                        listItems={listItemsForAll}
+                        handleClose={handleClose}
+                      />
+                      {user ? (
                         <NavSection
-                          closeDrawer={() => setMobileOpen(false)}
-                          listItems={listItemsForAll}
+                          listItems={listItemsForUsers}
+                          handleClose={handleClose}
                         />
-                        <Divider />
-                        {user ? (
-                          <NavSection
-                            closeDrawer={() => setMobileOpen(false)}
-                            listItems={listItemsForUsers}
-                          />
-                        ) : null}
-                      </div>
-                      <div className={style.logoContainer}>
-                        <img
-                          className={style.logo}
-                          src="images/logo_grey.png"
-                          alt="logo"
-                        />
-                        <img
-                          className={style.logoText}
-                          src="images/name_grey.png"
-                          alt="nazwa"
-                        />
-                      </div>
-                    </Drawer>
-                  </Hidden>
-                  <Hidden smDown>
-                    <Drawer variant="permanent" open>
-                      <div className={style.navSections}>
-                        <div>
-                          <NavSection listItems={listItemsForAll} />
-                          {user && (
-                            <>
-                              <Divider />
-
-                              <NavSection listItems={listItemsForUsers} />
-                            </>
-                          )}
-                        </div>
-
-                        <div className={style.logoContainer}>
-                          <img
-                            className={style.logo}
-                            src="images/logo_grey.png"
-                            alt="logo"
-                          />
-                          <img
-                            className={style.logoText}
-                            src="images/name_grey.png"
-                            alt="nazwa"
-                          />
-                        </div>
-                      </div>
-                    </Drawer>
-                  </Hidden>
+                      ) : null}
+                      {user ? (
+                        <MenuItem onClick={handleClose}>
+                          <NavLink
+                            className="link"
+                            exact
+                            to={`/`}
+                            onClick={handleSignOut}
+                          >
+                            {" "}
+                            Wyloguj się
+                          </NavLink>
+                        </MenuItem>
+                      ) : (
+                        <MenuItem onClick={handleClose}>
+                          <NavLink className="link" exact to={"/sign-in"}>
+                            Zaloguj się
+                          </NavLink>
+                        </MenuItem>
+                      )}
+                    </Menu>
+                  </div>
                 </nav>
               </>
             );
           }}
         </UserProvider>
       </div>
-      <main className="main-container small">{props.children}</main>
     </>
   );
-}
+};
 
-export default Navigation;
+export default Nav;

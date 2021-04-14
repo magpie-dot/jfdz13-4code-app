@@ -1,3 +1,3 @@
-import Navigation from "./Nav"
+import TopBar from "./TopBar"
 
-export default Navigation
+export default TopBar
